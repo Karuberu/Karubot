@@ -6,1066 +6,9 @@
   <Protocol>http://</Protocol>
   <LoginDomain />
   <List>
-    <ListSource>Fishing</ListSource>
+    <ListSource>Fish</ListSource>
     <SelectedProvider>CategoryListProvider</SelectedProvider>
-    <ArticleList>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Abaia</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Ahtapot</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Alabaligi</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Ancient Carp</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Angler's Almanac</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Angler's Discernment</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Armored Pisces</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Ashen Crayfish</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Aurora Bass</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Bamboo Fishing Rod</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Bastore Bream</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Bastore Sardine</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Bastore Sweeper</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Betta</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Bhefhel Marlin</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Bibiki Slug</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Bibiki Urchin</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Bibikibo</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Black Bubble-Eye</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Black Eel</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Black Ghost</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Black Sole</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Bladefish</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Blindfish</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Bloodblotch</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Blowfish</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Bluetail</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Bonefish</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Brass Loach</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Broken Mithran Rod</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Broken MMM Fishing Rod</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Ca Cuong</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Caedarva Frog</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Cameroceras</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Carbon Fishing Rod</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Cave Cherax</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Ceizak Battlegrounds</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Ceizak Battlegrounds/fishing</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Cheval Salmon</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Clotflagration</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Clothespole</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Coalition Chum</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Coastal Fishing Net</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Cobalt Jellyfish</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Composite Fishing Rod</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Cone Calamary</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Contortacle</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Copper Frog</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Coral Butterfly</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Crayfish</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Crayfish Ball</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Crescent Fish</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Crocodilos</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Crystal Bass</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Dark Bass</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Deademoiselle</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Denizanasi</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Dil</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Dorado Gar</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Dragon's Tabernacle</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Dragonfish</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Dragonfly Trout</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Dried Squid</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Drill Calamary</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Duck Ring</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Dwarf Pugil</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Dwarf Remora</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Ebisu Fishing Rod</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Ebisu Fishing Rod +1</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Elshimo Frog</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Elshimo Newt</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Emperor Fish</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Far East Puffer</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Fastwater Fishing Rod</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Fat Greedie</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Fish Ranking</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Fish Size</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Fisherman's Belt</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Fisherman's Cuffs</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Fisherman's Smock</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Fishermans' Guild</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Fishermen's Emblem</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Fishermen's Stall</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Fishing (RoE)</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Fishing 1-100 While Questing For Lu Shang's by Diabolos-Brian</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Fishing for Fun and Profit by Ctownwoody</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Judge's Lure</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Fly Lure</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Forest Carp</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Frigorfish</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Frigorifish</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Frog Lure</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Garpike</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Gavial Fish</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Gerrothorax</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Giant Catfish</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Giant Chirai</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Giant Donko</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Giant Shell Bug</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Gigant Octopus</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Gigant Squid</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Glass Fiber Fishing Rod</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Gold Carp</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Gold Lobster</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Goliath Worm</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Greedie</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Grimmonite</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Gugru Tuna</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Gugrusaurus</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Gurnard</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Hakuryu</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Halcyon Rod</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Hamsi</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Hume Fishing Rod</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Icefish</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Insect Ball</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Istakoz</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Istavrit</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Istiridye</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Judge Minnow</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Judge's Rod</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Jungle Catfish</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Kalamar</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Kalkanbaligi</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Kaplumbaga</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Kayabaligi</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Kilicbaligi</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>King Perch</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Kokuryu</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Lakerda</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Lamp Marimo</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Large Maze Monger Ball</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Large MMM Ball</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Lik</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Little Worm</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Lizard Lure</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Lord of Ulbuka</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Lu Shang's Fishing Rod</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Lu Shang's Fishing Rod +1</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Lufaise Fly</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Lugworm</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Lungfish</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Malicious Perch</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Matsya</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Maze Monger Fishing Rod</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Maze Monger Minnow</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Meatball</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Megalodon</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Mercanbaligi</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Minnow</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Mithran Fishing Rod</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>MMM Fishing Rod</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Moat Carp</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Mola Mola</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Monke-Onke</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Moorish Idol</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Morinabaligi</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Muddy Siredon</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Mussel</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Nebimonite</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Noble Lady</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Noddy Ring</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Nosteau Herring</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Ogre Eel</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Pamtam Kelp</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Peeled Crayfish</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Peeled Lobster</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Pelazoea</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Pelican Ring</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Phanauet Newt</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Phantom Serpent</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Pipira</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Pirarucu</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Pterygotus</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Puffin Ring</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Qufim Island/FishingGuide</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Quicksilver Blade</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Quus</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Ra'Kaznar Shellfish</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Red Bubble-Eye</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Red Terrapin</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Regular Maze Monger Ball</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Regular MMM Ball</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Remora</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Rhinochimera</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Robber Rig</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Rogue Rig</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Rotten Meat</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Ruddy Seema</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Rusty Bucket</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Ryugu Titan</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Sabiki Rig</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Sandfish</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Sardine Ball</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Sazanbaligi</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Sea Zombie</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Sekiryu</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Senroh Frog</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Shell Bug</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Shen (Fish)</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Shining Trout</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Shockfish</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Shrimp Lure</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Silver Shark</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Single Hook Fishing Rod</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Sinking Minnow</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Slice of Bluetail</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Slice of Carp</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Sliced Cod</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Sliced Sardine</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Soryu</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Stockfish</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Super Baitball</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Super Scoop</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Takitaro</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Tarutaru Fishing Rod</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Tavnazian Goby</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Three-eyed Fish</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Thysanopeltis</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Tiger Cod</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Tiger Shark</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Tiny Goldfish</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Titanic Sawfish</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Titanictus</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Translucent Salpa</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Tricolored Carp</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Tricorn</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Trilobite</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Trout Ball</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Trumpet Shell</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Turnabaligi</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Tusoteuthis Longa</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Urats Lu Shangs While Skilling Guide</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Uskumru</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Veydal Wrasse</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Voidsnapper</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Vongola Clam</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>White Lobster</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Willow Fishing Rod</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Worm Lure</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Yawning Catfish</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Yayinbaligi</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Yellow Globe</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Yew Fishing Rod</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Yilanbaligi</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Yorchete</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Zafmlug Bass</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Zebra Eel</Name>
-      </Article>
-      <Article NameSpaceKey="14">
-        <PreProcessed>false</PreProcessed>
-        <Name>Category:Fish</Name>
-      </Article>
-      <Article NameSpaceKey="14">
-        <PreProcessed>false</PreProcessed>
-        <Name>Category:Fishing Gear</Name>
-      </Article>
-      <Article NameSpaceKey="14">
-        <PreProcessed>false</PreProcessed>
-        <Name>Category:Fishing/Adept</Name>
-      </Article>
-      <Article NameSpaceKey="14">
-        <PreProcessed>false</PreProcessed>
-        <Name>Category:Fishing/All Recipes</Name>
-      </Article>
-      <Article NameSpaceKey="14">
-        <PreProcessed>false</PreProcessed>
-        <Name>Category:Fishing/Amateur</Name>
-      </Article>
-      <Article NameSpaceKey="14">
-        <PreProcessed>false</PreProcessed>
-        <Name>Category:Fishing/Apprentice</Name>
-      </Article>
-      <Article NameSpaceKey="14">
-        <PreProcessed>false</PreProcessed>
-        <Name>Category:Fishing/Artisan</Name>
-      </Article>
-      <Article NameSpaceKey="14">
-        <PreProcessed>false</PreProcessed>
-        <Name>Category:Fishing/By Zone</Name>
-      </Article>
-      <Article NameSpaceKey="14">
-        <PreProcessed>false</PreProcessed>
-        <Name>Category:Fishing/Craftsman</Name>
-      </Article>
-      <Article NameSpaceKey="14">
-        <PreProcessed>false</PreProcessed>
-        <Name>Category:Fishing/Expert</Name>
-      </Article>
-      <Article NameSpaceKey="14">
-        <PreProcessed>false</PreProcessed>
-        <Name>Category:Fishing/Initiate</Name>
-      </Article>
-      <Article NameSpaceKey="14">
-        <PreProcessed>false</PreProcessed>
-        <Name>Category:Fishing/Journeyman</Name>
-      </Article>
-      <Article NameSpaceKey="14">
-        <PreProcessed>false</PreProcessed>
-        <Name>Category:Fishing/Novice</Name>
-      </Article>
-      <Article NameSpaceKey="14">
-        <PreProcessed>false</PreProcessed>
-        <Name>Category:Fishing/Recruit</Name>
-      </Article>
-      <Article NameSpaceKey="14">
-        <PreProcessed>false</PreProcessed>
-        <Name>Category:Fishing/Unknown</Name>
-      </Article>
-      <Article NameSpaceKey="14">
-        <PreProcessed>false</PreProcessed>
-        <Name>Category:Fishing/Veteran</Name>
-      </Article>
-    </ArticleList>
+    <ArticleList />
   </List>
   <FindAndReplace>
     <Enabled>true</Enabled>
@@ -2763,6 +1706,16 @@
         <BeforeOrAfter>true</BeforeOrAfter>
         <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
       </Replacement>
+      <Replacement>
+        <Find>(.+?)((\={2,4}).+?\2)\n?</Find>
+        <Replace>$1\n$2\n</Replace>
+        <Comment>Header fix</Comment>
+        <IsRegex>true</IsRegex>
+        <Enabled>true</Enabled>
+        <Minor>false</Minor>
+        <BeforeOrAfter>true</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
+      </Replacement>
     </Replacements>
     <AdvancedReps>
       <IRule xsi:type="Rule">
@@ -3473,21 +2426,37 @@
       </IRule>
       <IRule xsi:type="Rule">
         <enabled_>true</enabled_>
-        <Children />
+        <Children>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Remove table indentation</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(\=\=How to Obtain\=\=\s+(?:^.*\n)+?)^\s*: *(?=\{\|)</replace_>
+            <with_>$1</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase Multiline</regexOptions_>
+          </IRule>
+        </Children>
         <Name>How to Obtain</Name>
         <ruletype_>OnWholePage</ruletype_>
-        <replace_>(?&lt;===How to Obtain==\n(?:.*\n)+?)^\s*: *(?=\{\|)</replace_>
+        <replace_ />
         <with_ />
         <ifContains_ />
         <ifNotContains_ />
-        <regex_>true</regex_>
+        <regex_>false</regex_>
         <ifIsRegex_>false</ifIsRegex_>
         <numoftimes_>1</numoftimes_>
         <ifRegexOptions_>None</ifRegexOptions_>
-        <regexOptions_>Multiline</regexOptions_>
+        <regexOptions_>IgnoreCase Multiline</regexOptions_>
       </IRule>
       <IRule xsi:type="Rule">
-        <enabled_>true</enabled_>
+        <enabled_>false</enabled_>
         <Children>
           <IRule xsi:type="Rule">
             <enabled_>true</enabled_>
@@ -3518,6 +2487,52 @@
             <numoftimes_>10</numoftimes_>
             <ifRegexOptions_>None</ifRegexOptions_>
             <regexOptions_>Multiline</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>spacing padding</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(^\{\|.*?)(cellspacing="\d+")(.*?)(cellpadding="\d+")</replace_>
+                <with_>$1$3 $4 $2</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase Multiline</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>padding spacing</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(^\{\|.*?)(cellpadding="\d+")(.*?)(cellspacing="\d+")</replace_>
+                <with_>$1$3 $2 $4</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase Multiline</regexOptions_>
+              </IRule>
+            </Children>
+            <Name>Cellspacing/padding</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_ />
+            <with_ />
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>false</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
           </IRule>
           <IRule xsi:type="Rule">
             <enabled_>true</enabled_>
@@ -3600,7 +2615,7 @@
             <Children />
             <Name>Apply class</Name>
             <ruletype_>OnWholePage</ruletype_>
-            <replace_>\{\| *(.*?) *cell(?:spacing|padding)="[234]" cell(?:spacing|padding)="[234]"(.*)(?=\s*(?:(?:^\|-.*)?^[\|!].*?BGCOLOR="#ffdead;?"|^\|- *BGCOLOR="#ffdead;?"))</replace_>
+            <replace_>\{\| *(.*?) *cellpadding="[234]" +cellspacing="[234]"(.*)(?=\s*(?:(?:^\|-.*)?^[\|!].*?BGCOLOR="#ffdead;?"|^\|- *BGCOLOR="#ffdead;?").*\s*(?:^[\|!:\*][^\}].*\s*)*?^\|\})</replace_>
             <with_>{|$1$2 class="ffxi-table"</with_>
             <ifContains_ />
             <ifNotContains_ />
@@ -4631,13 +3646,13 @@ $8}}</with_>
             <Children />
             <Name>Format description</Name>
             <ruletype_>OnWholePage</ruletype_>
-            <replace_>^''([^'\n]+?)'' *((?:\&lt;br\&gt;)*)\s*^''(?=[^'])</replace_>
+            <replace_>^''([^'\n]+.*[^'\n])'' *((?:\&lt;br\&gt;)*)\s*^''(?=[^'])</replace_>
             <with_>''$1$2</with_>
             <ifContains_ />
             <ifNotContains_ />
             <regex_>true</regex_>
             <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>8</numoftimes_>
+            <numoftimes_>10</numoftimes_>
             <ifRegexOptions_>None</ifRegexOptions_>
             <regexOptions_>Multiline</regexOptions_>
           </IRule>
@@ -4655,21 +3670,6 @@ $8}}</with_>
             <numoftimes_>1</numoftimes_>
             <ifRegexOptions_>None</ifRegexOptions_>
             <regexOptions_>IgnoreCase</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Format description</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_ />
-            <with_ />
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>false</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>None</regexOptions_>
           </IRule>
           <IRule xsi:type="Rule">
             <enabled_>true</enabled_>
@@ -4714,6 +3714,142 @@ $8}}</with_>
         <numoftimes_>1</numoftimes_>
         <ifRegexOptions_>IgnoreCase</ifRegexOptions_>
         <regexOptions_>IgnoreCase</regexOptions_>
+      </IRule>
+      <IRule xsi:type="Rule">
+        <enabled_>true</enabled_>
+        <Children>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Apply template</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>^\=\=\=Fishing\=\=\=\s*((?:^[;:\*].*?\n+)*)^\{\|.*?\s+(?:\|-.*?\s+)?\|.*?(?:Skill +)Cap[:' ]*(.*?)[' ]*\n(?:\|-.*?\s+^\|.*?Size[:' ]*(.*?)(?: *\(.*?\).*)?\s*\n)?^\|-.*?\s+^[!\|].*?Location.*?\s+^[!\|].*?Bait.*?\s+^[!\|].*?Rods.*?\s+^\|-.*?\s+^\|\s*((?:^[:*].*\n)+)^\|\s*((?:^[:*].*\n)+)^\|\s*((?:^[:*'].*|(?:\&lt;br\&gt;|&amp;nbsp;)+.*|\n)+)(?:^\|-.*?\s+^\|.*?colspan="3".*?\|.*Recommended.*\s+)?\|\}\s*(?:^(?:['\s:]|\&lt;nowiki\/\&gt;)*\*.*?Recommended.*\s*)?</replace_>
+            <with_>===Fishing===\n$1{{Fishing\n| skill cap = $2\n| size = $3\n| location =\n$4\n| bait =\n$5\n| rods =\n$6\n}}\n</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase Multiline</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Remove category</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>\[\[Category:Fishing\]\](?=(?:.*?\n)+\{\{Fishing)</replace_>
+            <with_ />
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Mark section too small</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(^\{\{Fishing\n(?:^[\|\*:]+.*\n+)*^\| *rods *=\s*(?:^[\*:].+\n+)*)((?:^[\*:].+\n+|(?:\&lt;br\&gt;|&amp;nbsp;|[:'\s]).*\n+)*?)((?:\&lt;br\&gt;|&amp;nbsp;|[:'\s])+(?:Fish +)?(?:Possibl[ey] +)?too +small:?['\s]*\n)^( *[\*:]+\[\[.+?\]\](?: *\* *])?)(?! *\{\{Fishing\|.*?\}\})\n</replace_>
+            <with_>$1$4{{Fishing|Too small}}\n$2$3</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>20</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase Multiline</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Remove blank too small</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(^\{\{Fishing\n(?:^[\|\*:]+.*\n+)*^\| *rods *=\s*(?:^\*.+\n+|(?:\&lt;br\&gt;|&amp;nbsp;|[:'\s]).*\n+)*?)((?:\&lt;br\&gt;|&amp;nbsp;|[:'\s])+(?:Fish +)?(?:Possibl[ey] +)?too +small:?['\s]*\n)(?!^ *[:\*]+.*)</replace_>
+            <with_>$1</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase Multiline</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Mark section breakable rods</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(^\{\{Fishing\n(?:^[\|\*:]+.*\n+)*^\| *rods *=\s*(?:^[\*:].+\n+)*)((?:^[\*:].+\n+|(?:\&lt;br\&gt;|&amp;nbsp;|[:'\s]).*\n+)*?)((?:\&lt;br\&gt;|&amp;nbsp;|[:'\s])+Will(?: +possibly)? +break:?['\s]*\n)^( *[\*:]+\[\[.+?\]\](?: *\* *])?)(?! *\{\{Fishing\|.*?\}\})\n</replace_>
+            <with_>$1$4{{Fishing|May break}}\n$2$3</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>20</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase Multiline</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Remove blank breakable</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(^\{\{Fishing\n(?:^[\|\*:]+.*\n+)*^\| *rods *=\s*(?:^\*.+\n+|(?:\&lt;br\&gt;|&amp;nbsp;|[:'\s]).*\n+)*?)((?:\&lt;br\&gt;|&amp;nbsp;|[:'\s])+Will(?: +possibly)? +break:?['\s]*\n)(?!^ *[:\*]+.*)</replace_>
+            <with_>$1</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase Multiline</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Mark recommended</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(^\{\{Fishing\n(?:^[\|\*:]+.*\n+)*?^\| *(?:rods|bait|location) *=\s*(?:^\*.+\n+|(?:\&lt;br\&gt;|&amp;nbsp;|[:'\s]).*\n+)*?^ *[\*:]+.*)\*</replace_>
+            <with_>$1{{Fishing|Recommended}}</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>100</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase Multiline</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Mark too small</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(^\{\{Fishing\n(?:^[\|\*:]+.*\n+)*?^\| *(?:rods|bait|location) *=\s*(?:^\*.+\n+|(?:\&lt;br\&gt;|&amp;nbsp;|[:'\s]).*\n+)*?^ *[\*:]+.*)[' ]*\(Too small\)[' ]*</replace_>
+            <with_>$1{{Fishing|Too small}}</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>100</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase Multiline</regexOptions_>
+          </IRule>
+        </Children>
+        <Name>Fishing Template</Name>
+        <ruletype_>OnWholePage</ruletype_>
+        <replace_ />
+        <with_ />
+        <ifContains_ />
+        <ifNotContains_ />
+        <regex_>false</regex_>
+        <ifIsRegex_>false</ifIsRegex_>
+        <numoftimes_>1</numoftimes_>
+        <ifRegexOptions_>None</ifRegexOptions_>
+        <regexOptions_>IgnoreCase Multiline</regexOptions_>
       </IRule>
       <IRule xsi:type="Rule">
         <enabled_>true</enabled_>
