@@ -1,0 +1,452 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AutoWikiBrowserPreferences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xml:space="preserve" Version="5.7.0.0">
+  <Project>custom</Project>
+  <LanguageCode>en</LanguageCode>
+  <CustomProject>ffxiclopedia.wikia.com/</CustomProject>
+  <Protocol>http://</Protocol>
+  <LoginDomain />
+  <List>
+    <ListSource>Weapon Skills</ListSource>
+    <SelectedProvider>CategoryListProvider</SelectedProvider>
+    <ArticleList />
+  </List>
+  <FindAndReplace>
+    <Enabled>true</Enabled>
+    <IgnoreSomeText>false</IgnoreSomeText>
+    <IgnoreMoreText>false</IgnoreMoreText>
+    <AppendSummary>true</AppendSummary>
+    <Replacements>
+      <Replacement>
+        <Find>\(\?&lt;=\.\*\?\)\ \*\(\?=
+\)</Find>
+        <Replace />
+        <Comment />
+        <IsRegex>false</IsRegex>
+        <Enabled>true</Enabled>
+        <Minor>true</Minor>
+        <BeforeOrAfter>false</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
+      </Replacement>
+    </Replacements>
+    <AdvancedReps>
+      <IRule xsi:type="Rule">
+        <enabled_>true</enabled_>
+        <Children>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Remove excess whitespace</Name>
+            <ruletype_>InsideTemplate</ruletype_>
+            <replace_>(?&lt;=\n)\n+</replace_>
+            <with_ />
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Fix notes</Name>
+            <ruletype_>InsideTemplate</ruletype_>
+            <replace_>(?&lt;=\| .*? =.*?\n(?:.*?\n)*?\*)\*+</replace_>
+            <with_ />
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Remove category</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>\[\[Category:Weapon Skills\]\]\n?(?=(?:.*?\n)*?\{\{Infobox Weapon Skill)</replace_>
+            <with_ />
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Sneak attack notes true</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(?&lt;=\| sneak attack = )((?:.*?\n)+\| notes =(?:.*?\n)+)\** *(?:Will|Does) stack with \[\[Sneak Attack\]\]\.?\n</replace_>
+            <with_>true$1</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Sneak Attack notes false</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(?&lt;=\| sneak attack = )((?:.*?\n)+\| notes =(?:.*?\n)+)\** *(?:Will|Does) '*not'* stack with \[\[Sneak Attack\]\]\.?\n</replace_>
+            <with_>false$1</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Fix type</Name>
+            <ruletype_>InsideTemplate</ruletype_>
+            <replace_>(?&lt;=\| type = (.*?) *)\1</replace_>
+            <with_ />
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Quest</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(?&lt;=\| quest = )(\n(?:.*?\n)*\| notes =(?:.*?\n)*)\*+ * *(?:Available only after .*? \[\[(?&lt;quest1&gt;.*?)\]\] quest|(?:In order )?to obtain .*? the quest \[\[(?&lt;quest2&gt;.*?)\]\]).*?\n</replace_>
+            <with_>${quest1}${quest2}$1</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>No element</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(?&lt;=\| element = )(?=\n)</replace_>
+            <with_>None</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Remove blank</Name>
+            <ruletype_>InsideTemplate</ruletype_>
+            <replace_>\| *.*? *= *\n(?=\| *.*? *=)</replace_>
+            <with_ />
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Name>Rule</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>^\s+(?=\{\{Infobox Weapon Skill)</replace_>
+            <with_ />
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Name>Light and Dark</Name>
+            <ruletype_>InsideTemplate</ruletype_>
+            <replace_>(?&lt;=\| skillchain property = (?:Light|Darkness))Skillchain</replace_>
+            <with_ />
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase</regexOptions_>
+          </IRule>
+        </Children>
+        <Name>Template conversion</Name>
+        <ruletype_>OnWholePage</ruletype_>
+        <replace_>(?:'''\[\[(?::Category:.*?\|)?(?&lt;type&gt;.*?)\]\] \[\[:Category:Weapon Skills\|weapon skill\]\]'''\n)?\*?[' ]*Skill Level[\:' ]*(?&lt;skill&gt;.*?)(?: *\(\[\[.*? only\.?\))?'*\n(?:\* *In order to obtain .*? the quest \[\[(?&lt;quest&gt;.*?)\]\].*?\n)?\*?(?:(?:[' ]*Dee?s?cription[:' ]*)?(?&lt;desc&gt;[^\*].*?)\n)?(?&lt;notes&gt;(?:\*+ *.*?\n+)+)?(?:\*? *Aligned with (?:the )?\[\[(?&lt;ea1&gt;.*?) Gorget\]\](?:.*?\[\[(?&lt;ea2&gt;.*?) Gorget\]\])?(?:.*?\[\[(?&lt;ea3&gt;.*?) Gorget\]\])?(?:.*?\[\[(?&lt;ea4&gt;.*?) Gorget\]\])?.*?\n)(?:.*?Aligned with(?:the )?.*?Belt\]\].*?\n)?\n?(?&lt;notes2&gt;(?:.*?\n)+?)?\s*==Properties==\s+(?:\*?[' ]*\[\[Element\]\][' \:]*(?&lt;ele&gt;.*?)\s+)?\*?'*\[\[(?:.*?\|)?Skillchain\]\] Properties['\: ]* (?:None|\{\{(?&lt;sp1&gt;.*?)\}\})(?:.*? */ *\{\{(?&lt;sp2&gt;.*?)\}\})?(?:.*? */ *\{\{(?&lt;sp3&gt;.*?)\}\})?.*?\s+\*?[' ]*(?:\[\[)?Modifier(?:\|Modifiers\]\]|\]\]s|s)['\: ]*(?&lt;mod&gt;(?:.*?\n)+)\s*\*?[' ]+Damage Multipliers by \[*(?:TP|\?+)\]*['\: ]+\n+\:?\{\|.*?\n+[!\|].*?1000?%?(?:TP)?\n+[!\|].*?2000?%?(?:TP)?\n+[!\|].*?3000?%?(?:TP)?\n+\|-\n+\|(?:align="center"\|)?(?&lt;dm1&gt;.*?)\n+\|(?:align="center"\|)?(?&lt;dm2&gt;.*?)\n+\|(?:align="center"\|)?(?&lt;dm3&gt;.*?)\n+\|\}\s*(?:\*?[' ]+Critical Hit Rate by \[*TP\]*['\: ]+\n+\:?\{\|.*?\n+[!\|].*?1000?%?(?:TP)?\n+[!\|].*?2000?%?(?:TP)?\n+[!\|].*?3000?%?(?:TP)?\n+\|-\n+\|(?:align="center"\|)?(?&lt;cr1&gt;.*?)\n+\|(?:align="center"\|)?(?&lt;cr2&gt;.*?)\n+\|(?:align="center"\|)?(?&lt;cr3&gt;.*?)\n+\|\}\s*)?(?:\*?[' ]+(?&lt;effect&gt;.*?) by \[*TP\]*['\: ]+\n+\:?\{\|.*?\n+[!\|].*?1000?%?(?:TP)?\n+[!\|].*?2000?%?(?:TP)?\n+[!\|].*?3000?%?(?:TP)?\n+\|-\n+\|(?:align="center"\|)?(?&lt;e1&gt;.*?)\n+\|(?:align="center"\|)?(?&lt;e2&gt;.*?)\n+\|(?:align="center"\|)?(?&lt;e3&gt;.*?)\n+\|\}\s*)?\n?(?=(?:.*?\n)*==Levels==\n(?:\*?.*? is only (?:natively )?available to (?&lt;jobs&gt;.*?)\..*?\n)?(?:(?:.*?\n)+)?(?:\*? *(?&lt;type2&gt;.*?) skill level \2)?)?</replace_>
+        <with_>{{Infobox Weapon Skill
+| type = ${type}${type2}
+| skill level = ${skill}
+| jobs = ${jobs}
+| quest = ${quest}
+| description = ${desc}
+| equipment alignment = ${ea1}
+| equipment alignment 2 = ${ea2}
+| equipment alignment 3 = ${ea3}
+| equipment alignment 4 = ${ea4}
+| sneak attack = 
+| element = ${ele}
+| skillchain property = ${sp1}
+| skillchain property 2 = ${sp2}
+| skillchain property 3 = ${sp3}
+| modifiers = ${mod}
+| damage multiplier 1 = ${dm1}
+| damage multiplier 2 = ${dm2}
+| damage multiplier 3 = ${dm3}
+| critical hit rate 1 = ${cr1}
+| critical hit rate 2 = ${cr2}
+| critical hit rate 3 = ${cr3}
+| effect by tp = ${effect}
+| effect by tp 1 = ${e1}
+| effect by tp 2 = ${e2}
+| effect by tp 3 = ${e3}
+| notes =
+${notes}
+${notes2}
+}}
+</with_>
+        <ifContains_ />
+        <ifNotContains_ />
+        <regex_>true</regex_>
+        <ifIsRegex_>false</ifIsRegex_>
+        <numoftimes_>1</numoftimes_>
+        <ifRegexOptions_>None</ifRegexOptions_>
+        <regexOptions_>IgnoreCase</regexOptions_>
+      </IRule>
+    </AdvancedReps>
+    <SubstTemplates />
+    <IncludeComments>false</IncludeComments>
+    <ExpandRecursively>true</ExpandRecursively>
+    <IgnoreUnformatted>false</IgnoreUnformatted>
+  </FindAndReplace>
+  <Editprefs>
+    <GeneralFixes>false</GeneralFixes>
+    <Tagger>false</Tagger>
+    <Unicodify>false</Unicodify>
+    <Recategorisation>0</Recategorisation>
+    <NewCategory />
+    <NewCategory2 />
+    <ReImage>0</ReImage>
+    <ImageFind />
+    <Replace />
+    <SkipIfNoCatChange>false</SkipIfNoCatChange>
+    <RemoveSortKey>false</RemoveSortKey>
+    <SkipIfNoImgChange>false</SkipIfNoImgChange>
+    <AppendText>false</AppendText>
+    <AppendTextMetaDataSort>false</AppendTextMetaDataSort>
+    <Append>true</Append>
+    <Text />
+    <Newlines>2</Newlines>
+    <AutoDelay>0</AutoDelay>
+    <BotMaxEdits>0</BotMaxEdits>
+    <SupressTag>false</SupressTag>
+    <RegexTypoFix>false</RegexTypoFix>
+  </Editprefs>
+  <General>
+    <AutoSaveEdit>
+      <Enabled>false</Enabled>
+      <SavePeriod>30</SavePeriod>
+      <SaveFile />
+    </AutoSaveEdit>
+    <SelectedSummary />
+    <Summaries>
+      <string>clean up</string>
+      <string>re-categorisation per [[WP:CFD|CFD]]</string>
+      <string>clean up and re-categorisation per [[WP:CFD|CFD]]</string>
+      <string>removing category per [[WP:CFD|CFD]]</string>
+      <string>[[Wikipedia:Template substitution|subst:'ing]]</string>
+      <string>[[Wikipedia:WikiProject Stub sorting|stub sorting]]</string>
+      <string>[[WP:AWB/T|Typo fixing]]</string>
+      <string>bad link repair</string>
+      <string>Fixing [[Wikipedia:Disambiguation pages with links|links to disambiguation pages]]</string>
+      <string>Unicodifying</string>
+      <string>converted to [[Template:Infobox Weapon Skill]]</string>
+    </Summaries>
+    <PasteMore>
+      <string />
+      <string />
+      <string />
+      <string />
+      <string />
+      <string />
+      <string />
+      <string />
+      <string />
+      <string />
+    </PasteMore>
+    <FindText />
+    <FindRegex>false</FindRegex>
+    <FindCaseSensitive>false</FindCaseSensitive>
+    <WordWrap>true</WordWrap>
+    <ToolBarEnabled>false</ToolBarEnabled>
+    <BypassRedirect>true</BypassRedirect>
+    <AutoSaveSettings>false</AutoSaveSettings>
+    <noSectionEditSummary>false</noSectionEditSummary>
+    <restrictDefaultsortAddition>true</restrictDefaultsortAddition>
+    <restrictOrphanTagging>true</restrictOrphanTagging>
+    <noMOSComplianceFixes>false</noMOSComplianceFixes>
+    <syntaxHighlightEditBox>false</syntaxHighlightEditBox>
+    <highlightAllFind>false</highlightAllFind>
+    <PreParseMode>false</PreParseMode>
+    <NoAutoChanges>false</NoAutoChanges>
+    <OnLoadAction>0</OnLoadAction>
+    <DiffInBotMode>false</DiffInBotMode>
+    <Minor>true</Minor>
+    <AddToWatchlist>2</AddToWatchlist>
+    <TimerEnabled>false</TimerEnabled>
+    <SortListAlphabetically>false</SortListAlphabetically>
+    <AddIgnoredToLog>false</AddIgnoredToLog>
+    <EditToolbarEnabled>true</EditToolbarEnabled>
+    <filterNonMainSpace>false</filterNonMainSpace>
+    <AutoFilterDuplicates>false</AutoFilterDuplicates>
+    <FocusAtEndOfEditBox>false</FocusAtEndOfEditBox>
+    <scrollToUnbalancedBrackets>false</scrollToUnbalancedBrackets>
+    <TextBoxSize>10</TextBoxSize>
+    <TextBoxFont>Courier New</TextBoxFont>
+    <LowThreadPriority>false</LowThreadPriority>
+    <Beep>false</Beep>
+    <Flash>false</Flash>
+    <Minimize>false</Minimize>
+    <LockSummary>true</LockSummary>
+    <SaveArticleList>true</SaveArticleList>
+    <SuppressUsingAWB>true</SuppressUsingAWB>
+    <AddUsingAWBToActionSummaries>false</AddUsingAWBToActionSummaries>
+    <IgnoreNoBots>false</IgnoreNoBots>
+    <ClearPageListOnProjectChange>false</ClearPageListOnProjectChange>
+    <SortInterWikiOrder>true</SortInterWikiOrder>
+    <ReplaceReferenceTags>true</ReplaceReferenceTags>
+    <LoggingEnabled>true</LoggingEnabled>
+    <AlertPreferences>
+      <int>1</int>
+      <int>2</int>
+      <int>3</int>
+      <int>4</int>
+      <int>5</int>
+      <int>6</int>
+      <int>7</int>
+      <int>8</int>
+      <int>9</int>
+      <int>10</int>
+      <int>11</int>
+      <int>12</int>
+      <int>13</int>
+      <int>14</int>
+      <int>15</int>
+      <int>16</int>
+      <int>17</int>
+      <int>18</int>
+      <int>19</int>
+      <int>20</int>
+      <int>21</int>
+      <int>22</int>
+    </AlertPreferences>
+  </General>
+  <SkipOptions>
+    <SkipNonexistent>true</SkipNonexistent>
+    <Skipexistent>false</Skipexistent>
+    <SkipWhenNoChanges>false</SkipWhenNoChanges>
+    <SkipSpamFilterBlocked>false</SkipSpamFilterBlocked>
+    <SkipInuse>false</SkipInuse>
+    <SkipWhenOnlyWhitespaceChanged>false</SkipWhenOnlyWhitespaceChanged>
+    <SkipOnlyGeneralFixChanges>true</SkipOnlyGeneralFixChanges>
+    <SkipOnlyMinorGeneralFixChanges>false</SkipOnlyMinorGeneralFixChanges>
+    <SkipOnlyCosmetic>false</SkipOnlyCosmetic>
+    <SkipOnlyCasingChanged>false</SkipOnlyCasingChanged>
+    <SkipIfRedirect>false</SkipIfRedirect>
+    <SkipIfNoAlerts>false</SkipIfNoAlerts>
+    <SkipDoes>false</SkipDoes>
+    <SkipDoesNot>false</SkipDoesNot>
+    <SkipDoesText />
+    <SkipDoesNotText />
+    <Regex>false</Regex>
+    <CaseSensitive>false</CaseSensitive>
+    <AfterProcessing>false</AfterProcessing>
+    <SkipNoFindAndReplace>false</SkipNoFindAndReplace>
+    <SkipMinorFindAndReplace>false</SkipMinorFindAndReplace>
+    <SkipNoRegexTypoFix>false</SkipNoRegexTypoFix>
+    <SkipNoDisambiguation>false</SkipNoDisambiguation>
+    <SkipNoLinksOnPage>false</SkipNoLinksOnPage>
+    <GeneralSkipList />
+  </SkipOptions>
+  <Module>
+    <Enabled>false</Enabled>
+    <Language>C# 3.5</Language>
+    <Code>        public string ProcessArticle(string ArticleText, string ArticleTitle, int wikiNamespace, out string Summary, out bool Skip)
+        {
+            Skip = false;
+            Summary = "test";
+            ArticleText = "test \r\n\r\n" + ArticleText;
+            return ArticleText;
+        }</Code>
+  </Module>
+  <ExternalProgram>
+    <Enabled>false</Enabled>
+    <Skip>false</Skip>
+    <Program />
+    <Parameters />
+    <PassAsFile>true</PassAsFile>
+    <OutputFile />
+  </ExternalProgram>
+  <Disambiguation>
+    <Enabled>false</Enabled>
+    <Link />
+    <Variants />
+    <ContextChars>20</ContextChars>
+  </Disambiguation>
+  <Special>
+    <namespaceValues>
+      <int>0</int>
+      <int>1</int>
+      <int>2</int>
+      <int>3</int>
+      <int>4</int>
+      <int>5</int>
+      <int>6</int>
+      <int>7</int>
+      <int>10</int>
+      <int>11</int>
+      <int>14</int>
+      <int>15</int>
+    </namespaceValues>
+    <remDupes>true</remDupes>
+    <sortAZ>true</sortAZ>
+    <filterTitlesThatContain>false</filterTitlesThatContain>
+    <filterTitlesThatContainText />
+    <filterTitlesThatDontContain>false</filterTitlesThatDontContain>
+    <filterTitlesThatDontContainText />
+    <areRegex>false</areRegex>
+    <opType>-1</opType>
+    <remove />
+  </Special>
+  <Tool>
+    <ListComparerUseCurrentArticleList>0</ListComparerUseCurrentArticleList>
+    <ListSplitterUseCurrentArticleList>0</ListSplitterUseCurrentArticleList>
+    <DatabaseScannerUseCurrentArticleList>0</DatabaseScannerUseCurrentArticleList>
+  </Tool>
+  <Plugin />
+</AutoWikiBrowserPreferences>
