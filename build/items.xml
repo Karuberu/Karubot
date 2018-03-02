@@ -5,6 +5,11 @@
   <CustomProject>ffxiclopedia.wikia.com/</CustomProject>
   <Protocol>http://</Protocol>
   <LoginDomain />
+  <List>
+    <ListSource />
+    <SelectedProvider>CategoryListProvider</SelectedProvider>
+    <ArticleList />
+  </List>
   <FindAndReplace>
     <Enabled>true</Enabled>
     <IgnoreSomeText>false</IgnoreSomeText>
@@ -12,9 +17,9 @@
     <AppendSummary>false</AppendSummary>
     <Replacements>
       <Replacement>
-        <Find>\n?\&lt;!--Use '''Crafted Only!''' if item is obtained by synthesis only--\&gt;</Find>
-        <Replace />
-        <Comment />
+        <Find>\&lt; *br *\/? *\&gt;</Find>
+        <Replace>&lt;br&gt;</Replace>
+        <Comment>Technical (&lt;br&gt; uniformity)</Comment>
         <IsRegex>true</IsRegex>
         <Enabled>true</Enabled>
         <Minor>true</Minor>
@@ -22,103 +27,363 @@
         <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
       </Replacement>
       <Replacement>
+        <Find>(?&lt;=^[^\s]+?)[ \t]+$</Find>
+        <Replace />
+        <Comment>Whitespace (Remove trailing whitespace)</Comment>
+        <IsRegex>true</IsRegex>
+        <Enabled>true</Enabled>
+        <Minor>true</Minor>
+        <BeforeOrAfter>false</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase Multiline</RegularExpressionOptions>
+      </Replacement>
+      <Replacement>
+        <Find>(?&lt;=\[\[|\{\{)\s*(.+?)\s*(?=\]\]|\}\})</Find>
+        <Replace>$1</Replace>
+        <Comment>Whitespace (Remove spaces within templates/links)</Comment>
+        <IsRegex>true</IsRegex>
+        <Enabled>true</Enabled>
+        <Minor>true</Minor>
+        <BeforeOrAfter>false</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
+      </Replacement>
+      <Replacement>
+        <Find>(?&lt;=(?:\[\[|\{\{).*?)[ \t]*(\|)[ \t]*(?=.*?(?:\]\]|\}\}))</Find>
+        <Replace>$1</Replace>
+        <Comment>Whitespace (Remove spaces inside templates/links)</Comment>
+        <IsRegex>true</IsRegex>
+        <Enabled>true</Enabled>
+        <Minor>true</Minor>
+        <BeforeOrAfter>false</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
+      </Replacement>
+      <Replacement>
+        <Find>^\s+(?=(?:__NOTOC__|\[\[Category))</Find>
+        <Replace />
+        <Comment>Whitespace (Remove leading spaces)</Comment>
+        <IsRegex>true</IsRegex>
+        <Enabled>true</Enabled>
+        <Minor>true</Minor>
+        <BeforeOrAfter>true</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
+      </Replacement>
+      <Replacement>
+        <Find>(?&lt;=\[\[Category:.+?\]\])\s+(?=\[\[Category)</Find>
+        <Replace />
+        <Comment>Whitespace (Remove space between categories)</Comment>
+        <IsRegex>true</IsRegex>
+        <Enabled>true</Enabled>
+        <Minor>true</Minor>
+        <BeforeOrAfter>false</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
+      </Replacement>
+      <Replacement>
+        <Find>(?&lt;=\[\[Category:([^\]]+?)\]\](?:.|\n)*?)\[\[Category:\1\]\]</Find>
+        <Replace />
+        <Comment>Cleanup (Remove duplicate categories)</Comment>
+        <IsRegex>true</IsRegex>
+        <Enabled>true</Enabled>
+        <Minor>true</Minor>
+        <BeforeOrAfter>true</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
+      </Replacement>
+      <Replacement>
         <Find>&lt;!--!!!!Marked\ for\ Bot!!!!--&gt;</Find>
         <Replace />
-        <Comment />
+        <Comment>Cleanup (Remove comment)</Comment>
         <IsRegex>false</IsRegex>
+        <Enabled>true</Enabled>
+        <Minor>true</Minor>
+        <BeforeOrAfter>true</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
+      </Replacement>
+      <Replacement>
+        <Find>\s*\&lt;!--Use '''Crafted Only!''' if item is obtained by synthesis only--\&gt;</Find>
+        <Replace />
+        <Comment>Cleanup (Remove comment)</Comment>
+        <IsRegex>true</IsRegex>
+        <Enabled>true</Enabled>
+        <Minor>true</Minor>
+        <BeforeOrAfter>false</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
+      </Replacement>
+      <Replacement>
+        <Find>\s*\&lt;!--Use \{\{Crafted Only\}\} if item is obtained by synthesis only--\&gt;</Find>
+        <Replace />
+        <Comment>Cleanup (Remove comment)</Comment>
+        <IsRegex>true</IsRegex>
+        <Enabled>true</Enabled>
+        <Minor>true</Minor>
+        <BeforeOrAfter>false</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
+      </Replacement>
+      <Replacement>
+        <Find>\s*\&lt;!--same format for Excavation, Mining, Logging, Harvesting, Clamming--\&gt;</Find>
+        <Replace />
+        <Comment>Cleanup (Remove comment)</Comment>
+        <IsRegex>true</IsRegex>
+        <Enabled>true</Enabled>
+        <Minor>true</Minor>
+        <BeforeOrAfter>false</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
+      </Replacement>
+      <Replacement>
+        <Find>\s*\&lt;!-- For Weapons and Armor\. Info is to be displayed exactly as it is in\-game\. --\&gt;</Find>
+        <Replace />
+        <Comment>Cleanup (Remove comment)</Comment>
+        <IsRegex>true</IsRegex>
+        <Enabled>true</Enabled>
+        <Minor>true</Minor>
+        <BeforeOrAfter>false</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
+      </Replacement>
+      <Replacement>
+        <Find>\s*\&lt;!-- For Weapons, Armor, Food, or Medicine, go the following page and copy the text in the "Usage" section of that page\. --\&gt;</Find>
+        <Replace />
+        <Comment>Cleanup (Remove comment)</Comment>
+        <IsRegex>true</IsRegex>
+        <Enabled>true</Enabled>
+        <Minor>true</Minor>
+        <BeforeOrAfter>false</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
+      </Replacement>
+      <Replacement>
+        <Find>\s*\&lt;!-- Number in a stack, or Not Stackable --\&gt;</Find>
+        <Replace />
+        <Comment>Cleanup (Remove comment)</Comment>
+        <IsRegex>true</IsRegex>
+        <Enabled>true</Enabled>
+        <Minor>true</Minor>
+        <BeforeOrAfter>false</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
+      </Replacement>
+      <Replacement>
+        <Find>\s*\&lt;!--Same format for Special Events--\&gt;</Find>
+        <Replace />
+        <Comment>Cleanup (Remove comment)</Comment>
+        <IsRegex>true</IsRegex>
+        <Enabled>true</Enabled>
+        <Minor>true</Minor>
+        <BeforeOrAfter>false</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
+      </Replacement>
+      <Replacement>
+        <Find>\s*\&lt;!-- Usage is \{\{Guild Points Value|points per item|maximum points}} If nothing is defined, it will display None\. See Template:Guild Points Value for more details\. --\&gt;</Find>
+        <Replace />
+        <Comment>Cleanup (Remove comment)</Comment>
+        <IsRegex>true</IsRegex>
+        <Enabled>true</Enabled>
+        <Minor>true</Minor>
+        <BeforeOrAfter>false</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
+      </Replacement>
+      <Replacement>
+        <Find>\s*&lt;!-- Usage is {{Resale Price|&lt;min&gt;|&lt;max&gt;}} or {{Resale Price|None}} if the item can't be sold\. See Template:Resale Price for more details\. --\&gt;</Find>
+        <Replace />
+        <Comment>Cleanup (Remove comment)</Comment>
+        <IsRegex>true</IsRegex>
+        <Enabled>true</Enabled>
+        <Minor>true</Minor>
+        <BeforeOrAfter>false</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
+      </Replacement>
+      <Replacement>
+        <Find>\s*\&lt;!-- Template:Weapon, Template:Armor, Template:Food, Template: Medicine --\&gt;</Find>
+        <Replace />
+        <Comment>Cleanup (Remove comment)</Comment>
+        <IsRegex>true</IsRegex>
+        <Enabled>true</Enabled>
+        <Minor>true</Minor>
+        <BeforeOrAfter>false</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
+      </Replacement>
+      <Replacement>
+        <Find>\*\[\[]]</Find>
+        <Replace />
+        <Comment>Cleanup (Remove stub)</Comment>
+        <IsRegex>false</IsRegex>
+        <Enabled>true</Enabled>
+        <Minor>true</Minor>
+        <BeforeOrAfter>false</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
+      </Replacement>
+      <Replacement>
+        <Find>\*\[\[\&lt;stat\&gt;\|\{\{\&lt;Color\&gt;\|\&lt;stat and modifier\&gt;\}\}\]\]\s+</Find>
+        <Replace />
+        <Comment>Cleanup (Remove stub)</Comment>
+        <IsRegex>true</IsRegex>
+        <Enabled>true</Enabled>
+        <Minor>true</Minor>
+        <BeforeOrAfter>false</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
+      </Replacement>
+      <Replacement>
+        <Find>\[\[ *([^\|]*?) *(?:\| *\1 *)?\]\]</Find>
+        <Replace>[[$1]]</Replace>
+        <Comment>Cleanup (Remove unnecessary link)</Comment>
+        <IsRegex>true</IsRegex>
+        <Enabled>true</Enabled>
+        <Minor>true</Minor>
+        <BeforeOrAfter>false</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
+      </Replacement>
+      <Replacement>
+        <Find>\{\{Template:</Find>
+        <Replace>{{</Replace>
+        <Comment>Cleanup (Remove unnecessary namespace)</Comment>
+        <IsRegex>false</IsRegex>
+        <Enabled>true</Enabled>
+        <Minor>true</Minor>
+        <BeforeOrAfter>false</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
+      </Replacement>
+      <Replacement>
+        <Find>(?:\&lt;br\&gt;)*(\n?^[\:\*]+.+?)(?:\&lt;br\&gt;)*\n+</Find>
+        <Replace>$1\n</Replace>
+        <Comment>Cleanup (Remove unnecessary breaks in list)</Comment>
+        <IsRegex>true</IsRegex>
+        <Enabled>true</Enabled>
+        <Minor>true</Minor>
+        <BeforeOrAfter>false</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase Multiline</RegularExpressionOptions>
+      </Replacement>
+      <Replacement>
+        <Find>\{\{(Rare|Exclusive|Temp|Aug(?:ment)?)2}}</Find>
+        <Replace>{{$1|nc}}</Replace>
+        <Comment>Cleanup (Remove deprecated template: Rare2/Ex2/Temp2/Aug2/Augment2)</Comment>
+        <IsRegex>true</IsRegex>
+        <Enabled>false</Enabled>
+        <Minor>true</Minor>
+        <BeforeOrAfter>false</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
+      </Replacement>
+      <Replacement>
+        <Find>\{\{EvolithShape (Filled|Empty)(.+?)(Down|Up)?\|(.+?)\}\} *(\d+)</Find>
+        <Replace>{{Evolith|$4|$1 $2 $3|$5}}</Replace>
+        <Comment>Cleanup (Remove deprecated template: EvolithShape)</Comment>
+        <IsRegex>true</IsRegex>
         <Enabled>true</Enabled>
         <Minor>false</Minor>
         <BeforeOrAfter>true</BeforeOrAfter>
         <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
       </Replacement>
       <Replacement>
-        <Find>\n?\&lt;!--Use {{Crafted Only}} if item is obtained by synthesis only--\&gt;</Find>
-        <Replace />
-        <Comment />
+        <Find>(\{\{Evolith\|.+?) (\|.+)</Find>
+        <Replace>$1$2</Replace>
+        <Comment>Cleanup (Remove deprecated template: EvolithShape)</Comment>
         <IsRegex>true</IsRegex>
         <Enabled>true</Enabled>
         <Minor>true</Minor>
-        <BeforeOrAfter>false</BeforeOrAfter>
+        <BeforeOrAfter>true</BeforeOrAfter>
         <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
       </Replacement>
       <Replacement>
-        <Find>\n?\&lt;!--same format for Excavation, Mining, Logging, Harvesting, Clamming--\&gt;</Find>
-        <Replace />
-        <Comment />
+        <Find>[' ]*\[\[(Fire|Earth|Water|Wind|Ice|Lightning|Light|Dark) Crystal\|[' ]*\&lt; *font *color=".+?" *\&gt;[ ']*\1 *Crystal[' ]*\&lt; */ *font *\&gt;[' ]*\]\][' \:]*</Find>
+        <Replace>{{$1|Crystal}}</Replace>
+        <Comment>Apply template (Crystal)</Comment>
         <IsRegex>true</IsRegex>
-        <Enabled>true</Enabled>
-        <Minor>true</Minor>
-        <BeforeOrAfter>false</BeforeOrAfter>
-        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
-      </Replacement>
-      <Replacement>
-        <Find>\n?\&lt;!-- For Weapons and Armor\. Info is to be displayed exactly as it is in\-game\. --\&gt;</Find>
-        <Replace />
-        <Comment />
-        <IsRegex>true</IsRegex>
-        <Enabled>true</Enabled>
-        <Minor>true</Minor>
-        <BeforeOrAfter>false</BeforeOrAfter>
-        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
-      </Replacement>
-      <Replacement>
-        <Find>\n?\&lt;!-- For Weapons, Armor, Food, or Medicine, go the following page and copy the text in the "Usage" section of that page\. --\&gt;</Find>
-        <Replace />
-        <Comment />
-        <IsRegex>true</IsRegex>
-        <Enabled>true</Enabled>
-        <Minor>true</Minor>
-        <BeforeOrAfter>false</BeforeOrAfter>
-        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
-      </Replacement>
-      <Replacement>
-        <Find>\n?\&lt;!-- Number in a stack, or Not Stackable --\&gt;</Find>
-        <Replace />
-        <Comment />
-        <IsRegex>true</IsRegex>
-        <Enabled>true</Enabled>
-        <Minor>true</Minor>
-        <BeforeOrAfter>false</BeforeOrAfter>
-        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
-      </Replacement>
-      <Replacement>
-        <Find>\n?\&lt;!--Same format for Special Events--\&gt;</Find>
-        <Replace />
-        <Comment />
-        <IsRegex>true</IsRegex>
-        <Enabled>true</Enabled>
-        <Minor>true</Minor>
-        <BeforeOrAfter>false</BeforeOrAfter>
-        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
-      </Replacement>
-      <Replacement>
-        <Find>&lt;!--\ Usage\ is\ \{\{Guild\ Points\ Value\|points\ per\ item\|maximum\ points}}\ If\ nothing\ is\ defined,\ it\ will\ display\ None\.\ See\ Template:Guild\ Points\ Value\ for\ more\ details\.\ --&gt;</Find>
-        <Replace />
-        <Comment />
-        <IsRegex>false</IsRegex>
         <Enabled>true</Enabled>
         <Minor>false</Minor>
         <BeforeOrAfter>false</BeforeOrAfter>
         <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
       </Replacement>
       <Replacement>
-        <Find>&lt;!--\ Usage\ is\ \{\{Resale\ Price\|&lt;min&gt;\|&lt;max&gt;}}\ or\ \{\{Resale\ Price\|None}}\ if\ the\ item\ can't\ be\ sold\.\ See\ Template:Resale\ Price\ for\ more\ details\.\ --&gt;</Find>
-        <Replace />
-        <Comment />
-        <IsRegex>false</IsRegex>
+        <Find>\[\[(Fire|Earth|Water|Wind|Ice|Lightning|Light|Dark) Crystal\|\{\{\1\|\1 *Crystal\}\}\]\]</Find>
+        <Replace>{{$1|Crystal}}</Replace>
+        <Comment>Apply template (Crystal)</Comment>
+        <IsRegex>true</IsRegex>
         <Enabled>true</Enabled>
         <Minor>false</Minor>
         <BeforeOrAfter>false</BeforeOrAfter>
         <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
       </Replacement>
       <Replacement>
-        <Find>\n?\&lt;!-- Template:Weapon, Template:Armor, Template:Food, Template: Medicine --\&gt;</Find>
-        <Replace />
-        <Comment />
+        <Find>\{\{(.+)\|\1 Crystal\}\}</Find>
+        <Replace>{{$1|Crystal}}</Replace>
+        <Comment>Cleanup template (Crystal)</Comment>
+        <IsRegex>true</IsRegex>
+        <Enabled>true</Enabled>
+        <Minor>false</Minor>
+        <BeforeOrAfter>false</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
+      </Replacement>
+      <Replacement>
+        <Find>(__NOTOC__)(.+)$</Find>
+        <Replace>$2$1</Replace>
+        <Comment>Cleanup (Move NOTOC to end of line)</Comment>
         <IsRegex>true</IsRegex>
         <Enabled>true</Enabled>
         <Minor>true</Minor>
-        <BeforeOrAfter>false</BeforeOrAfter>
+        <BeforeOrAfter>true</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase Multiline</RegularExpressionOptions>
+      </Replacement>
+      <Replacement>
+        <Find>(?&lt;=__NOTOC__(?:.*\n)*?)__NOTOC__</Find>
+        <Replace />
+        <Comment>Cleanup (Remove duplicate NOTOC)</Comment>
+        <IsRegex>true</IsRegex>
+        <Enabled>true</Enabled>
+        <Minor>true</Minor>
+        <BeforeOrAfter>true</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
+      </Replacement>
+      <Replacement>
+        <Find>(?&lt;=^[^\s:]+)(?=\{\|)</Find>
+        <Replace>\n</Replace>
+        <Comment>Fix table (Leading whitespace)</Comment>
+        <IsRegex>true</IsRegex>
+        <Enabled>false</Enabled>
+        <Minor>true</Minor>
+        <BeforeOrAfter>true</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase Multiline</RegularExpressionOptions>
+      </Replacement>
+      <Replacement>
+        <Find>(?&lt;=^\|\})(?=[^\}].+?\n)</Find>
+        <Replace>\n</Replace>
+        <Comment>Fix table (Trailing whitespace)</Comment>
+        <IsRegex>true</IsRegex>
+        <Enabled>false</Enabled>
+        <Minor>true</Minor>
+        <BeforeOrAfter>true</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase Multiline</RegularExpressionOptions>
+      </Replacement>
+      <Replacement>
+        <Find>(?&lt;=\{\|.*?\n(?:(?!\|\}).*?\n)+(?!\|\}).*?)$</Find>
+        <Replace>\n|}</Replace>
+        <Comment>Fix table (Add missing footer)</Comment>
+        <IsRegex>true</IsRegex>
+        <Enabled>false</Enabled>
+        <Minor>true</Minor>
+        <BeforeOrAfter>true</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
+      </Replacement>
+      <Replacement>
+        <Find>(?&lt;=^(?:\|-|\{\|).*\s+)^\|\s*\|</Find>
+        <Replace>|</Replace>
+        <Comment>Fix table (Invalid cell)</Comment>
+        <IsRegex>true</IsRegex>
+        <Enabled>false</Enabled>
+        <Minor>true</Minor>
+        <BeforeOrAfter>true</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase Multiline</RegularExpressionOptions>
+      </Replacement>
+      <Replacement>
+        <Find>(?&lt;=[^\=\n]+?)((\={2,4})[^\=\n]+?\2)\n*</Find>
+        <Replace>\n$1\n</Replace>
+        <Comment>Fix header</Comment>
+        <IsRegex>true</IsRegex>
+        <Enabled>true</Enabled>
+        <Minor>true</Minor>
+        <BeforeOrAfter>true</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
+      </Replacement>
+      <Replacement>
+        <Find>(?&lt;=^[^\s]+?)[ \t]+$</Find>
+        <Replace />
+        <Comment>Whitespace (Remove trailing whitespace; after fixes)</Comment>
+        <IsRegex>true</IsRegex>
+        <Enabled>true</Enabled>
+        <Minor>true</Minor>
+        <BeforeOrAfter>true</BeforeOrAfter>
         <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
       </Replacement>
       <Replacement>
@@ -130,76 +395,6 @@
         <Minor>true</Minor>
         <BeforeOrAfter>false</BeforeOrAfter>
         <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
-      </Replacement>
-      <Replacement>
-        <Find>\*\[\[]]</Find>
-        <Replace />
-        <Comment>Cleanup</Comment>
-        <IsRegex>false</IsRegex>
-        <Enabled>true</Enabled>
-        <Minor>true</Minor>
-        <BeforeOrAfter>true</BeforeOrAfter>
-        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
-      </Replacement>
-      <Replacement>
-        <Find>\[\[ *([^\|]*?) *(?:\| *\1 *)?\]\]</Find>
-        <Replace>[[$1]]</Replace>
-        <Comment>Cleanup</Comment>
-        <IsRegex>true</IsRegex>
-        <Enabled>true</Enabled>
-        <Minor>true</Minor>
-        <BeforeOrAfter>false</BeforeOrAfter>
-        <RegularExpressionOptions>None</RegularExpressionOptions>
-      </Replacement>
-      <Replacement>
-        <Find>\{\{Template:</Find>
-        <Replace>{{</Replace>
-        <Comment>Cleanup</Comment>
-        <IsRegex>false</IsRegex>
-        <Enabled>true</Enabled>
-        <Minor>true</Minor>
-        <BeforeOrAfter>false</BeforeOrAfter>
-        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
-      </Replacement>
-      <Replacement>
-        <Find>(?&lt;=^.+?)[ \t]+$</Find>
-        <Replace />
-        <Comment>Whitespace</Comment>
-        <IsRegex>true</IsRegex>
-        <Enabled>true</Enabled>
-        <Minor>true</Minor>
-        <BeforeOrAfter>false</BeforeOrAfter>
-        <RegularExpressionOptions>IgnoreCase Multiline</RegularExpressionOptions>
-      </Replacement>
-      <Replacement>
-        <Find>\*\[\[\&lt;stat\&gt;\|\{\{\&lt;Color\&gt;\|\&lt;stat and modifier\&gt;\}\}\]\]\s+</Find>
-        <Replace />
-        <Comment>Cleanup</Comment>
-        <IsRegex>true</IsRegex>
-        <Enabled>true</Enabled>
-        <Minor>true</Minor>
-        <BeforeOrAfter>true</BeforeOrAfter>
-        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
-      </Replacement>
-      <Replacement>
-        <Find>\&lt; *br *\/? *\&gt;</Find>
-        <Replace>&lt;br&gt;</Replace>
-        <Comment>Technical</Comment>
-        <IsRegex>true</IsRegex>
-        <Enabled>true</Enabled>
-        <Minor>true</Minor>
-        <BeforeOrAfter>false</BeforeOrAfter>
-        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
-      </Replacement>
-      <Replacement>
-        <Find>(?:\&lt;br\&gt;)*(\n?^[\:\*]+.+?)(?:\&lt;br\&gt;)*\n+</Find>
-        <Replace>$1\n</Replace>
-        <Comment />
-        <IsRegex>true</IsRegex>
-        <Enabled>true</Enabled>
-        <Minor>true</Minor>
-        <BeforeOrAfter>false</BeforeOrAfter>
-        <RegularExpressionOptions>IgnoreCase Multiline</RegularExpressionOptions>
       </Replacement>
       <Replacement>
         <Find>([^'])([ ']+)([^'^\n]+?)\2((?:\&lt;br\&gt;| )+)\2</Find>
@@ -220,16 +415,6 @@
         <Minor>false</Minor>
         <BeforeOrAfter>false</BeforeOrAfter>
         <RegularExpressionOptions>IgnoreCase Multiline</RegularExpressionOptions>
-      </Replacement>
-      <Replacement>
-        <Find>(__NOTOC__)(.+)\n</Find>
-        <Replace>$2$1\n</Replace>
-        <Comment />
-        <IsRegex>true</IsRegex>
-        <Enabled>true</Enabled>
-        <Minor>true</Minor>
-        <BeforeOrAfter>true</BeforeOrAfter>
-        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
       </Replacement>
       <Replacement>
         <Find>(\[\[File\:.+?\]\] *\n)(__NOTOC__ *\n)</Find>
@@ -289,26 +474,6 @@
         <Enabled>true</Enabled>
         <Minor>true</Minor>
         <BeforeOrAfter>true</BeforeOrAfter>
-        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
-      </Replacement>
-      <Replacement>
-        <Find>(?&lt;=__NOTOC__(?:.*?\n)*?)__NOTOC__</Find>
-        <Replace />
-        <Comment />
-        <IsRegex>true</IsRegex>
-        <Enabled>true</Enabled>
-        <Minor>true</Minor>
-        <BeforeOrAfter>true</BeforeOrAfter>
-        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
-      </Replacement>
-      <Replacement>
-        <Find>(\[\[Category:.+?\]\])\s(\[\[Category)</Find>
-        <Replace>$1$2</Replace>
-        <Comment />
-        <IsRegex>true</IsRegex>
-        <Enabled>true</Enabled>
-        <Minor>true</Minor>
-        <BeforeOrAfter>false</BeforeOrAfter>
         <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
       </Replacement>
       <Replacement>
@@ -442,46 +607,6 @@
         <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
       </Replacement>
       <Replacement>
-        <Find>\{\{Rare2}}</Find>
-        <Replace>{{Rare|nc}}</Replace>
-        <Comment />
-        <IsRegex>false</IsRegex>
-        <Enabled>true</Enabled>
-        <Minor>false</Minor>
-        <BeforeOrAfter>false</BeforeOrAfter>
-        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
-      </Replacement>
-      <Replacement>
-        <Find>\{\{Exclusive2}}</Find>
-        <Replace>{{Exclusive|nc}}</Replace>
-        <Comment />
-        <IsRegex>false</IsRegex>
-        <Enabled>true</Enabled>
-        <Minor>false</Minor>
-        <BeforeOrAfter>false</BeforeOrAfter>
-        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
-      </Replacement>
-      <Replacement>
-        <Find>\{\{Temp2}}</Find>
-        <Replace>{{Temp|nc}}</Replace>
-        <Comment />
-        <IsRegex>false</IsRegex>
-        <Enabled>true</Enabled>
-        <Minor>false</Minor>
-        <BeforeOrAfter>false</BeforeOrAfter>
-        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
-      </Replacement>
-      <Replacement>
-        <Find>\{\{Augment2}}</Find>
-        <Replace>{{Augment|nc}}</Replace>
-        <Comment />
-        <IsRegex>false</IsRegex>
-        <Enabled>true</Enabled>
-        <Minor>false</Minor>
-        <BeforeOrAfter>false</BeforeOrAfter>
-        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
-      </Replacement>
-      <Replacement>
         <Find>^((?:\&lt;br\/?\&gt;)+)(\{\|[\w ])</Find>
         <Replace>$1\n$2</Replace>
         <Comment />
@@ -589,16 +714,6 @@
         <Enabled>true</Enabled>
         <Minor>false</Minor>
         <BeforeOrAfter>true</BeforeOrAfter>
-        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
-      </Replacement>
-      <Replacement>
-        <Find>\{\{Aug}}</Find>
-        <Replace>{{Augment}}</Replace>
-        <Comment />
-        <IsRegex>false</IsRegex>
-        <Enabled>true</Enabled>
-        <Minor>true</Minor>
-        <BeforeOrAfter>false</BeforeOrAfter>
         <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
       </Replacement>
       <Replacement>
@@ -782,36 +897,6 @@
         <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
       </Replacement>
       <Replacement>
-        <Find>[' ]*\[\[(Fire|Earth|Water|Wind|Ice|Lightning|Light|Dark) Crystal\|[' ]*\&lt; *font *color=".+?" *\&gt;[ ']*\1 *Crystal[' ]*\&lt; */ *font *\&gt;[' ]*\]\][' \:]*</Find>
-        <Replace>{{$1|Crystal}}</Replace>
-        <Comment>Crystal</Comment>
-        <IsRegex>true</IsRegex>
-        <Enabled>true</Enabled>
-        <Minor>false</Minor>
-        <BeforeOrAfter>false</BeforeOrAfter>
-        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
-      </Replacement>
-      <Replacement>
-        <Find>\[\[(Fire|Earth|Water|Wind|Ice|Lightning|Light|Dark) Crystal\|\{\{\1\|\1 *Crystal\}\}\]\]</Find>
-        <Replace>{{$1|Crystal}}</Replace>
-        <Comment>Crystal</Comment>
-        <IsRegex>true</IsRegex>
-        <Enabled>true</Enabled>
-        <Minor>false</Minor>
-        <BeforeOrAfter>false</BeforeOrAfter>
-        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
-      </Replacement>
-      <Replacement>
-        <Find>\{\{(.+)\|\1 Crystal\}\}</Find>
-        <Replace>{{$1|Crystal}}</Replace>
-        <Comment>Crystal</Comment>
-        <IsRegex>true</IsRegex>
-        <Enabled>true</Enabled>
-        <Minor>false</Minor>
-        <BeforeOrAfter>false</BeforeOrAfter>
-        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
-      </Replacement>
-      <Replacement>
         <Find>(\{\{Guild Points Value\|\d+),?(\d+\|\d+),?(\d+\}\})</Find>
         <Replace>$1$2$3</Replace>
         <Comment>Guild Points</Comment>
@@ -892,24 +977,24 @@
         <RegularExpressionOptions>None</RegularExpressionOptions>
       </Replacement>
       <Replacement>
-        <Find>\* *[']*\[\[ *(.*?) *\| *\&lt; *[Ff][Oo][Nn][Tt] *[Cc][Oo][Ll][Oo][Rr] *= *"(.*?)" *\&gt;[' ]*\1(?: *([+-][\d\.\~\-?]+%*)){0,1}(.*?)[' ]*\&lt;/ *[Ff][Oo][Nn][Tt] *\&gt; *\]\][']*</Find>
+        <Find>\* *[']*\[\[ *(.*?) *\| *\&lt; *font *color *= *"(.*?)" *\&gt;[' ]*\1(?: *([+-][\d\.\~\-?]+%*)){0,1}(.*?)[' ]*\&lt;/ *font *\&gt; *\]\][']*</Find>
         <Replace>*{{Effect|$2|$1|$3$4}}</Replace>
         <Comment>Effect</Comment>
         <IsRegex>true</IsRegex>
         <Enabled>true</Enabled>
         <Minor>false</Minor>
         <BeforeOrAfter>false</BeforeOrAfter>
-        <RegularExpressionOptions>None</RegularExpressionOptions>
+        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
       </Replacement>
       <Replacement>
-        <Find>\* *[']*\[\[ *(.*?) *\|\ *&lt; *[Ff][Oo][Nn][Tt] *[Cc][Oo][Ll][Oo][Rr] *= *"(.*?)" *\&gt;[' ]*(.*?(?: *([+-][\d\.\~\-?]+%*))?.*?)[' ]*\&lt;/ *[Ff][Oo][Nn][Tt] *\&gt; *\]\][']*</Find>
+        <Find>\* *[']*\[\[ *(.*?) *\|\ *&lt; *font *color *= *"(.*?)" *\&gt;[' ]*(.*?(?: *([+-][\d\.\~\-?]+%*))?.*?)[' ]*\&lt;/ *font *\&gt; *\]\][']*</Find>
         <Replace>*{{Effect|$2|$1|display = $3}}</Replace>
         <Comment>Effect</Comment>
         <IsRegex>true</IsRegex>
         <Enabled>true</Enabled>
         <Minor>false</Minor>
         <BeforeOrAfter>false</BeforeOrAfter>
-        <RegularExpressionOptions>None</RegularExpressionOptions>
+        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
       </Replacement>
       <Replacement>
         <Find>(\{\{Effect.*?\|)(?:Wind|green)(\|.*?\}\})</Find>
@@ -1058,26 +1143,6 @@
         <IsRegex>true</IsRegex>
         <Enabled>true</Enabled>
         <Minor>false</Minor>
-        <BeforeOrAfter>true</BeforeOrAfter>
-        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
-      </Replacement>
-      <Replacement>
-        <Find>\{\{EvolithShape (Filled|Empty)(.+?)(Down|Up)?\|(.+?)\}\} *(\d+)</Find>
-        <Replace>{{Evolith|$4|$1 $2 $3|$5}}</Replace>
-        <Comment>Evolith</Comment>
-        <IsRegex>true</IsRegex>
-        <Enabled>true</Enabled>
-        <Minor>false</Minor>
-        <BeforeOrAfter>true</BeforeOrAfter>
-        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
-      </Replacement>
-      <Replacement>
-        <Find>(\{\{Evolith\|.+?) (\|.+)</Find>
-        <Replace>$1$2</Replace>
-        <Comment>Evolith</Comment>
-        <IsRegex>true</IsRegex>
-        <Enabled>true</Enabled>
-        <Minor>true</Minor>
         <BeforeOrAfter>true</BeforeOrAfter>
         <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
       </Replacement>
@@ -1492,16 +1557,6 @@
         <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
       </Replacement>
       <Replacement>
-        <Find>\|\-\s*\|\}\s*</Find>
-        <Replace>|}\n</Replace>
-        <Comment>Table</Comment>
-        <IsRegex>true</IsRegex>
-        <Enabled>true</Enabled>
-        <Minor>true</Minor>
-        <BeforeOrAfter>true</BeforeOrAfter>
-        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
-      </Replacement>
-      <Replacement>
         <Find>\[\[File:]]</Find>
         <Replace>{{Item Image|}}</Replace>
         <Comment>Item Image</Comment>
@@ -1559,26 +1614,6 @@
         <Enabled>true</Enabled>
         <Minor>true</Minor>
         <BeforeOrAfter>false</BeforeOrAfter>
-        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
-      </Replacement>
-      <Replacement>
-        <Find>__NOTOC__(.*?__NOTOC__)</Find>
-        <Replace>$1</Replace>
-        <Comment>NOTOC</Comment>
-        <IsRegex>true</IsRegex>
-        <Enabled>true</Enabled>
-        <Minor>true</Minor>
-        <BeforeOrAfter>true</BeforeOrAfter>
-        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
-      </Replacement>
-      <Replacement>
-        <Find>^\n+(__NOTOC__)</Find>
-        <Replace>$1</Replace>
-        <Comment>NOTOC</Comment>
-        <IsRegex>true</IsRegex>
-        <Enabled>true</Enabled>
-        <Minor>true</Minor>
-        <BeforeOrAfter>true</BeforeOrAfter>
         <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
       </Replacement>
       <Replacement>
@@ -1652,56 +1687,6 @@
         <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
       </Replacement>
       <Replacement>
-        <Find>(.*?) +\n</Find>
-        <Replace>$1\n</Replace>
-        <Comment>Whitespace</Comment>
-        <IsRegex>true</IsRegex>
-        <Enabled>true</Enabled>
-        <Minor>true</Minor>
-        <BeforeOrAfter>true</BeforeOrAfter>
-        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
-      </Replacement>
-      <Replacement>
-        <Find> {2,}</Find>
-        <Replace> </Replace>
-        <Comment>Whitespace</Comment>
-        <IsRegex>true</IsRegex>
-        <Enabled>true</Enabled>
-        <Minor>true</Minor>
-        <BeforeOrAfter>false</BeforeOrAfter>
-        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
-      </Replacement>
-      <Replacement>
-        <Find>(?&lt;=\[\[|\{\{) +(.*?)(?=\]\]|\}\})</Find>
-        <Replace>$1</Replace>
-        <Comment>Whitespace</Comment>
-        <IsRegex>true</IsRegex>
-        <Enabled>true</Enabled>
-        <Minor>true</Minor>
-        <BeforeOrAfter>false</BeforeOrAfter>
-        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
-      </Replacement>
-      <Replacement>
-        <Find>(?&lt;=\[\[|\{\{)(.*?) +(?=\]\]|\}\})</Find>
-        <Replace>$1</Replace>
-        <Comment>Whitespace</Comment>
-        <IsRegex>true</IsRegex>
-        <Enabled>true</Enabled>
-        <Minor>true</Minor>
-        <BeforeOrAfter>false</BeforeOrAfter>
-        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
-      </Replacement>
-      <Replacement>
-        <Find>(?&lt;=(?:\[\[|\{\{).*?) *\| *(?=.*?(?:\]\]|\}\}))</Find>
-        <Replace>|</Replace>
-        <Comment>Whitespace</Comment>
-        <IsRegex>true</IsRegex>
-        <Enabled>true</Enabled>
-        <Minor>true</Minor>
-        <BeforeOrAfter>false</BeforeOrAfter>
-        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
-      </Replacement>
-      <Replacement>
         <Find>(?&lt;=\=\=How to Obtain\=\=\s+(?:[^=]+?)*?)(?:\s|\&lt;br\&gt;)+(?=\=\=\=[^=\n]+?\=\=\=)</Find>
         <Replace>\n</Replace>
         <Comment>Whitespace</Comment>
@@ -1730,16 +1715,6 @@
         <Minor>true</Minor>
         <BeforeOrAfter>true</BeforeOrAfter>
         <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
-      </Replacement>
-      <Replacement>
-        <Find>(^\n[ \t]*$)+</Find>
-        <Replace>\n</Replace>
-        <Comment>Whitespace</Comment>
-        <IsRegex>true</IsRegex>
-        <Enabled>true</Enabled>
-        <Minor>true</Minor>
-        <BeforeOrAfter>true</BeforeOrAfter>
-        <RegularExpressionOptions>IgnoreCase Multiline</RegularExpressionOptions>
       </Replacement>
       <Replacement>
         <Find>\{\{ *AH\|? *(?:Exclusive *[^}]*)? *\}\}</Find>
@@ -1772,26 +1747,6 @@
         <RegularExpressionOptions>IgnoreCase Multiline</RegularExpressionOptions>
       </Replacement>
       <Replacement>
-        <Find>\[\[Category:(.*?)\]\]\[\[Category:\1\]\]</Find>
-        <Replace>[[Category:$1]]</Replace>
-        <Comment />
-        <IsRegex>true</IsRegex>
-        <Enabled>true</Enabled>
-        <Minor>true</Minor>
-        <BeforeOrAfter>true</BeforeOrAfter>
-        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
-      </Replacement>
-      <Replacement>
-        <Find>(.+?)((\={2,4}).+?\2)\n?</Find>
-        <Replace>$1\n$2\n</Replace>
-        <Comment>Header fix</Comment>
-        <IsRegex>true</IsRegex>
-        <Enabled>true</Enabled>
-        <Minor>false</Minor>
-        <BeforeOrAfter>true</BeforeOrAfter>
-        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
-      </Replacement>
-      <Replacement>
         <Find>^===Historical (Information|Background)===$</Find>
         <Replace>==Historical Background==</Replace>
         <Comment />
@@ -1806,21 +1761,6 @@
       <IRule xsi:type="Rule">
         <enabled_>true</enabled_>
         <Children>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Convert nc to regular</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(?&lt;=\[\[Category:(Rare|Exclusive|Augmented|Temporary)\]\](?:.*?\n)*?.*?)\{\{\1(?:\|nc)?\}\}</replace_>
-            <with_>{{$1}}</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>7</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>IgnoreCase</regexOptions_>
-          </IRule>
           <IRule xsi:type="Rule">
             <enabled_>true</enabled_>
             <Children />
@@ -1857,7 +1797,7 @@
             <Children />
             <Name>Location</Name>
             <ruletype_>OnWholePage</ruletype_>
-            <replace_>(?&lt;=\|(?:&amp;nbsp;| )*)\[\[([^\]^\|]*?)\]\](?:,? '*([^\(].*?[^\)])'*|,? '*\((.*?)\)'*)? *\(?([A-Z]-\d+)\)?</replace_>
+            <replace_>(?&lt;=[\|\=](?:&amp;nbsp;| )*)\[\[([^\]\|]*?)\]\][', ]*(?:(?:at|around|near) +)?(?:([^\(]\w+?[^\)])'*|,? '*\((.*?)\)'*)? *\(?([A-Z]-\d+)\)?</replace_>
             <with_>{{Location|$1|map = $2$3|$4}}</with_>
             <ifContains_ />
             <ifNotContains_ />
@@ -1899,6 +1839,402 @@
           </IRule>
         </Children>
         <Name>Location</Name>
+        <ruletype_>OnWholePage</ruletype_>
+        <replace_ />
+        <with_ />
+        <ifContains_ />
+        <ifNotContains_ />
+        <regex_>false</regex_>
+        <ifIsRegex_>false</ifIsRegex_>
+        <numoftimes_>1</numoftimes_>
+        <ifRegexOptions_>None</ifRegexOptions_>
+        <regexOptions_>None</regexOptions_>
+      </IRule>
+      <IRule xsi:type="Rule">
+        <enabled_>true</enabled_>
+        <Children>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Delink gil</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(?&lt;=\=\=How to Obtain\=\=\n(?:.*?\n)*\{\|.*?\n(?:.*?\n?)*?)\[\[gil\]\]</replace_>
+            <with_>gil</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Combine broken lines</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(?&lt;=^\|(?:.+\|)?.*?\&lt;br\&gt; *)\n</replace_>
+            <with_ />
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>10</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>Multiline</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>spacing padding</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(^\{\|.*?)(cellspacing="\d+")(.*?)(cellpadding="\d+")</replace_>
+                <with_>$1$3 $4 $2</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase Multiline</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>padding spacing</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(^\{\|.*?)(cellpadding="\d+")(.*?)(cellspacing="\d+")</replace_>
+                <with_>$1$3 $2 $4</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase Multiline</regexOptions_>
+              </IRule>
+            </Children>
+            <Name>Cellspacing/padding</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_ />
+            <with_ />
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>false</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Remove blank style element</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_> *style=""</replace_>
+                <with_ />
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase</regexOptions_>
+              </IRule>
+            </Children>
+            <Name>Replace style background with bgcolor</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>style *= *" *(.*?)background(?:-color)?: *(#?\w+);? *(.*?) *"</replace_>
+            <with_>BGCOLOR="$2" style="$1$3"</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Remove rowspan and colspan of 1</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(?&lt;=\|-?(?:[^\|]*? )?) *(?:col|row)span *= *" *1 *" *</replace_>
+            <with_ />
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Remove spacing in header</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>^! *([^\|\n]*?) *\| *</replace_>
+            <with_>!$1| </with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>Multiline</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Remove excess bolding in header</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>^!(.*\| *)?'''(.*?)'''</replace_>
+            <with_>!$1$2</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>Multiline</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Apply class</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>\{\| *(.*?) *cellpadding="[234]" +cellspacing="[234]"(.*)(?=\s*(?:(?:^\|-.*)?^[\|!].*?BGCOLOR="#ffdead;?"|^\|- *BGCOLOR="#ffdead;?").*\s*(?:^[\|!:\*][^\}].*\s*)*?^\|\})</replace_>
+            <with_>{|$1$2 class="ffxi-table"</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase Multiline</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Use header markup</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(?&lt;=\{\|.*?class="ffxi-table".*\s*(?:^[\|!].*\s*)*?)^\| *align="center" +BGCOLOR="#ffdead" +(.*?)\| *'''(.*?)'''(\s*)</replace_>
+            <with_>!$1| $2$3</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase Multiline</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Apply header class</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(?&lt;=\{\|.*?class="ffxi-table".*\s*(?:^[\|!].*\s*)*?)^\|(.*?) *BGCOLOR="#ffdead;?" *(.*?)\|(?=.*\s*(?:^[\|!].*\s*)*?^\|\})</replace_>
+            <with_>|class="ffxi-header" $1 $2|</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase Multiline</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Replace blue bg</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(?&lt;=\{\|.*?class="ffxi-table".*\s*(?:^[\|!:\*].*\s*)*?)^(\|-?.*?) *BGCOLOR="#(?:e3e6ff|d5d9ff);?"(?=.*\s*(?:^[\|!:\*].*\s*)*?^\|\})</replace_>
+            <with_>$1</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase Multiline</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Replace footer bg</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(?&lt;=\{\|.*?class="ffxi-table".*\s*(?:^[\|!:\*].*\s*)*?)^(\|-?.*?) *BGCOLOR="#(?:ffdead);?"(?=.*\s*(?:^[\|!:\*].*\s*)^\|\})</replace_>
+            <with_> class="ffxi-footer"</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase Multiline</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Replace with class</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(?&lt;=\{\|.*?class="ffxi-table".*\s*(?:^[\|!:\*].*\s*)*?)^((?:\|-?|!).*?) *BGCOLOR="#(?:ffdead);?"(?=.*\s*(?:^[\|!:\*].*\s*)+?^\|\})</replace_>
+                <with_>$1 class="ffxi-header"</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase Multiline</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Remove redundant class</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(?&lt;=\{\|.*?class="ffxi-table".*\s*(?:^[\|!:\*].*\s*)*?^!.*?) *class="ffxi-header"</replace_>
+                <with_ />
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>Multiline</regexOptions_>
+              </IRule>
+            </Children>
+            <Name>Replace header bg</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(?&lt;=\{\|.*?class="ffxi-table".*\s*(?:^[\|!:\*].*\s*)*?)^(\|-?.*?) *BGCOLOR="#(?:ffdead);?"(?=.*\s*^!.*\s*(?:^[\|!:\*].*\s*)*?^\|\})</replace_>
+            <with_>$1</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase Multiline</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Replace nm bg</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(?&lt;=\{\|.*?class="ffxi-table".*\s*(?:^[\|!:\*].*\s*)*?)^(\|-?.*?) *BGCOLOR="(?:#ffd9d9|mistyrose);?"(?=.*\s*(?:^\|(?:.*\|)? *''' *\[\[[^\[\n]*?\]\][^'\n]*'''.*\s*)(?:^[\|!:\*].*\s*)*?^\|\})</replace_>
+            <with_>$1 class="bg-nm"</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase Multiline</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Replace nm bg</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(?&lt;=\{\|.*?class="ffxi-table".*\s*(?:^[\|!:\*].*\s*)*?)^\|-?(.*?) *BGCOLOR="#ffd9d9;?"(?=.*\s*(?:^\|(?:.*\|)? *''' *\[\[[^\[\n]*?\]\][^'\n]*'''.*\s*)(?:^[\|!:\*].*\s*)*?^\|\})</replace_>
+                <with_>|- class="bg-nm"</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase Multiline</regexOptions_>
+              </IRule>
+            </Children>
+            <Name>Replace red bg</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(?&lt;=\{\|.*?class="ffxi-table".*\s*(?:^[\|!:\*].*\s*)*?)^(\|-?.*?) *BGCOLOR="#ffd9d9;?"(?=.*\s*(?:^[\|!:\*].*\s*)*?^\|\})</replace_>
+            <with_>$1 class="bg-red"</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase Multiline</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Remove excess rows</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(^\|-\s*){2,}</replace_>
+            <with_>|-\n</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>Multiline</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Apply wide-table class</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>\{\| *width="\d\d%" class="ffxi-table"</replace_>
+            <with_>{|class="ffxi-table wide-table"</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase Multiline</regexOptions_>
+          </IRule>
+        </Children>
+        <Name>Tables</Name>
+        <ruletype_>OnWholePage</ruletype_>
+        <replace_ />
+        <with_ />
+        <ifContains_ />
+        <ifNotContains_ />
+        <regex_>false</regex_>
+        <ifIsRegex_>false</ifIsRegex_>
+        <numoftimes_>1</numoftimes_>
+        <ifRegexOptions_>None</ifRegexOptions_>
+        <regexOptions_>None</regexOptions_>
+      </IRule>
+      <IRule xsi:type="Rule">
+        <enabled_>true</enabled_>
+        <Children>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Convert nc to regular</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(?&lt;=\[\[Category:(Rare|Exclusive|Augmented|Temporary)\]\](?:.*?\n)*?.*?)\{\{\1(?:\|nc)?\}\}</replace_>
+            <with_>{{$1}}</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>7</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase</regexOptions_>
+          </IRule>
+        </Children>
+        <Name>Tags</Name>
         <ruletype_>OnWholePage</ruletype_>
         <replace_ />
         <with_ />
@@ -2665,371 +3001,6 @@
         <numoftimes_>1</numoftimes_>
         <ifRegexOptions_>IgnoreCase</ifRegexOptions_>
         <regexOptions_>IgnoreCase Multiline</regexOptions_>
-      </IRule>
-      <IRule xsi:type="Rule">
-        <enabled_>true</enabled_>
-        <Children>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Delink gil</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(?&lt;=\=\=How to Obtain\=\=\n(?:.*?\n)*\{\|.*?\n(?:.*?\n?)*?)\[\[gil\]\]</replace_>
-            <with_>gil</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>IgnoreCase</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Combine broken lines</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(?&lt;=^\|(?:.+\|)?.*?\&lt;br\&gt; *)\n</replace_>
-            <with_ />
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>10</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>Multiline</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children>
-              <IRule xsi:type="Rule">
-                <enabled_>true</enabled_>
-                <Children />
-                <Name>spacing padding</Name>
-                <ruletype_>OnWholePage</ruletype_>
-                <replace_>(^\{\|.*?)(cellspacing="\d+")(.*?)(cellpadding="\d+")</replace_>
-                <with_>$1$3 $4 $2</with_>
-                <ifContains_ />
-                <ifNotContains_ />
-                <regex_>true</regex_>
-                <ifIsRegex_>false</ifIsRegex_>
-                <numoftimes_>1</numoftimes_>
-                <ifRegexOptions_>None</ifRegexOptions_>
-                <regexOptions_>IgnoreCase Multiline</regexOptions_>
-              </IRule>
-              <IRule xsi:type="Rule">
-                <enabled_>true</enabled_>
-                <Children />
-                <Name>padding spacing</Name>
-                <ruletype_>OnWholePage</ruletype_>
-                <replace_>(^\{\|.*?)(cellpadding="\d+")(.*?)(cellspacing="\d+")</replace_>
-                <with_>$1$3 $2 $4</with_>
-                <ifContains_ />
-                <ifNotContains_ />
-                <regex_>true</regex_>
-                <ifIsRegex_>false</ifIsRegex_>
-                <numoftimes_>1</numoftimes_>
-                <ifRegexOptions_>None</ifRegexOptions_>
-                <regexOptions_>IgnoreCase Multiline</regexOptions_>
-              </IRule>
-            </Children>
-            <Name>Cellspacing/padding</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_ />
-            <with_ />
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>false</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>None</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children>
-              <IRule xsi:type="Rule">
-                <enabled_>true</enabled_>
-                <Children />
-                <Name>Remove blank style element</Name>
-                <ruletype_>OnWholePage</ruletype_>
-                <replace_> *style=""</replace_>
-                <with_ />
-                <ifContains_ />
-                <ifNotContains_ />
-                <regex_>true</regex_>
-                <ifIsRegex_>false</ifIsRegex_>
-                <numoftimes_>1</numoftimes_>
-                <ifRegexOptions_>None</ifRegexOptions_>
-                <regexOptions_>IgnoreCase</regexOptions_>
-              </IRule>
-            </Children>
-            <Name>Replace style background with bgcolor</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>style *= *" *(.*?)background(?:-color)?: *(#?\w+);? *(.*?) *"</replace_>
-            <with_>BGCOLOR="$2" style="$1$3"</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>IgnoreCase</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Remove rowspan and colspan of 1</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(?&lt;=\|-?(?:[^\|]*? )?) *(?:col|row)span *= *" *1 *" *</replace_>
-            <with_ />
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>IgnoreCase</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Remove spacing in header</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>^! *([^\|\n]*?) *\| *</replace_>
-            <with_>!$1| </with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>Multiline</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Remove excess bolding in header</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>^!(.*\| *)?'''(.*?)'''</replace_>
-            <with_>!$1$2</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>Multiline</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Apply class</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>\{\| *(.*?) *cellpadding="[234]" +cellspacing="[234]"(.*)(?=\s*(?:(?:^\|-.*)?^[\|!].*?BGCOLOR="#ffdead;?"|^\|- *BGCOLOR="#ffdead;?").*\s*(?:^[\|!:\*][^\}].*\s*)*?^\|\})</replace_>
-            <with_>{|$1$2 class="ffxi-table"</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>IgnoreCase Multiline</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Use header markup</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(?&lt;=\{\|.*?class="ffxi-table".*\s*(?:^[\|!].*\s*)*?)^\| *align="center" +BGCOLOR="#ffdead" +(.*?)\| *'''(.*?)'''(\s*)</replace_>
-            <with_>!$1| $2$3</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>IgnoreCase Multiline</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Apply header class</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(?&lt;=\{\|.*?class="ffxi-table".*\s*(?:^[\|!].*\s*)*?)^\|(.*?) *BGCOLOR="#ffdead;?" *(.*?)\|(?=.*\s*(?:^[\|!].*\s*)*?^\|\})</replace_>
-            <with_>|class="ffxi-header" $1 $2|</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>IgnoreCase Multiline</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Replace blue bg</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(?&lt;=\{\|.*?class="ffxi-table".*\s*(?:^[\|!:\*].*\s*)*?)^(\|-?.*?) *BGCOLOR="#(?:e3e6ff|d5d9ff);?"(?=.*\s*(?:^[\|!:\*].*\s*)*?^\|\})</replace_>
-            <with_>$1</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>IgnoreCase Multiline</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Replace footer bg</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(?&lt;=\{\|.*?class="ffxi-table".*\s*(?:^[\|!:\*].*\s*)*?)^(\|-?.*?) *BGCOLOR="#(?:ffdead);?"(?=.*\s*(?:^[\|!:\*].*\s*)^\|\})</replace_>
-            <with_> class="ffxi-footer"</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>IgnoreCase Multiline</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children>
-              <IRule xsi:type="Rule">
-                <enabled_>true</enabled_>
-                <Children />
-                <Name>Replace with class</Name>
-                <ruletype_>OnWholePage</ruletype_>
-                <replace_>(?&lt;=\{\|.*?class="ffxi-table".*\s*(?:^[\|!:\*].*\s*)*?)^((?:\|-?|!).*?) *BGCOLOR="#(?:ffdead);?"(?=.*\s*(?:^[\|!:\*].*\s*)+?^\|\})</replace_>
-                <with_>$1 class="ffxi-header"</with_>
-                <ifContains_ />
-                <ifNotContains_ />
-                <regex_>true</regex_>
-                <ifIsRegex_>false</ifIsRegex_>
-                <numoftimes_>1</numoftimes_>
-                <ifRegexOptions_>None</ifRegexOptions_>
-                <regexOptions_>IgnoreCase Multiline</regexOptions_>
-              </IRule>
-              <IRule xsi:type="Rule">
-                <enabled_>true</enabled_>
-                <Children />
-                <Name>Remove redundant class</Name>
-                <ruletype_>OnWholePage</ruletype_>
-                <replace_>(?&lt;=\{\|.*?class="ffxi-table".*\s*(?:^[\|!:\*].*\s*)*?^!.*?) *class="ffxi-header"</replace_>
-                <with_ />
-                <ifContains_ />
-                <ifNotContains_ />
-                <regex_>true</regex_>
-                <ifIsRegex_>false</ifIsRegex_>
-                <numoftimes_>1</numoftimes_>
-                <ifRegexOptions_>None</ifRegexOptions_>
-                <regexOptions_>Multiline</regexOptions_>
-              </IRule>
-            </Children>
-            <Name>Replace header bg</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(?&lt;=\{\|.*?class="ffxi-table".*\s*(?:^[\|!:\*].*\s*)*?)^(\|-?.*?) *BGCOLOR="#(?:ffdead);?"(?=.*\s*^!.*\s*(?:^[\|!:\*].*\s*)*?^\|\})</replace_>
-            <with_>$1</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>IgnoreCase Multiline</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Replace nm bg</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(?&lt;=\{\|.*?class="ffxi-table".*\s*(?:^[\|!:\*].*\s*)*?)^(\|-?.*?) *BGCOLOR="(?:#ffd9d9|mistyrose);?"(?=.*\s*(?:^\|(?:.*\|)? *''' *\[\[[^\[\n]*?\]\][^'\n]*'''.*\s*)(?:^[\|!:\*].*\s*)*?^\|\})</replace_>
-            <with_>$1 class="bg-nm"</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>IgnoreCase Multiline</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children>
-              <IRule xsi:type="Rule">
-                <enabled_>true</enabled_>
-                <Children />
-                <Name>Replace nm bg</Name>
-                <ruletype_>OnWholePage</ruletype_>
-                <replace_>(?&lt;=\{\|.*?class="ffxi-table".*\s*(?:^[\|!:\*].*\s*)*?)^\|-?(.*?) *BGCOLOR="#ffd9d9;?"(?=.*\s*(?:^\|(?:.*\|)? *''' *\[\[[^\[\n]*?\]\][^'\n]*'''.*\s*)(?:^[\|!:\*].*\s*)*?^\|\})</replace_>
-                <with_>|- class="bg-nm"</with_>
-                <ifContains_ />
-                <ifNotContains_ />
-                <regex_>true</regex_>
-                <ifIsRegex_>false</ifIsRegex_>
-                <numoftimes_>1</numoftimes_>
-                <ifRegexOptions_>None</ifRegexOptions_>
-                <regexOptions_>IgnoreCase Multiline</regexOptions_>
-              </IRule>
-            </Children>
-            <Name>Replace red bg</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(?&lt;=\{\|.*?class="ffxi-table".*\s*(?:^[\|!:\*].*\s*)*?)^(\|-?.*?) *BGCOLOR="#ffd9d9;?"(?=.*\s*(?:^[\|!:\*].*\s*)*?^\|\})</replace_>
-            <with_>$1 class="bg-red"</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>IgnoreCase Multiline</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Remove excess rows</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(^\|-\s*){2,}</replace_>
-            <with_>|-\n</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>Multiline</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Apply wide-table class</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>\{\| *width="\d\d%" class="ffxi-table"</replace_>
-            <with_>{|class="ffxi-table wide-table"</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>IgnoreCase Multiline</regexOptions_>
-          </IRule>
-        </Children>
-        <Name>Tables</Name>
-        <ruletype_>OnWholePage</ruletype_>
-        <replace_ />
-        <with_ />
-        <ifContains_ />
-        <ifNotContains_ />
-        <regex_>false</regex_>
-        <ifIsRegex_>false</ifIsRegex_>
-        <numoftimes_>1</numoftimes_>
-        <ifRegexOptions_>None</ifRegexOptions_>
-        <regexOptions_>None</regexOptions_>
       </IRule>
       <IRule xsi:type="Rule">
         <enabled_>false</enabled_>
@@ -4774,15 +4745,15 @@
     <IgnoreUnformatted>false</IgnoreUnformatted>
   </FindAndReplace>
   <Editprefs>
-    <GeneralFixes>false</GeneralFixes>
-    <Tagger>false</Tagger>
-    <Unicodify>false</Unicodify>
-    <Recategorisation>0</Recategorisation>
-    <NewCategory />
+    <GeneralFixes>true</GeneralFixes>
+    <Tagger>true</Tagger>
+    <Unicodify>true</Unicodify>
+    <Recategorisation>2</Recategorisation>
+    <NewCategory>A</NewCategory>
     <NewCategory2 />
-    <ReImage>0</ReImage>
-    <ImageFind />
-    <Replace />
+    <ReImage>1</ReImage>
+    <ImageFind>Image</ImageFind>
+    <Replace>File</Replace>
     <SkipIfNoCatChange>false</SkipIfNoCatChange>
     <RemoveSortKey>false</RemoveSortKey>
     <SkipIfNoImgChange>false</SkipIfNoImgChange>
@@ -4791,9 +4762,9 @@
     <Append>true</Append>
     <Text />
     <Newlines>2</Newlines>
-    <AutoDelay>0</AutoDelay>
+    <AutoDelay>10</AutoDelay>
     <BotMaxEdits>0</BotMaxEdits>
-    <SupressTag>true</SupressTag>
+    <SupressTag>false</SupressTag>
     <RegexTypoFix>false</RegexTypoFix>
   </Editprefs>
   <General>
@@ -4802,9 +4773,18 @@
       <SavePeriod>30</SavePeriod>
       <SaveFile />
     </AutoSaveEdit>
-    <SelectedSummary>formatting</SelectedSummary>
+    <SelectedSummary>clean up</SelectedSummary>
     <Summaries>
-      <string>formatting</string>
+      <string>clean up</string>
+      <string>re-categorisation per [[WP:CFD|CFD]]</string>
+      <string>clean up and re-categorisation per [[WP:CFD|CFD]]</string>
+      <string>removing category per [[WP:CFD|CFD]]</string>
+      <string>[[Wikipedia:Template substitution|subst:'ing]]</string>
+      <string>[[Wikipedia:WikiProject Stub sorting|stub sorting]]</string>
+      <string>[[WP:AWB/T|Typo fixing]]</string>
+      <string>bad link repair</string>
+      <string>Fixing [[Wikipedia:Disambiguation pages with links|links to disambiguation pages]]</string>
+      <string>Unicodifying</string>
     </Summaries>
     <PasteMore>
       <string />
@@ -4824,7 +4804,7 @@
     <WordWrap>true</WordWrap>
     <ToolBarEnabled>false</ToolBarEnabled>
     <BypassRedirect>true</BypassRedirect>
-    <AutoSaveSettings>true</AutoSaveSettings>
+    <AutoSaveSettings>false</AutoSaveSettings>
     <noSectionEditSummary>false</noSectionEditSummary>
     <restrictDefaultsortAddition>true</restrictDefaultsortAddition>
     <restrictOrphanTagging>true</restrictOrphanTagging>
@@ -4834,13 +4814,13 @@
     <PreParseMode>false</PreParseMode>
     <NoAutoChanges>false</NoAutoChanges>
     <OnLoadAction>0</OnLoadAction>
-    <DiffInBotMode>true</DiffInBotMode>
+    <DiffInBotMode>false</DiffInBotMode>
     <Minor>true</Minor>
     <AddToWatchlist>2</AddToWatchlist>
     <TimerEnabled>false</TimerEnabled>
     <SortListAlphabetically>false</SortListAlphabetically>
     <AddIgnoredToLog>false</AddIgnoredToLog>
-    <EditToolbarEnabled>false</EditToolbarEnabled>
+    <EditToolbarEnabled>true</EditToolbarEnabled>
     <filterNonMainSpace>false</filterNonMainSpace>
     <AutoFilterDuplicates>false</AutoFilterDuplicates>
     <FocusAtEndOfEditBox>false</FocusAtEndOfEditBox>
@@ -4851,7 +4831,7 @@
     <Beep>false</Beep>
     <Flash>false</Flash>
     <Minimize>false</Minimize>
-    <LockSummary>true</LockSummary>
+    <LockSummary>false</LockSummary>
     <SaveArticleList>true</SaveArticleList>
     <SuppressUsingAWB>false</SuppressUsingAWB>
     <AddUsingAWBToActionSummaries>false</AddUsingAWBToActionSummaries>
@@ -4860,54 +4840,32 @@
     <SortInterWikiOrder>true</SortInterWikiOrder>
     <ReplaceReferenceTags>true</ReplaceReferenceTags>
     <LoggingEnabled>true</LoggingEnabled>
-    <AlertPreferences>
-      <int>1</int>
-      <int>2</int>
-      <int>3</int>
-      <int>4</int>
-      <int>5</int>
-      <int>6</int>
-      <int>7</int>
-      <int>8</int>
-      <int>9</int>
-      <int>10</int>
-      <int>11</int>
-      <int>12</int>
-      <int>13</int>
-      <int>14</int>
-      <int>15</int>
-      <int>16</int>
-      <int>17</int>
-      <int>18</int>
-      <int>19</int>
-      <int>20</int>
-      <int>21</int>
-    </AlertPreferences>
+    <AlertPreferences />
   </General>
   <SkipOptions>
     <SkipNonexistent>true</SkipNonexistent>
     <Skipexistent>false</Skipexistent>
     <SkipDontCare>false</SkipDontCare>
-    <SkipWhenNoChanges>true</SkipWhenNoChanges>
-    <SkipSpamFilterBlocked>true</SkipSpamFilterBlocked>
+    <SkipWhenNoChanges>false</SkipWhenNoChanges>
+    <SkipSpamFilterBlocked>false</SkipSpamFilterBlocked>
     <SkipInuse>false</SkipInuse>
-    <SkipWhenOnlyWhitespaceChanged>true</SkipWhenOnlyWhitespaceChanged>
+    <SkipWhenOnlyWhitespaceChanged>false</SkipWhenOnlyWhitespaceChanged>
     <SkipOnlyGeneralFixChanges>true</SkipOnlyGeneralFixChanges>
     <SkipOnlyMinorGeneralFixChanges>false</SkipOnlyMinorGeneralFixChanges>
     <SkipOnlyCosmetic>false</SkipOnlyCosmetic>
     <SkipOnlyCasingChanged>false</SkipOnlyCasingChanged>
-    <SkipIfRedirect>true</SkipIfRedirect>
+    <SkipIfRedirect>false</SkipIfRedirect>
     <SkipIfNoAlerts>false</SkipIfNoAlerts>
-    <SkipDoes>true</SkipDoes>
-    <SkipDoesText>(?:\&lt; *div.*\&gt;)</SkipDoesText>
-    <SkipDoesRegex>true</SkipDoesRegex>
+    <SkipDoes>false</SkipDoes>
+    <SkipDoesText />
+    <SkipDoesRegex>false</SkipDoesRegex>
     <SkipDoesCaseSensitive>false</SkipDoesCaseSensitive>
     <SkipDoesAfterProcessing>false</SkipDoesAfterProcessing>
     <SkipDoesNot>false</SkipDoesNot>
     <SkipDoesNotText />
     <SkipDoesNotRegex>false</SkipDoesNotRegex>
     <SkipDoesNotCaseSensitive>false</SkipDoesNotCaseSensitive>
-    <SkipDoesNotAfterProcessing>true</SkipDoesNotAfterProcessing>
+    <SkipDoesNotAfterProcessing>false</SkipDoesNotAfterProcessing>
     <SkipNoFindAndReplace>false</SkipNoFindAndReplace>
     <SkipMinorFindAndReplace>false</SkipMinorFindAndReplace>
     <SkipNoRegexTypoFix>false</SkipNoRegexTypoFix>
@@ -4922,7 +4880,9 @@
         {
             Skip = false;
             Summary = "test";
+
             ArticleText = "test \r\n\r\n" + ArticleText;
+
             return ArticleText;
         }</Code>
   </Module>
@@ -4944,12 +4904,12 @@
     <namespaceValues />
     <remDupes>true</remDupes>
     <sortAZ>true</sortAZ>
-    <filterTitlesThatContain>true</filterTitlesThatContain>
-    <filterTitlesThatContainText>(/| [Ss]et($| )| [Gg]uide($| ))</filterTitlesThatContainText>
+    <filterTitlesThatContain>false</filterTitlesThatContain>
+    <filterTitlesThatContainText />
     <filterTitlesThatDontContain>false</filterTitlesThatDontContain>
     <filterTitlesThatDontContainText />
-    <areRegex>true</areRegex>
-    <opType>0</opType>
+    <areRegex>false</areRegex>
+    <opType>-1</opType>
     <remove />
   </Special>
   <Tool>

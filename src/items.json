@@ -1,0 +1,3318 @@
+{
+  "findAndReplace": {
+    "enabled": "true",
+    "ignoreSomeText": "false",
+    "ignoreMoreText": "false",
+    "appendSummary": "false",
+    "includeComments": "false",
+    "expandRecursively": "true",
+    "ignoreUnformatted": "false",
+    "replacements": [
+      {
+        "find": "cellspaing",
+        "replace": "cellspacing",
+        "comment": "Typo",
+        "isRegex": "false",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "([^'])([ ']+)([^'^\\n]+?)\\2((?:\\<br\\>| )+)\\2",
+        "replace": "$1$2$3$4",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(^'''.+?)\\<br\\/?\\>(.+?''(?:<br\\/?\\>)*\\n)",
+        "replace": "$1'''<br>\\n''$2",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase Multiline"
+      },
+      {
+        "find": "(\\[\\[File\\:.+?\\]\\] *\\n)(__NOTOC__ *\\n)",
+        "replace": "$2$1",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(__NOTOC__\\n)\\[\\[(?:File|Image):(.+?\\.[A-Za-z]{3,4})(?:\\|(.*?))?\\]\\]",
+        "replace": "$1{{Item Image|$2|$3}}",
+        "comment": "Item Image",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(__NOTOC__\\n){{image-stub}}",
+        "replace": "$1{{Item Image|}}",
+        "comment": "Item Image",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "\\{\\{Item Image\\|(.+?)\\|\\}\\}",
+        "replace": "{{Item Image|$1}}",
+        "comment": "Item Image",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "\\{\\{Item Image(?:\\| *link *= *.+?)?\\|(.+?)(?:\\| *link *= *.+?)?\\}\\}",
+        "replace": "{{Item Image|$1}}",
+        "comment": "Item Image",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(\\{\\{Item Image.+?)\\|\\{\\{PAGENAME\\}\\}\\}\\}",
+        "replace": "$1}}",
+        "comment": "Item Image",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "^(.+) +$",
+        "replace": "$1",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase Multiline"
+      },
+      {
+        "find": "(?<=\\:[' ]*(?:Yield|Yeild|HQ *\\d?)[: ']*)('*)([\\d\\?\\-\\+]+) *x *(.+)\\1",
+        "replace": "$1$3$1 x $2",
+        "comment": "Yield",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(?<=[\\:\\*]?'+(?:Yield|HQ *\\d?):?'+ *)''(\\[\\[.+?\\]\\])''",
+        "replace": "$1",
+        "comment": "Yield",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(?<=\\:[' ]*(?:Yield|Yeild|HQ *\\d?)[:' ]*?)('+)(.+?) *x *(\\d+)\\1",
+        "replace": "$1$2$1 x $3",
+        "comment": "Yield",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "[' ]*(Used For|Weapon Upgrade)[\\:' ]*\\[\\[Adventuring Fellow Guide#Adventuring Fellow Weapon Upgrades\\|Adventuring Fellow Weapon Upgrade\\]\\]",
+        "replace": "'''[[Adventuring Fellow]]:''' [[Adventuring Fellow Guide#Adventuring Fellow Weapons|Weapon Upgrade]]",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "\\[\\[(?!Weapon)+( Skill)\\]\\]",
+        "replace": "[[$1$2|$1 skill]]",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "false",
+        "regexOptions": "None"
+      },
+      {
+        "find": "\\[\\[(Latent Effect)\\]\\]",
+        "replace": "[[$1|Latent effect]]",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "\\[\\[(MP|HP)( Recovered While Healing)\\]\\]",
+        "replace": "[[$1$2|$1 recovered while healing]]",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "\\[\\[(Avatar Perpetuation Cost)\\]\\]",
+        "replace": "[[$1|Avatar perpetuation cost]]",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "false",
+        "regexOptions": "None"
+      },
+      {
+        "find": "\\[\\[(Damage Varies By Moon Phase)\\]\\]",
+        "replace": "[[$1|Damage varies by moon phase]]",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "false",
+        "regexOptions": "None"
+      },
+      {
+        "find": "[\\[]*'''[ \\[]*(?:[Aa]dditional +[Ee]ffect\\|?)+(?: *vs\\. *([\\w ]+))?[\\]\\:' ]*(?:\\[+(?:[^\\]]+\\|)?(?:\\{\\{\\w+\\|)?([\\w ]+)(?:\\}\\})?|(\\[*\"[\\w \\[\\]]+\"\\]*))[\\]' ]*",
+        "replace": "{{Additional Effect|$2$3|vs = $1}}",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "false",
+        "regexOptions": "None"
+      },
+      {
+        "find": "(\\{\\{Additional Effect\\|.+)\\|vs[\\= \\n]+(\\}\\})",
+        "replace": "$1$2",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "None"
+      },
+      {
+        "find": "((?:.*?\\n)+.*?)((?:\\[\\[(?:category|\\w\\w):.+?\\]\\]\\s*)+)",
+        "replace": "$2$1",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "^((?:\\<br\\/?\\>)+)(\\{\\|[\\w ])",
+        "replace": "$1\\n$2",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase Multiline"
+      },
+      {
+        "find": "^(\\{\\{Craft\\|[\\w ]+?\\|[\\(\\)\\d ]+?\\}\\})'+$",
+        "replace": "$1",
+        "comment": "Craft",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase Multiline"
+      },
+      {
+        "find": "['\\[ ]+(?:Guild Points *\\|)?Guild Points Value[\\]:' ]*(N/A|)[']*\\n?(?:\\<br[/\\\\]?\\>){2}\\n?",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "[']*Used in Quest(s?)[:']+ ",
+        "replace": "'''[[:Category:Quests|Used in Quest$1]]:''' ",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "[' \\[]*\\:Category\\:Quests\\|Used in Quest[s\\]:' ]*(?:None|Unknown|\\?*)[' ]*(?:\\n*\\<br[/\\\\]?\\>){1,2}\\n( *[^:^*])",
+        "replace": "$1",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "\\n?(?:\\<br[/\\\\]?\\>){2}\\n?[\\[' ]*\\:Category\\:Quests\\|Used in Quest[\\]': s]*(?:None|Unknown)[' ]*",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "^[ ']*Crafted Only[\\.!]?[' ]*$",
+        "replace": "{{Crafted Only}}",
+        "comment": "Crafted Only",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase Multiline"
+      },
+      {
+        "find": "'''''Only\\ obtainable\\ through\\ \\[\\[\\#Synthesis\\ Recipes\\|synthesis]]\\.'''''",
+        "replace": "{{Crafted Only}}",
+        "comment": "Crafted Only",
+        "isRegex": "false",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "\\n?[ ']*(?:View|See) the entire[' ]*\\[\\[(.*?)\\]\\]\\.?'*",
+        "replace": "\\n{{Equipment Set|$1}}",
+        "comment": "Equipment Set",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "[']*\\[\\[(?:Guild Points\\|)?Guild Points Value\\]\\][']*:[' ]*([\\d\\,]+|None)(?: */ *([\\d\\,]+)([' ]*\\([\\d\\. ]+ *(?:items?)? *\\))?)?[']*",
+        "replace": "{{Guild Points Value|$1|$2}}",
+        "comment": "Guild Points",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "\\{\\{Guild\\ Points\\ Value\\|None\\|}}",
+        "replace": "{{Guild Points Value|0}}",
+        "comment": "Guild Points",
+        "isRegex": "false",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "['\\[]*Resale Price[\\]:' ]*(?:None|Cannot be sold to NPCs?|Cannot be sold)[!\\.]?[']*",
+        "replace": "{{Resale Price|None}}",
+        "comment": "Resale Price",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "[']*\\[\\[Resale Price\\]\\][\\:']* ([\\d\\,]+)(?: *gils?)? +- +(([\\d\\,\\?]+)~|\\?+~) \\[*gils?\\]*",
+        "replace": "{{Resale Price|$1|$2|exact min}}",
+        "comment": "Resale Price",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "[']*\\[\\[Resale Price\\]\\][\\:']* (?:~([\\d\\,]+)|~?\\?+)(?: *gils?)? +- +([\\d\\,]+) *\\[*gils?\\]*",
+        "replace": "{{Resale Price|$1|$2|exact max}}",
+        "comment": "Resale Price",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "^[' \\[ ]*Resale Price[\\]': \\-]*~?([\\d\\,\\?X]+)?(?: *gils?)? *[\\~\\-]? *([\\d\\,\\?X]+|\\{\\{(?:Question|Information Needed|Verification)\\}\\}|unknown)?(?: *\\[*gils?\\]*)?[']*",
+        "replace": "{{Resale Price|$1|$2}}",
+        "comment": "Resale Price",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase Multiline"
+      },
+      {
+        "find": "^[' \\[ ]*Resale Price[\\]': \\-]*~?([\\d\\,\\?X]+)?(?: *gils?)?",
+        "replace": "{{Resale Price|$1}}",
+        "comment": "Resale Price",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase Multiline"
+      },
+      {
+        "find": "(?<=\\{\\{Resale Price\\|[^\\{]*?)\\{\\{(?:verification|information needed|question)\\}\\}(?=\\}\\}|\\|)",
+        "comment": "Resale Price",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "\\{\\{Resale Price\\|[\\?X]+\\|[\\?X]+\\}\\}",
+        "replace": "{{Resale Price|}}",
+        "comment": "Resale Price",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(\\{\\{Resale Price\\|[\\d\\,]*)\\|[\\?\\,]+\\|?(\\}\\})",
+        "replace": "$1$2",
+        "comment": "Resale Price",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(\\{\\{Resale Price\\|)[\\?\\,]+\\|([\\d\\,]*)\\|?(\\}\\})",
+        "replace": "$1$2$3",
+        "comment": "Resale Price",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(\\{\\{Resale Price\\|[\\d\\,]+)[\\-\\~ ]+([\\d\\,]+\\}\\})",
+        "replace": "$1|$2",
+        "comment": "Resale Price",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(\\{\\{Resale Price\\|)(?:X+\\|)?([\\d\\,]+)(?:X+\\|)?(\\}\\})",
+        "replace": "$1$2$3",
+        "comment": "Resale Price",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(\\{\\{Resale Price\\|.*?)\\|\\}\\}",
+        "replace": "$1}}",
+        "comment": "Resale Price",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(\\{\\{Resale Price[^\\}]*\\}\\}) *\\{\\{(?:Information Needed|Question)\\}\\}",
+        "replace": "$1",
+        "comment": "Resale Price",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "\\{\\{Resale Price\\|+(?:\\{\\{(?:Question|Information Needed|Verification)\\}\\}|unknown)\\|*\\}\\}",
+        "replace": "{{Resale Price|}}",
+        "comment": "Resale Price",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "\\{\\{Resale Price(?:\\?*\\|?)*\\}\\}",
+        "replace": "{{Resale Price|}}",
+        "comment": "Resale Price",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "\\:'''HQ *(\\d)\\:''' *\\n",
+        "replace": ":'''HQ $1:''' ???\\n",
+        "comment": "Synthesis Recipe",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(Crystal[\\]\\}]+\\n):\\[\\[(.*?)\\|\\{\\{Color\\|Neutral\\|\\1\\}\\}\\]\\]",
+        "replace": "$1:{{Crafting Tool|$2}}",
+        "comment": "Crafting Tool",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "\\:[' ]*\\[\\[(.+?)\\|[' ]*\\< *font *color *= *\" *(?:sienna) *\" *\\>[' ]*\\1[' ]*\\< *\\/ *font *\\>[' ]*\\]\\][' ]*",
+        "replace": ":{{Crafting Tool|$1}}",
+        "comment": "Crafting Tool",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(\\{\\{Guild Points Value\\|\\d+),?(\\d+\\|\\d+),?(\\d+\\}\\})",
+        "replace": "$1$2$3",
+        "comment": "Guild Points",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "\\{\\{Guild Points Value\\}\\}",
+        "replace": "{{Guild Points Value|0}}",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "\\* *\\{\\{ *[Cc]olorlink *\\| *([Pp]ositive|[Nn]egative|[Nn]eutral) *\\|(.*?)\\|\\2(?: *([+-][\\d.~-]+%*)){0,1}\\}\\}",
+        "replace": "*{{Effect|$1|$2|$3}}",
+        "comment": "Effect",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "false",
+        "regexOptions": "None"
+      },
+      {
+        "find": "\\* *\\{\\{ *[Cc]olorlink *\\| *([Pp]ositive|[Nn]egative|[Nn]eutral) *\\|(.*?)\\}\\}",
+        "replace": "*{{Effect|$1|$2}}",
+        "comment": "Effect",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "false",
+        "regexOptions": "None"
+      },
+      {
+        "find": "\\* *\\[\\[(.*?)\\|\\{\\{ *[Cc]olor *\\| *([Pp]ositive|[Nn]egative|[Nn]eutral) *\\|\\1(?: *([+-][\\d\\.\\~\\-\\?]+%*)){0,1}\\}\\}\\]\\]",
+        "replace": "*{{Effect|$2|$1|$3}}",
+        "comment": "Effect",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "false",
+        "regexOptions": "None"
+      },
+      {
+        "find": "\\* *(?:\\[\\[(.*?)\\|)?\\{\\{ *[Cc]olor *\\| *([Pp]ositive|[Nn]egative|[Nn]eutral) *\\|(.*?)\\}\\}(?:\\]\\])?",
+        "replace": "*{{Effect|$2|$1|display = $3}}",
+        "comment": "Effect",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "false",
+        "regexOptions": "None"
+      },
+      {
+        "find": "\\* *\\[\\[(.*?)\\|\\{\\{ *([Ww]ind|[Ff]ire|[Ee]arth) *\\| *\\1(?: *([+-][\\d\\.\\~\\-\\?]+%*)){0,1}\\}\\}\\]\\]",
+        "replace": "*{{Effect|$2|$1|$3}}",
+        "comment": "Effect",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "false",
+        "regexOptions": "None"
+      },
+      {
+        "find": "\\* *\\[\\[(.*?)\\|\\{\\{ *([Ww]ind|[Ff]ire|[Ee]arth) *\\| *(.*?)\\}\\}\\]\\]",
+        "replace": "*{{Effect|$2|$1|display = $3}}",
+        "comment": "Effect",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "false",
+        "regexOptions": "None"
+      },
+      {
+        "find": "\\* *[']*\\[\\[ *(.*?) *\\| *\\< *font *color *= *\"(.*?)\" *\\>[' ]*\\1(?: *([+-][\\d\\.\\~\\-?]+%*)){0,1}(.*?)[' ]*\\</ *font *\\> *\\]\\][']*",
+        "replace": "*{{Effect|$2|$1|$3$4}}",
+        "comment": "Effect",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "\\* *[']*\\[\\[ *(.*?) *\\|\\ *< *font *color *= *\"(.*?)\" *\\>[' ]*(.*?(?: *([+-][\\d\\.\\~\\-?]+%*))?.*?)[' ]*\\</ *font *\\> *\\]\\][']*",
+        "replace": "*{{Effect|$2|$1|display = $3}}",
+        "comment": "Effect",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(\\{\\{Effect.*?\\|)(?:Wind|green)(\\|.*?\\}\\})",
+        "replace": "$1Positive$2",
+        "comment": "Effect",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(\\{\\{Effect.*?\\|)(?:Fire|red)(\\|.*?\\}\\})",
+        "replace": "$1Negative$2",
+        "comment": "Effect",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(\\{\\{Effect.*?\\|)(?:Earth|#cc9900)(\\|.*?\\}\\})",
+        "replace": "$1Neutral$2",
+        "comment": "Effect",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(\\{\\{Effect.*?)(?:\\}\\}){0,1}[' ]*\\((?:Cap|Max):* *([\\d\\+\\-\\~]+)\\)[']*(?: *\\}\\}){0,1}",
+        "replace": "$1|cap = $2}}",
+        "comment": "Effect",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(\\{\\{Effect.*?)(?:\\}\\}){0,1}[ ']*\\(*(?:Cap|Max):* *([\\d-+~]+) *@ *([\\d\\+\\-\\~\\?]+) *(?:Base ){0,1}[\\w \\.]*?\\)[']*(?: *\\}\\}){0,1}",
+        "replace": "$1|cap = $2|cap base = $3}}",
+        "comment": "Effect",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(\\{\\{Effect.*?)\\}\\}[' ]*\\((?:Cap|Max):* *(?:\\?+|\\{\\{Information Needed\\}\\})\\)[']*(?: \\{\\{Information Needed\\}\\})?",
+        "replace": "$1|cap = ???}}",
+        "comment": "Effect",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(\\{\\{Effect.*?)\\}\\} \\((?:Cap|Max):* *(?:\\?+|\\{\\{Information Needed\\}\\}) *@ *([\\d\\+\\-\\~\\?]+) *(?:Base ){0,1}\\w*?\\)(?: \\{\\{Information Needed\\}\\})?",
+        "replace": "$1|cap = ???|cap base = $2}}",
+        "comment": "Effect",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(\\{\\{Effect.*?)\\}\\}\\n:+['\\(]+(.*?)['\\)]+",
+        "replace": "$1|note = $2}}",
+        "comment": "Effect",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase Multiline"
+      },
+      {
+        "find": "(\\{\\{Effect.*?)\\}\\} *\\{\\{verification(\\|.*)",
+        "replace": "$1$2 {{verification}}",
+        "comment": "Effect",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(\\{\\{Effect.*?)\\|\\|+(.*?\\}\\})",
+        "replace": "$1|$2",
+        "comment": "Effect",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(\\{\\{Effect\\|(?:Positive|Negative|Neutral)\\|)display *= *(.+?) *([+-][\\d\\.\\~\\-?]+%?)?((\\|.*)?(?:\\}\\}))",
+        "replace": "$1$2|$3$4",
+        "comment": "Effect",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(\\{\\{Effect.*?)\\|\\}\\}",
+        "replace": "$1}}",
+        "comment": "Effect",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(\\{\\{Effect.*?\\|)(.+?)\\|display = \\2.*?((?:\\|.+)?\\}\\})",
+        "replace": "$1$2$3",
+        "comment": "Effect",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "true",
+        "regexOptions": "None"
+      },
+      {
+        "find": "\\* *\\{\\{ *[Cc]olorlink *\\| *([Pp]ositive|[Nn]egative|[Nn]eutral) *\\|(.*?)\\|(.*?)\\}\\}",
+        "replace": "*{{Effect|$1|$2|display = $3}}",
+        "comment": "Effect",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "false",
+        "regexOptions": "None"
+      },
+      {
+        "find": "\\* *\\{\\{ *Effect *\\| *(Positive|Negative|Neutral) *\\| *\\<stat\\> *\\| *display *= *\\1 *Stats\\}\\}\\n",
+        "comment": "Effect",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "\\[\\[(?:\\:Category\\:)?(alchemy|bonecraft|smithing|goldsmithing|cooking|leathercraft|clothcraft|woodworking)(?:\\|\\1)?\\]\\] *(\\(?[\\d\\?\\-\\+]+\\)?)",
+        "replace": "{{Craft|$1|$2}}",
+        "comment": "Craft",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(\\{\\{Craft\\|.+?\\|.+?)\\)(?:\\}\\})?[' ]*(\\{\\{(?:verification|question|Information Needed)\\}\\})(?:\\}\\})?",
+        "replace": "$1$2)}}",
+        "comment": "Craft",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(\\{\\{Craft\\|.+?\\|\\w+)\\(\\?*\\)\\}\\}",
+        "replace": "$1}}",
+        "comment": "Craft",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(\\{\\{Craft\\|.+?\\|\\(?)\\{\\{(?:question|information needed)\\}\\}(\\)?\\}\\})",
+        "replace": "$1?$2",
+        "comment": "Craft",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(^\\{\\{(?:Armor|Item Statistics)\\s+(?:^\\|.+|\\n)+)^\\}\\}(?:\\<br\\>|\\s)*((?:[':\\*].*|\\<br\\>|\\s)+?)(?=^\\|width=\"50%\" valign=\"top\"\\|\\s+\\=\\=Other Uses\\=\\=)",
+        "replace": "$1| notes = $2}}",
+        "comment": "Item notes",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase Multiline"
+      },
+      {
+        "find": "\\| *(jobs|races) *=[' ]*(All )?\\1[' (?:\\<br\\/?\\>)]*\\n+",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "^\\| *(?:name|tags|races|damage|delay|stats|image.*?|description|evolith *\\d|charges|use delay|recast|stackable|level|jobs|notes) *=(?:\\<br\\/?\\>|[\\n '])*$\\n",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase Multiline"
+      },
+      {
+        "find": "(?<=^\\{\\{Synthesis Recipes\\s+(?:.|\\n)+)^\\| recipe \\d =\\s+(?=^(?:\\| recipe|\\}\\}))",
+        "comment": "Template cleanup",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase Multiline"
+      },
+      {
+        "find": "[' \\[][^\\|\\n]*\\|Used in Quest[s \\]:'\\n]*(?=^\\|-)",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase Multiline"
+      },
+      {
+        "find": "\\| *(description) *= *''(.+)''",
+        "replace": "| $1 = $2",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "\\| *races *= *(?:All Races)?\\n",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "\\| *races *= *H\\n",
+        "replace": "| races = Hume",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "\\| *races *= *E\\n",
+        "replace": "| races = Elvaan",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "\\| *races *= *T\\n",
+        "replace": "| races = Tarutaru",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "\\| *races *= *G\\n",
+        "replace": "| races = Galka",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "\\| *races *= *M\\n",
+        "replace": "| races = Mithra",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(\\| *duration *\\= *\\d+ *)Hour(s?)",
+        "replace": "$1hour$2",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "true",
+        "regexOptions": "None"
+      },
+      {
+        "find": "(\\| *duration *\\= *\\d+ *)Minute(s?)",
+        "replace": "$1minute$2",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "true",
+        "regexOptions": "None"
+      },
+      {
+        "find": "(\\| *duration *\\= *\\d+ *)Second(s?)",
+        "replace": "$1second$2",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "true",
+        "regexOptions": "None"
+      },
+      {
+        "find": "\\| *(stackable|duration) *\\= *(\\?+|\\{\\{(Information( Needed)?|Question)\\}\\}|\\1).*\\n",
+        "replace": "| $1 = ???\\n",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(\\| *effects *\\=\\s*)(?:^[\\*\\: ]*(?:\\?+|unknown|\\{\\{(?:question|information needed)\\}\\})\\s+)+(^\\| *\\w+|^\\}\\})",
+        "replace": "$1$2",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase Multiline"
+      },
+      {
+        "find": "\\| *evolith(\\d)",
+        "replace": "| evolith $1",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "\\| *ilevel *= *",
+        "replace": "| item level = ",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(?<=^\\=\\= *(?:Synthesis Recipes?|Used in Recipes?|Desynthesis *Recipes?|Obtained from Desynthesis) *\\=\\= *$)\\s+(?:\\s*(?:\\<br\\>)*)*(\\*)?[' ]*(?:Unknown|\\?+)?[' ]*?\\n+(?:^\\|\\- *$\\s+)*(?:(^\\| *width\\=\" *50\\% *\" *valign\\=\\\"top\\\"\\| *$|^\\|\\} *$)\\s+)+",
+        "replace": "\\n$1{{Information Needed}}\\n$2\\n",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase Multiline"
+      },
+      {
+        "find": "\\{\\| *cellpadding *\\= *\\\" *(\\d+) *\\\" *width\\=\\\" *(\\d+\\%)\\ *\" *( *border *= *\" *\\d+ *\" *)?",
+        "replace": "{|cellpadding=\"$1\" width=\"$2\"$3",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "\\| *valign *= *\"top\" *width *= *\" *50% *\" *\\|\\s+",
+        "replace": "|width=\"50%\" valign=\"top\"|\\n",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "\\| *width *= *\" *50% *\" *valign *= *\" *top *\" *\\|\\s*",
+        "replace": "|width=\"50%\" valign=\"top\"|\\n",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(\\|width=\"50%\" *valign=\"top\"\\|\\n)(\\|-\\n)(?=\\=\\=(?:De)?synthesis Recipes?\\=\\=)",
+        "replace": "$2$1",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(?<=\\=\\=((?:Des|S)ynthesis Recipes?|Used in Recipes?|Obtained from Desynthesis)\\=\\=)\\s*(?=(?:\\|\\-\\s+)?\\|width=\"50%\" valign=\"top\"\\||\\|\\})",
+        "replace": "\\n{{Information Needed}}\\n",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "\\s*(?:__NOTOC__)?\\s*(?:^\\{\\| *cellpadding *\\= *\\\" *\\d+ *\\\" *width\\=\\\" *\\d+\\%\\ *\" *(?: *border *= *\" *\\d+ *\" *)?$\\s+)*(?:^\\|\\- *$\\s+)*(?:^\\| *width\\=\" *\\d+\\% *\" *valign\\=\\\"top\\\"(?: *align=\"left\")?\\| *$\\s+)*^== *Statistics *\\=\\= *$\\s+(.*?)(?:\\s*(?:\\<br\\>)*)*\\n(?:^\\|\\- *$\\s+)*(?:^\\| *width\\=\" *\\d+\\% *\" *valign\\=\\\"top\\\"(?: *align=\"left\")?\\| *$\\s+)*^== *Other *Uses? *\\=\\= *$\\s+(.*?)(?:\\s*(?:\\<br\\>)*)*\\n(?:^\\|\\}\\s*^\\{\\|.+?\\n)?(?:^\\|\\- *$\\s+)*(?:^\\| *width\\=\" *\\d+\\% *\" *valign\\=\\\"top\\\"(?: *align=\"left\")?\\| *$\\s+)*^== *Synthesis *Recipes? *\\=\\= *$\\s+(.*?)(?:\\s*(?:\\<br\\>)*)*\\n(?:^\\s*(?:\\<br\\>)*)*(?:^\\|\\- *$\\s+)*(?:^\\| *width\\=\" *\\d+\\% *\" *valign\\=\\\"top\\\"(?: *align=\"left\")?\\| *$\\s+)*^== *Used *[Ii]n *Recipes? *\\=\\= *$\\s+(.*?)(?:\\s*(?:\\<br\\>)*)*\\n(?:^\\|\\- *$\\s+)*(?:^\\| *width\\=\" *\\d+\\% *\" *valign\\=\\\"top\\\"(?: *align=\"left\")?\\| *$\\s+)*^== *Desynthesis *Recipes? *\\=\\= *$\\s+(.*?)(?:\\s*(?:\\<br\\>)*)*\\n(?:^\\|\\- *$\\s+)*(?:^\\| *width\\=\" *\\d+\\% *\" *valign\\=\\\"top\\\"(?: *align=\"left\")?\\| *$\\s+)*^== *Obtained *[Ff]rom *Desynthesis *\\=\\= *$\\s+(.*?)(?:\\s*(?:\\<br\\>)*)*\\n(?:^\\|\\- *$\\s+)*(?:^\\| *width\\=\" *\\d+\\% *\" *valign\\=\\\"top\\\"(?: *align=\"left\")?\\| *$\\s+)*(?:^\\|\\} *$\\s+?)*^== *How *[Tt]o *Obtain *\\=\\= *$",
+        "replace": "\\n{|cellpadding=\"5\" width=\"100%\"\\n|width=\"50%\" valign=\"top\"|\\n==Statistics==\\n$1\\n|width=\"50%\" valign=\"top\"|\\n==Other Uses==\\n$2\\n|-\\n|width=\"50%\" valign=\"top\"|\\n==Synthesis Recipes==\\n$3\\n|width=\"50%\" valign=\"top\"|\\n==Used in Recipes==\\n$4\\n|-\\n|width=\"50%\" valign=\"top\"|\\n==Desynthesis Recipes==\\n$5\\n|width=\"50%\" valign=\"top\"|\\n==Obtained from Desynthesis==\\n$6\\n|}\\n==How to Obtain==",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase Multiline Singleline"
+      },
+      {
+        "find": "\\| *stats *= *\\<br\\/?\\>([\\[\\{]+[\\w ]+[\\]\\}]+)'''",
+        "replace": "| stats = <br>'''$1'''",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "\\| *stats *= *'{4,6}",
+        "replace": "| stats = '''",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "\\}\\}\\|width=\"50%\" valign=\"top\"\\|\\n\\|width=\"50%\" valign=\"top\"\\|",
+        "replace": "}}\\n|width=\"50%\" valign=\"top\"|",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": " *\\< *br *\\/? *\\>\\s*\\| *level",
+        "replace": "\\n| level",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(\\[\\[(?:Category|\\w\\w):.+?\\]\\])\\s*(?:__NOTOC__)?\\s*(\\[\\[File:)",
+        "replace": "$1__NOTOC__\\n$2",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(\\[\\[(?:Category|\\w\\w):.+?\\]\\])\\s*(?:__NOTOC__)?\\s*(\\{\\| *cell)",
+        "replace": "$1__NOTOC__\\n{{Item Image|}}\\n$2",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(\\[\\[(?:Category|\\w\\w):.+?\\]\\]) *\\n+",
+        "replace": "$1\\n",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "\\s*(\\[\\[(?:Category|\\w\\w):.+?\\]\\])",
+        "replace": "$1",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "^\\s*(\\{\\|cell)",
+        "replace": "__NOTOC__\\n{{Item Image|}}\\n$1",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "\\[\\[File:(\\w+?)[ _]icon.jpg(?:\\|.+?)?\\]\\]",
+        "replace": "{{Resist $1}}",
+        "comment": "Resist",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "'*\\{\\{Resist[_ ](.+?)\\}\\}[' ]*([\\-\\+]\\d+)",
+        "replace": "{{Resist|$1|$2}}",
+        "comment": "Resist",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "\\[\\[File:]]",
+        "replace": "{{Item Image|}}",
+        "comment": "Item Image",
+        "isRegex": "false",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "\\{\\{Item Image\\|([^}|]*?)\\|(?:left|right|thumb|\\d+ *x *\\d+)\\}\\}",
+        "replace": "{{Item Image|$1}}",
+        "comment": "Item Image",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "^(\\[\\[File:)",
+        "replace": "__NOTOC__\\n$1",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "\\[\\[Category:Weapons?\\]\\]((?:.*\\n)+\\{\\{Weapon)",
+        "replace": "$1",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "\\[\\[Category:(.+?)s?\\]\\]((?:.*\\n)+\\| *type *= *\\1)",
+        "replace": "$2",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "([:' ]+Yield[:' ]+.+?)( *x *\\d)''",
+        "replace": "$1''$2",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(?<=^\\|\\})(?=.+?\\n)",
+        "replace": "\\n",
+        "comment": "Whitespace",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase Multiline"
+      },
+      {
+        "find": "(?<=\\=\\=How to Obtain\\=\\=\\n(?:.*?\\n)*^\\|-(?:[^\\|^\\n]*? )?) *align=\"left\" *(?=.*?\\n(?:^\\| *.*?\\|?\\n)*?\\|[\\}\\-])",
+        "comment": "Table",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase Multiline"
+      },
+      {
+        "find": "(?<=\\{\\|.*?\\n(?:(?!\\|\\}).*?\\n)+(?!\\|\\}).*?)$",
+        "replace": "\\n|}",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "[' \\[]*\\:Category\\:Quests\\|Used in Quest[s\\]:' ]*\\s*(?=\\{\\{Used In)",
+        "comment": "Used In Quest",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(?<=(?:\\s|^)[\\( ]*\\?+[\\) ]*)\\{\\{[Vv]erification\\}\\}",
+        "replace": "{{Information Needed}}",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase Multiline"
+      },
+      {
+        "find": "(?<===How to Obtain==(?:.|\\n)*?)[' ]*.*?Used [Ii]n [Qq]uests?[\\]\\:'\\s]*?(?=[\\*\\:\\[]*Trial)",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "false",
+        "regexOptions": "None"
+      },
+      {
+        "find": "(?<=\\{\\{Item Image\\|.*?\\|)\\|",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(?<=\\=\\=How to Obtain\\=\\=\\s+(?:[^=]+?)*?)(?:\\s|\\<br\\>)+(?=\\=\\=\\=[^=\\n]+?\\=\\=\\=)",
+        "replace": "\\n",
+        "comment": "Whitespace",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase Multiline"
+      },
+      {
+        "find": "(?<=^\\}\\})(?=\\|[^\\|\\n]+?\\|$)",
+        "replace": "\\n",
+        "comment": "Whitespace",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase Multiline"
+      },
+      {
+        "find": "^\\s*(?=\\{\\{Item Image)",
+        "comment": "Whitespace",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "\\{\\{ *AH\\|? *(?:Exclusive *[^}]*)? *\\}\\}",
+        "replace": "{{AH|Undeliverable Exclusive}}",
+        "comment": "Undeliverable Ex",
+        "isRegex": "true",
+        "enabled": "false",
+        "minor": "false",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "(?<=\\=\\=How to Obtain\\=\\=)(\\s+)(?!\\{\\{AH)",
+        "replace": "\\n{{AH|Undeliverable Exclusive}}\\n",
+        "comment": "Undeliverable Ex",
+        "isRegex": "true",
+        "enabled": "false",
+        "minor": "false",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "find": "^\\| *\\|",
+        "replace": "|",
+        "comment": "Table",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "false",
+        "afterFixes": "true",
+        "regexOptions": "IgnoreCase Multiline"
+      },
+      {
+        "find": "^===Historical (Information|Background)===$",
+        "replace": "==Historical Background==",
+        "isRegex": "true",
+        "enabled": "true",
+        "minor": "true",
+        "afterFixes": "false",
+        "regexOptions": "IgnoreCase Multiline"
+      }
+    ],
+    "advancedReplacements": [
+      {
+        "enabled": "true",
+        "children": [
+          {
+            "enabled": "true",
+            "comment": "Convert nc to regular",
+            "type": "OnWholePage",
+            "find": "(?<=\\[\\[Category:(Rare|Exclusive|Augmented|Temporary)\\]\\](?:.*?\\n)*?.*?)\\{\\{\\1(?:\\|nc)?\\}\\}",
+            "replace": "{{$1}}",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "7",
+            "ifRegexOptions": "None",
+            "regexOptions": "IgnoreCase"
+          }
+        ],
+        "comment": "Tags",
+        "type": "OnWholePage",
+        "isRegex": "false",
+        "ifIsRegex": "false",
+        "numberOfTimes": "1",
+        "ifRegexOptions": "None",
+        "regexOptions": "None"
+      },
+      {
+        "enabled": "true",
+        "children": [
+          {
+            "enabled": "true",
+            "comment": "Single Trial",
+            "type": "OnWholePage",
+            "find": "[ '\\*\\:]*\\[\\[(?:(?:\\:Category\\:)?Trial of the Magians\\|)?Trial of the Magians\\]\\][:' ]*(?:[\\(\\[]*\\w+?(?: *Trials?)?[\\)\\]]*)?\\[\\[Trial ([^\\]]+?)\\]\\][' ]*(?: *\\((.*?)\\))?(?:\\<br\\>|[ ])*\\n(?=(?:.*?\\n)*?==How *to *Obtain==)",
+            "replace": "{{Used In\\n| trial = $1\\n| trial descriptor = $2\\n}}\\n",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "IgnoreCase"
+          },
+          {
+            "enabled": "true",
+            "comment": "Multiple trials",
+            "type": "OnWholePage",
+            "find": "(?:[' \\[]*(?:(?:\\:Category:)?Quests?\\|)?Used *in *Quest[\\]: ']*)?[ '\\*\\:]*\\[\\[(?:(?:\\:Category\\:)?Trial of the Magians\\|)?Trial *of *the *Magians\\]\\][:' ]*(?:[\\(\\[]*\\w[\\w\\t ]+?(?: *Trials?)?[\\)\\]]*)?\\s*\\n(?:[ \\t\\:\\*]*(\\[\\[Trial .+?\\]\\](?:[ \\t]*\\(.*?\\))?)[ \\t]*\\n)(?:[ \\t\\:\\*]*(\\[\\[Trial .+?\\]\\](?:[ \\t]*\\(.*?\\))?)[ \\t]*\\n)?(?:[ \\t\\:\\*]*(\\[\\[Trial .+?\\]\\](?:[ \\t]*\\(.*?\\))?)[ \\t]*\\n)?(?:[ \\t\\:\\*]*(\\[\\[Trial .+?\\]\\](?:[ \\t]*\\(.*?\\))?)[ \\t]*\\n)?(?:[ \\t\\:\\*]*(\\[\\[Trial .+?\\]\\](?:[ \\t]*\\(.*?\\))?)[ \\t]*\\n)?(?:[ \\t\\:\\*]*(\\[\\[Trial .+?\\]\\](?:[ \\t]*\\(.*?\\))?)[ \\t]*\\n)?(?:[ \\t\\:\\*]*(\\[\\[Trial .+?\\]\\](?:[ \\t]*\\(.*?\\))?)[ \\t]*\\n)?(?:[ \\t\\:\\*]*(\\[\\[Trial .+?\\]\\](?:[ \\t]*\\(.*?\\))?)[ \\t]*\\n)?(?:[ \\t\\:\\*]*(\\[\\[Trial .+?\\]\\](?:[ \\t]*\\(.*?\\))?)[ \\t]*\\n)?(?:[ \\t\\:\\*]*(\\[\\[Trial .+?\\]\\](?:[ \\t]*\\(.*?\\))?)[ \\t]*\\n)?(?=(?:.*?\\n)*?==How *to *Obtain==)",
+            "replace": "{{Used In\\n| trial = $1\\n| trial 2 = $2\\n| trial 3 = $3\\n| trial 4 = $4\\n| trial 5 = $5\\n| trial 6 = $6\\n| trial 7 = $7\\n| trial 8 = $8\\n| trial 9 = $9\\n| trial 10 = $10\\n}}\\n",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "IgnoreCase"
+          },
+          {
+            "enabled": "true",
+            "comment": "Trial number and descriptor",
+            "type": "OnWholePage",
+            "find": "(?<=\\| *trial *(\\d+ *)?= *)\\[\\[Trial ([\\d\\?]+)\\]\\](?: *\\((.*?)\\))?",
+            "replace": "$2\\n| trial $1descriptor = $3",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "IgnoreCase"
+          },
+          {
+            "enabled": "true",
+            "comment": "Trial descriptor",
+            "type": "OnWholePage",
+            "find": "(?<=\\| *trial *(\\d+ *)?= *[\\d\\?]+)\\]\\][ \\t\\-\\:]*(.*?\\[\\[.*?)\\n",
+            "replace": "\\n| trial $1descriptor = $2]]\\n",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "IgnoreCase"
+          },
+          {
+            "enabled": "true",
+            "comment": "Single quest",
+            "type": "OnWholePage",
+            "find": "^[ ']*(?:\\[\\[[^\\|\\n]*?\\|)?Used in Quest[s?\\]:' ]*\\[\\[([^\\]\\n]+?)\\]\\][' ]*(?:\\<br\\>| )*\\n(?=(?:.*?\\n)*?^\\=\\=How +to +Obtain\\=\\=)",
+            "replace": "{{Used In\\n| quest = $1\\n}}\\n",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "IgnoreCase Multiline"
+          },
+          {
+            "enabled": "true",
+            "comment": "Multiple quests",
+            "type": "OnWholePage",
+            "find": "[ ']*\\[\\[(?:\\:Category\\:)?Quests?\\|Used in Quests?\\]\\]s?[:' ]*\\s*\\n(?:[ \\t]*:*\\*[ \\t]*\\[\\[(.+?)\\]\\][ \\t]*\\n)(?:[ \\t]*:*\\*[ \\t]*\\[\\[(.+?)\\]\\][ \\t]*\\n)?(?:[ \\t]*:*\\*[ \\t]*\\[\\[(.+?)\\]\\][ \\t]*\\n)?(?:[ \\t]*:*\\*[ \\t]*\\[\\[(.+?)\\]\\][ \\t]*\\n)?(?:[ \\t]*:*\\*[ \\t]*\\[\\[(.+?)\\]\\][ \\t]*\\n)?(?:[ \\t]*:*\\*[ \\t]*\\[\\[(.+?)\\]\\][ \\t]*\\n)?(?:[ \\t]*:*\\*[ \\t]*\\[\\[(.+?)\\]\\][ \\t]*\\n)?(?:[ \\t]*:*\\*[ \\t]*\\[\\[(.+?)\\]\\][ \\t]*\\n)?(?:[ \\t]*:*\\*[ \\t]*\\[\\[(.+?)\\]\\][ \\t]*\\n)?(?:[ \\t]*:*\\*[ \\t]*\\[\\[(.+?)\\]\\][ \\t]*\\n)?(?=(?:.*?\\n)*?==How *to *Obtain==)",
+            "replace": "{{Used In\\n| quest = $1\\n| quest 2 = $2\\n| quest 3 = $3\\n| quest 4 = $4\\n| quest 5 = $5\\n| quest 6 = $6\\n| quest 7 = $7\\n| quest 8 = $8\\n| quest 9 = $9\\n| quest 10 = $10\\n}}\\n",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "IgnoreCase"
+          },
+          {
+            "enabled": "true",
+            "comment": "Single mission",
+            "type": "OnWholePage",
+            "find": "[ ']*\\[\\[(?:\\:Category\\:)?Missions?\\|Used in Missions?\\]\\]s?[:' ]*\\[\\[([^\\]]+?)\\]\\][' ]*\\n(?=(?:.*?\\n)*?==How *to *Obtain==)",
+            "replace": "{{Used In\\n| mission = $1\\n}}\\n",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "IgnoreCase"
+          },
+          {
+            "enabled": "true",
+            "comment": "Multiple missions",
+            "type": "OnWholePage",
+            "find": "[ ']*(?:\\[\\[(?:\\:Category\\:)?Missions?\\|)?Used in Missions?(?:\\]\\])?s?[:' ]*\\s*\\n(?:[ \\t]*:*\\*[ \\t]*\\[\\[(.+?)\\]\\][ \\t]*\\n)(?:[ \\t]*:*\\*[ \\t]*\\[\\[(.+?)\\]\\][ \\t]*\\n)?(?:[ \\t]*:*\\*[ \\t]*\\[\\[(.+?)\\]\\][ \\t]*\\n)?(?:[ \\t]*:*\\*[ \\t]*\\[\\[(.+?)\\]\\][ \\t]*\\n)?(?:[ \\t]*:*\\*[ \\t]*\\[\\[(.+?)\\]\\][ \\t]*\\n)?(?:[ \\t]*:*\\*[ \\t]*\\[\\[(.+?)\\]\\][ \\t]*\\n)?(?:[ \\t]*:*\\*[ \\t]*\\[\\[(.+?)\\]\\][ \\t]*\\n)?(?:[ \\t]*:*\\*[ \\t]*\\[\\[(.+?)\\]\\][ \\t]*\\n)?(?:[ \\t]*:*\\*[ \\t]*\\[\\[(.+?)\\]\\][ \\t]*\\n)?(?:[ \\t]*:*\\*[ \\t]*\\[\\[(.+?)\\]\\][ \\t]*\\n)?(?=(?:.*?\\n)*?==How *to *Obtain==)",
+            "replace": "{{Used In\\n| mission = $1\\n| mission 2 = $2\\n| mission 3 = $3\\n| mission 4 = $4\\n| mission 5 = $5\\n| mission 6 = $6\\n| mission 7 = $7\\n| mission 8 = $8\\n| mission 9 = $9\\n| mission 10 = $10\\n}}\\n",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "IgnoreCase"
+          },
+          {
+            "enabled": "true",
+            "comment": "Single campaign op",
+            "type": "OnWholePage",
+            "find": "[ ']*\\[\\[(?:(?:\\:Category\\:)?Campaign Ops?\\|)?(?:Used in )?Campaign Ops?\\]\\]s?[:' ]*\\[\\[([^\\]]+?)\\]\\][' ]*\\n(?=(?:.*?\\n)*?==How *to *Obtain==)",
+            "replace": "{{Used In\\n| campaign op = $1\\n}}\\n",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "IgnoreCase"
+          },
+          {
+            "enabled": "true",
+            "comment": "Multiple campaign ops",
+            "type": "OnWholePage",
+            "find": "[ ']*\\[\\[(?:(?:\\:Category\\:)?Campaign Ops?\\|)?(?:Used in )?Campaign Ops?\\]\\]s?[:' ]*\\s*\\n(?:[ \\t]*:*\\*[ \\t]*\\[\\[(.+?)\\]\\][ \\t]*\\n)(?:[ \\t]*:*\\*[ \\t]*\\[\\[(.+?)\\]\\][ \\t]*\\n)?(?:[ \\t]*:*\\*[ \\t]*\\[\\[(.+?)\\]\\][ \\t]*\\n)?(?:[ \\t]*:*\\*[ \\t]*\\[\\[(.+?)\\]\\][ \\t]*\\n)?(?:[ \\t]*:*\\*[ \\t]*\\[\\[(.+?)\\]\\][ \\t]*\\n)?(?:[ \\t]*:*\\*[ \\t]*\\[\\[(.+?)\\]\\][ \\t]*\\n)?(?:[ \\t]*:*\\*[ \\t]*\\[\\[(.+?)\\]\\][ \\t]*\\n)?(?:[ \\t]*:*\\*[ \\t]*\\[\\[(.+?)\\]\\][ \\t]*\\n)?(?:[ \\t]*:*\\*[ \\t]*\\[\\[(.+?)\\]\\][ \\t]*\\n)?(?:[ \\t]*:*\\*[ \\t]*\\[\\[(.+?)\\]\\][ \\t]*\\n)?(?=(?:.*?\\n)*?==How *to *Obtain==)",
+            "replace": "{{Used In\\n| campaign op = $1\\n| campaign op 2 = $2\\n| campaign op 3 = $3\\n| campaign op 4 = $4\\n| campaign op 5 = $5\\n| campaign op 6 = $6\\n| campaign op 7 = $7\\n| campaign op 8 = $8\\n| campaign op 9 = $9\\n| campaign op 10 = $10\\n}}",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "IgnoreCase"
+          },
+          {
+            "enabled": "true",
+            "comment": "Display",
+            "type": "OnWholePage",
+            "find": "(\\| *(quest|mission|campaign op)( *?\\d*) *= *.+?)\\|(.+?)\\n",
+            "replace": "$1\\n| $2$3 display = $4\\n",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "IgnoreCase"
+          },
+          {
+            "enabled": "true",
+            "comment": "Relic weapon",
+            "type": "OnWholePage",
+            "find": "^[ ']*(?:\\[\\[[^\\|\\n]*?\\|)?Used in Quest[s?\\]:' ]*\\[\\[.*?Relic Weapon.*?\\]\\][' ]*\\[\\[(.*?)\\]\\](?:\\<br\\>| )*\\n",
+            "replace": "{{Used In\\n| relic weapon = $1\\n}}\\n",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "IgnoreCase Multiline"
+          },
+          {
+            "enabled": "true",
+            "comment": "Relic weapon as quest",
+            "type": "OnWholePage",
+            "find": "\\| *quest *= *(?:\\:Category\\:)?Relic Weapons?\\n\\| *quest *display *= *(?:Relic .*?\\: *)?(.+?)\\n",
+            "replace": "| relic weapon = $1\\n",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "IgnoreCase"
+          },
+          {
+            "enabled": "true",
+            "comment": "Blank Trial",
+            "type": "OnWholePage",
+            "find": "\\| *quest *= *(?:\\:Category\\:)?Trial of the Magians?\\n",
+            "replace": "| trial = ???\\n",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "IgnoreCase"
+          },
+          {
+            "enabled": "true",
+            "comment": "Clean empty",
+            "type": "OnWholePage",
+            "find": "\\| *(?:quest|mission|campaign op|trial) *\\d* *(?:descriptor)? *= *\\n",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "IgnoreCase"
+          },
+          {
+            "enabled": "false",
+            "comment": "Campaign ops conversion",
+            "type": "OnWholePage",
+            "find": "\\| *quest( *\\d? *= *(?:Materiel Storm|Desert Rain|Ward Warden))",
+            "replace": "| campaign op$1",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "None"
+          },
+          {
+            "enabled": "true",
+            "comment": "Guild Test Item",
+            "type": "OnWholePage",
+            "find": "[' ]*\\[\\[.+?\\|Guild Test Item\\]\\][:' ]*\\[\\[(.+?)\\]\\](?: *\\((.+?)\\))?",
+            "replace": "{{Used In\\n| guild test item = $1\\n| guild test rank = $2\\n}}",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "IgnoreCase"
+          },
+          {
+            "enabled": "true",
+            "comment": "Forced Spawn",
+            "type": "OnWholePage",
+            "find": "[' ]*\\[\\[.+?\\|Used (?:to|in) Spawn\\]\\][:' ]*\\[\\[(.+?)\\]\\]",
+            "replace": "{{Used In\\n| forced spawn = $1\\n}}",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "IgnoreCase"
+          },
+          {
+            "enabled": "true",
+            "comment": "Freelance",
+            "type": "OnWholePage",
+            "find": "[' ]*\\[\\[.+?\\|Influences Freelance\\]\\][:' ]*\\[\\[(.+?)\\]\\]",
+            "replace": "{{Used In\\n| influences freelance = $1\\n}}",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "IgnoreCase"
+          },
+          {
+            "enabled": "true",
+            "comment": "Guild Points Value",
+            "type": "OnWholePage",
+            "find": "(?<===Other Uses==(?:.*?\\n)*)^(\\{\\{Guild Points Value\\|.*?\\}\\})(?=(?:.*?\\n)*==How to Obtain==)",
+            "replace": "{{Used In\\n| guild points value = $1\\n}}",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "IgnoreCase Multiline"
+          },
+          {
+            "enabled": "true",
+            "children": [
+              {
+                "enabled": "true",
+                "comment": "None",
+                "type": "OnWholePage",
+                "find": "(?<=\\| *resale price *= *)\\{\\{Resale Price\\|[Nn]o(?:ne)?\\}\\}",
+                "replace": "none",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "IgnoreCase"
+              }
+            ],
+            "comment": "Resale Price",
+            "type": "OnWholePage",
+            "find": "(?<===Other Uses==(?:.*?\\n)*)^(\\{\\{Resale Price\\|.*?\\}\\})(?=(?:.*?\\n)*==How to Obtain==)",
+            "replace": "{{Used In\\n| resale price = $1\\n}}",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "Multiline"
+          },
+          {
+            "enabled": "true",
+            "comment": "Guild Resale Price",
+            "type": "OnWholePage",
+            "find": "(?<=\\=\\=Other Uses\\=\\=(?:.*?\\n)*)^(\\{\\{Guild Resale Price\\|.*?\\}\\})(?=(?:.*?\\n)*\\=\\=How to Obtain\\=\\=)",
+            "replace": "{{Used In\\n| guild resale price = $1\\n}}",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "IgnoreCase Multiline"
+          },
+          {
+            "enabled": "true",
+            "children": [
+              {
+                "enabled": "true",
+                "comment": "Not tradable",
+                "type": "OnWholePage",
+                "find": "^\\| *gobbie +mystery +box *= *(?:Not +trade?able +for +tally\\.?|Cannot +be +traded +for(?: +daily)? +tally(?: +points)?\\.?)",
+                "replace": "| gobbie mystery box = 0",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "IgnoreCase Multiline"
+              }
+            ],
+            "comment": "Mystery Box",
+            "type": "OnWholePage",
+            "find": "^[ '\\*\\:]*\\[\\[(?:Gobbie Mystery Box\\|)?[' ]*Gobbie Mystery Box[' ]*\\]\\][:' ]*([^<>\\n]+)(?:\\s*\\<br\\>\\s*)*(?=(?:.*?\\n)*?==How *to *Obtain==)",
+            "replace": "{{Used In\\n| gobbie mystery box = $1\\n}}\\n",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "IgnoreCase Multiline"
+          },
+          {
+            "enabled": "true",
+            "comment": "Weapon Upgrade",
+            "type": "OnWholePage",
+            "find": "^[' ]*\\[\\[.*?\\]\\][:' ]* \\[\\[Adventuring Fellow Guide(#.+)?\\|Weapon Upgrade\\]\\]",
+            "replace": "{{Used In\\n| adventuring fellow = weapon upgrade\\n}}",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "IgnoreCase Multiline"
+          },
+          {
+            "enabled": "true",
+            "comment": "Remove extra spaces",
+            "type": "OnWholePage",
+            "find": "(?<=\\{\\{Used In(?:[^\\}^\\n].*\\n|\\n)*?\\}\\})(?:\\<br\\>|\\n)+",
+            "replace": "\\n",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "None"
+          },
+          {
+            "enabled": "true",
+            "comment": "Combine",
+            "type": "OnWholePage",
+            "find": "(?<=^\\{\\{Used In\\s*(?:\\|.+\\n)+?)^\\}\\}((?:.|\\n)*)(?:^\\{\\{Used In\\s*((?:^\\|.+\\n)+?^\\}\\}))",
+            "replace": "$2$1",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "30",
+            "ifRegexOptions": "None",
+            "regexOptions": "IgnoreCase Multiline"
+          }
+        ],
+        "comment": "Used In",
+        "type": "OnWholePage",
+        "ifContains": "(?:^\\=\\=How to Obtain\\=\\=|\\=\\=Other Uses\\=\\=)",
+        "isRegex": "true",
+        "ifIsRegex": "true",
+        "numberOfTimes": "1",
+        "ifRegexOptions": "IgnoreCase Multiline",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "enabled": "true",
+        "children": [
+          {
+            "enabled": "true",
+            "comment": "Remove table indentation",
+            "type": "OnWholePage",
+            "find": "(?<=\\=\\=How to Obtain\\=\\=\\s+(?:^.*\\n)+?)^\\s*: *(?=\\{\\|)",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "IgnoreCase Multiline"
+          },
+          {
+            "enabled": "true",
+            "children": [
+              {
+                "enabled": "true",
+                "comment": "Regional",
+                "type": "OnWholePage",
+                "find": "^\\| *\\[\\[ *Regional Merchants? *\\]\\]\\s+(?:\\:?[' ]*\\[\\[(.+?)\\|[' ]*\\1(?: [Rr]egion)?[' ]*\\]\\][' ]*|[' ]*\\([' ]*\\[\\[(.*?)\\]\\][' ]*\\)[' ]*)\\n",
+                "replace": "| {{Merchant|Regional|$1$2}}\\n",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "Multiline"
+              },
+              {
+                "enabled": "true",
+                "comment": "Standard",
+                "type": "OnWholePage",
+                "find": "^\\| *\\[\\[ *Standard Merchants? *\\]\\]",
+                "replace": "| {{Merchant|Standard}}",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "Multiline"
+              },
+              {
+                "enabled": "true",
+                "comment": "Guild",
+                "type": "OnWholePage",
+                "find": "^\\| *\\[\\[(?:Guild Merchant(?:\\|Guild Merchants)?(?:\\|?([\\w']+?) Guild)?|([\\w']+?) Guild)\\]\\]",
+                "replace": "| {{Merchant|Guild|$1$2}}",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "Multiline"
+              },
+              {
+                "enabled": "true",
+                "comment": "Conquest",
+                "type": "OnWholePage",
+                "find": "\\{\\{Merchant\\|Standard\\}\\}(?:\\<br\\>|&nbsp;|[\\s\\:\\*'])*(?:(.+?)n?(?: citizens?)?(?: only)?,? (?:\\1 in )?(1st|2nd) place|(.+?) (?:[Cc]onquest\\:? )?(?:1st */ *)?(2nd)\\+?|(.+?) 1st or (2nd) in [Cc]onquest|Conquest[\\: ]*(.+?) (1st|2nd))(?: *place *)?[\\.' ]*(?=\\n)",
+                "replace": "{{Merchant|Standard|nation = $1$3$5$7|conquest = $2$4$6$8}}",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "None"
+              },
+              {
+                "enabled": "true",
+                "comment": "Hours",
+                "type": "OnWholePage",
+                "find": "(?<=\\{\\{Merchant\\|.+?)\\}\\}(?:\\<br\\>|\\s)*\\(?Open *([\\d\\:\\- ]+)\\)?",
+                "replace": "|hours = $1}}",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "None"
+              },
+              {
+                "enabled": "true",
+                "comment": "Holiday",
+                "type": "OnWholePage",
+                "find": "(?<=\\{\\{Merchant\\|.+?)\\}\\}\\s*Closed *(?:on)? *(\\w+day)",
+                "replace": "|holiday = $1}}",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "IgnoreCase"
+              },
+              {
+                "enabled": "true",
+                "comment": "Restock",
+                "type": "OnWholePage",
+                "find": "(?<=\\{\\{Merchant\\|.+?)\\}\\}[\\s\\:']*(?:Not (?:automatically )?restocked\\.?)[\\s']*",
+                "replace": "|restocked = false}}\\n",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "IgnoreCase"
+              },
+              {
+                "enabled": "true",
+                "comment": "Guildworker's Union",
+                "type": "OnWholePage",
+                "find": "^\\| *\\[\\[ *Guildworker's Union *(?:\\| *Guild\\.? Union Rep\\.?)? *\\]\\]",
+                "replace": "| {{Merchant|Guildworker's Union}}",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "Multiline"
+              }
+            ],
+            "comment": "Merchant",
+            "type": "OnWholePage",
+            "isRegex": "false",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "None"
+          },
+          {
+            "enabled": "true",
+            "children": [
+              {
+                "enabled": "true",
+                "comment": "Apply template",
+                "type": "OnWholePage",
+                "find": "^\\=\\=\\=Fishing\\=\\=\\=\\s*((?:^[;:\\*].*?\\n+)*)^\\{\\|.*?\\s+(?:\\|-.*?\\s+)?\\|.*?(?:Skill +)Cap[:' ]*(.*?)[' ]*\\n(?:\\|-.*?\\s+^\\|.*?Size[:' ]*(.*?)(?: *\\(.*?\\).*)?\\s*\\n)?^\\|-.*?\\s+^[!\\|].*?Location.*?\\s+^[!\\|].*?Bait.*?\\s+^[!\\|].*?Rods.*?\\s+^\\|-.*?\\s+^\\|\\s*((?:^[:*].*\\n)+)^\\|\\s*((?:^[:*].*\\n)+)^\\|\\s*((?:^[:*'].*|(?:\\<br\\>|&nbsp;)+.*|\\n)+)(?:^\\|-.*?\\s+^\\|.*?colspan=\"3\".*?\\|.*Recommended.*\\s+)?\\|\\}\\s*(?:^(?:['\\s:]|\\<nowiki\\/\\>)*\\*.*?Recommended.*\\s*)?",
+                "replace": "===Fishing===\\n$1{{Fishing\\n| skill cap = $2\\n| size = $3\\n| location =\\n$4\\n| bait =\\n$5\\n| rods =\\n$6\\n}}\\n",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "IgnoreCase Multiline"
+              },
+              {
+                "enabled": "true",
+                "comment": "Remove category",
+                "type": "OnWholePage",
+                "find": "\\[\\[Category:Fishing\\]\\](?=(?:.*?\\n)+\\{\\{Fishing)",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "IgnoreCase"
+              },
+              {
+                "enabled": "true",
+                "comment": "Mark section too small",
+                "type": "OnWholePage",
+                "find": "(?<=^\\{\\{Fishing\\n(?:^[\\|\\*:]+.*\\n+)*^\\| *rods *=\\s*(?:^[\\*:].+\\n+)*)((?:^[\\*:].+\\n+|(?:\\<br\\>|&nbsp;|[:'\\s]).*\\n+)*?)((?:\\<br\\>|&nbsp;|[:'\\s])+(?:Fish +)?(?:Possibl[ey] +)?too +small:?['\\s]*\\n)^( *[\\*:]+\\[\\[.+?\\]\\](?: *\\* *])?)(?! *\\{\\{Fishing\\|.*?\\}\\})\\n",
+                "replace": "$3{{Fishing|Too small}}\\n$1$2",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "IgnoreCase Multiline"
+              },
+              {
+                "enabled": "true",
+                "comment": "Remove blank too small",
+                "type": "OnWholePage",
+                "find": "(?<=^\\{\\{Fishing\\n(?:^[\\|\\*:]+.*\\n+)*^\\| *rods *=\\s*(?:^\\*.+\\n+|(?:\\<br\\>|&nbsp;|[:'\\s]).*\\n+)*?)((?:\\<br\\>|&nbsp;|[:'\\s])+(?:Fish +)?(?:Possibl[ey] +)?too +small:?['\\s]*\\n)(?!^ *[:\\*]+.*)",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "IgnoreCase Multiline"
+              },
+              {
+                "enabled": "true",
+                "comment": "Mark section breakable rods",
+                "type": "OnWholePage",
+                "find": "(?<=^\\{\\{Fishing\\n(?:^[\\|\\*:]+.*\\n+)*^\\| *rods *=\\s*(?:^[\\*:].+\\n+)*)((?:^[\\*:].+\\n+|(?:\\<br\\>|&nbsp;|[:'\\s]).*\\n+)*?)((?:\\<br\\>|&nbsp;|[:'\\s])+Will(?: +possibly)? +break:?['\\s]*\\n)^( *[\\*:]+\\[\\[.+?\\]\\](?: *\\* *])?)(?! *\\{\\{Fishing\\|.*?\\}\\})\\n",
+                "replace": "$3{{Fishing|May break}}\\n$1$2",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "IgnoreCase Multiline"
+              },
+              {
+                "enabled": "true",
+                "comment": "Remove blank breakable",
+                "type": "OnWholePage",
+                "find": "(?<=^\\{\\{Fishing\\n(?:^[\\|\\*:]+.*\\n+)*^\\| *rods *=\\s*(?:^\\*.+\\n+|(?:\\<br\\>|&nbsp;|[:'\\s]).*\\n+)*?)((?:\\<br\\>|&nbsp;|[:'\\s])+Will(?: +possibly)? +break:?['\\s]*\\n)(?!^ *[:\\*]+.*)",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "IgnoreCase Multiline"
+              },
+              {
+                "enabled": "true",
+                "comment": "Mark recommended",
+                "type": "OnWholePage",
+                "find": "(?<=^\\{\\{Fishing\\n(?:^[\\|\\*:]+.*\\n+)*?^\\| *(?:rods|bait|location) *=\\s*(?:^\\*.+\\n+|(?:\\<br\\>|&nbsp;|[:'\\s]).*\\n+)*?^ *[\\*:]+.*)\\*",
+                "replace": "{{Fishing|Recommended}}",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "IgnoreCase Multiline"
+              },
+              {
+                "enabled": "true",
+                "comment": "Mark too small",
+                "type": "OnWholePage",
+                "find": "(?<=^\\{\\{Fishing\\n(?:^[\\|\\*:]+.*\\n+)*?^\\| *(?:rods|bait|location) *=\\s*(?:^\\*.+\\n+|(?:\\<br\\>|&nbsp;|[:'\\s]).*\\n+)*?^ *[\\*:]+.*)[' ]*\\(Too small\\)[' ]*",
+                "replace": "{{Fishing|Too small}}",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "IgnoreCase Multiline"
+              }
+            ],
+            "comment": "Fishing Template",
+            "type": "OnWholePage",
+            "isRegex": "false",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "IgnoreCase Multiline"
+          },
+          {
+            "enabled": "true",
+            "comment": "Sparks Template",
+            "type": "OnWholePage",
+            "find": "\\=\\=\\=Sparks +of +Eminence\\=\\=\\=\\s+^\\{\\|.*?\\s+(?:^\\|-.*?\\s+)?^\\|.*?Price[:' ]*(.*?) *\\[*Sparks\\]*.*?\\s+(?:^[\\|!].*?\\s+)+?^\\|\\}(?:\\<br\\>|\\s)*",
+            "replace": "===Sparks of Eminence===\\n{{Sparks of Eminence|$1}}\\n",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "IgnoreCase Multiline"
+          }
+        ],
+        "comment": "How to Obtain",
+        "type": "OnWholePage",
+        "ifContains": "(?:\\=\\=How +to +Obtain\\=\\=)",
+        "isRegex": "false",
+        "ifIsRegex": "true",
+        "numberOfTimes": "1",
+        "ifRegexOptions": "IgnoreCase",
+        "regexOptions": "IgnoreCase Multiline"
+      },
+      {
+        "enabled": "false",
+        "children": [
+          {
+            "enabled": "true",
+            "comment": "Replace generic",
+            "type": "OnWholePage",
+            "find": "(?<=^\\| *)'''\\[\\[(.*?)\\]\\] *\\(\\[\\[(?:(?:\\:Category:)?Notorious Monsters?\\|)?NM\\]\\]\\)'''",
+            "replace": "{{NM|$1}}",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "IgnoreCase Multiline"
+          },
+          {
+            "enabled": "true",
+            "comment": "Replace specific",
+            "type": "OnWholePage",
+            "find": "(?<=^\\| *)'''\\[\\[(.*?)\\]\\] *\\(\\[\\[(?:(?:\\:Category:)?[^\\]\\n]*?Notorious Monsters?\\|)?([A-Za-z]+NM)\\]\\]\\)'''",
+            "replace": "{{NM|$1|$2}}",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "IgnoreCase Multiline"
+          }
+        ],
+        "comment": "NM Link",
+        "type": "OnWholePage",
+        "isRegex": "false",
+        "ifIsRegex": "false",
+        "numberOfTimes": "1",
+        "ifRegexOptions": "None",
+        "regexOptions": "None"
+      },
+      {
+        "enabled": "true",
+        "children": [
+          {
+            "enabled": "true",
+            "comment": "None",
+            "type": "OnWholePage",
+            "find": "(?<===(?:Used in Recipes?|Obtained from Desynthesis)==)\\n+\\*?\\'*None'*",
+            "replace": "\\n*{{rl|None}}",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "IgnoreCase"
+          },
+          {
+            "enabled": "true",
+            "children": [
+              {
+                "enabled": "true",
+                "comment": "Absorb subcrafts",
+                "type": "OnWholePage",
+                "find": "(\\*\\{\\{rl\\|.+?)\\}\\}[, ']*\\{\\{Craft\\|(.+?)\\|\\(?([\\d\\-~ \\?]+?|\\w+?)\\)?\\}\\}[ ']*",
+                "replace": "$1|$2|$3}}",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "4",
+                "ifRegexOptions": "None",
+                "regexOptions": "None"
+              },
+              {
+                "enabled": "true",
+                "comment": "Skill Cap at Synth Level",
+                "type": "OnWholePage",
+                "find": "(?<=(\\{\\{rl\\|.*?\\|.*?\\|)(.*?)(?:\\||\\}\\})[\\n.]*?)\\1[Ss]kill *[Cc]ap *[Aa]t *[Ss]ynth *[Ll]evel",
+                "replace": "$1$2",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "None"
+              }
+            ],
+            "comment": "Recipe Link",
+            "type": "OnWholePage",
+            "find": "(?<===(?:Used in Recipes|Obtained from Desynthesis)==(?:.*\\n+)+?)^ *\\* *\\[\\[(.+)\\|?.*?\\]\\] *-? *(?:\\{\\{Craft\\||\\[\\[)(.+?)\\|?(?:.*?\\]\\] )? *\\(?([\\d\\?\\- ]+?|[A-Z][a-z]+)\\)?\\}\\}",
+            "replace": "*{{rl|$1|$2|$3}}",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "Multiline"
+          }
+        ],
+        "comment": "Recipe Link",
+        "type": "OnWholePage",
+        "isRegex": "false",
+        "ifIsRegex": "false",
+        "numberOfTimes": "1",
+        "ifRegexOptions": "None",
+        "regexOptions": "None"
+      },
+      {
+        "enabled": "true",
+        "children": [
+          {
+            "enabled": "true",
+            "comment": "Fix quantity",
+            "type": "OnWholePage",
+            "find": "(?<===(?:Desynthesis Recipes?|Synthesis Recipes?)==\\n(?:.*?\\n)*)[\\:\\* ]*(\\[\\[[^\\]]*\\]\\]) *x *(\\d+)(?=(?:[^=].*\\n)*?(?:==|\\s*$))(?=(?:.*?\\n)*==How to Obtain==)",
+            "replace": ":*$2 x $1",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "None"
+          },
+          {
+            "enabled": "true",
+            "comment": "Fix skill placement",
+            "type": "OnWholePage",
+            "find": "(?<===Synthesis Recipes==\\n\\{\\{[Cc]raft\\|[Ss]ynergy\\|.*?\\}\\}.*?\\n)((?:.|\\n)*?)(^[\\:\\*\\t ]*Skills[\\:\\t ]*.*?\\n)",
+            "replace": "$2$1",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "Multiline"
+          },
+          {
+            "enabled": "true",
+            "comment": "Fix yield",
+            "type": "OnWholePage",
+            "find": "(?<=^[\\:\\*\\t' ]*Yield[\\:'\\t ].*?\\n)(?=\\[\\[.*?\\]\\]|''.*?'')",
+            "replace": "'''HQ 1:''' ",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "Multiline"
+          },
+          {
+            "enabled": "true",
+            "comment": "Synthesis Recipes",
+            "type": "OnWholePage",
+            "find": "^ *\\{\\{[Cc]raft\\|(?<craft>[^\\|^\\n^\\{^\\}]+?)\\|[ \\(]*(?<cap>([\\?\\d\\-\\+~]+|\\w+)(?:\\{\\{(?:[Vv]erification|[Qq]uestion|[Ii]nformation Needed)\\}\\})?)[ *\\)]*\\}\\}(?:(?:[, ']*|\\n[: ']*Skills[:' ]*)\\{\\{[Cc]raft\\|(?<subcraft>[^\\|^\\n^\\{^\\}]+?)\\|[ \\(]*(?<subcraftcap>([\\?\\d\\-\\+~]+|\\w+)(?:\\{\\{(?:[Vv]erification|[Qq]uestion|[Ii]nformation Needed)\\}\\})?)[ \\)]*\\}\\}[ ']*)?(?:[, ']*\\{\\{[Cc]raft\\|(?<subcraft2>[^\\|^\\n^\\{^\\}]+?)\\|[ \\(]*(?<subcraft2cap>([\\?\\d\\-\\+~]+|\\w+)(?:\\{\\{(?:[Vv]erification|[Qq]uestion|[Ii]nformation Needed)\\}\\})?)[ \\)]*\\}\\}[ ']*)?\\n+(?:[:' ]*(?:Elemental *)?[Bb]alance[:' ]*(?<balance>.+)\\n+)?[:' ]*(?:Yield|Result)[:' \\[]*(?<result>.+?)(?:''|\\]\\])*(?: *x *(?<yield>[\\d\\?]+))? *\\n(?:[:' ]*HQ *\\d?[:' \\[]*(?<hqresult>.+?)(?:''|\\]\\])*(?: *x *(?<hqyield>[\\d\\?]+))? *\\n+)?(?:[:' ]*HQ *\\d?[:' \\[]*(?<hq2result>.+?)(?:''|\\]\\])*(?: *x *(?<hq2yield>[\\d\\?]+))? *\\n+)?(?:[:' ]*HQ *\\d?[:' \\[]*(?<hq3result>.+?)(?:''|\\]\\])*(?: *x *(?<hq3yield>[\\d\\?]+))? *\\n+)?(?:[:\\{\\* ']+(?<crystal>.+)\\|[Cc]rystal\\}\\}[ ']*\\n+)?([:' ]*(?:Elemental *)?[Bb]alance[\\:' ]+(?<balance>.+)\\n+)?(?:[:\\{\\* ]+Crafting Tool\\|(?<tool>.+)\\}\\}[' ]*\\n+)?(?:[\\:\\*' ]+(?<ingredquant>\\d) *x[ \\[']*(?<ingred>[^\\]^\\n]+?)[\\]\\t' ]*\\n+)?(?:[:\\*' ]+(?<ingred2quant>\\d) *x[ \\[']*(?<ingred2>[^\\]^\\n]+?)[\\]\\t' ]*\\n+)?(?:[:\\*' ]+(?<ingred3quant>\\d) *x[ \\[']*(?<ingred3>[^\\]^\\n]+?)[\\]\\t' ]*\\n+)?(?:[:\\*' ]+(?<ingred4quant>\\d) *x[ \\[']*(?<ingred4>[^\\]^\\n]+?)[\\]\\t' ]*\\n+)?(?:[:\\*' ]+(?<ingred5quant>\\d) *x[ \\[']*(?<ingred5>[^\\]^\\n]+?)[\\]\\t' ]*\\n+)?(?:[:\\*' ]+(?<ingred6quant>\\d) *x[ \\[']*(?<ingred6>[^\\]^\\n]+?)[\\]\\t' ]*\\n+)?(?:[:\\*' ]+(?<ingred7quant>\\d) *x[ \\[']*(?<ingred7>[^\\]^\\n]+?)[\\]\\t' ]*\\n+)?(?:[:\\*' ]+(?<ingred8quant>\\d) *x[ \\[']*(?<ingred8>[^\\]^\\n]+?)[\\]\\t' ]*\\n+)?",
+            "replace": "{{Synthesis Recipe\\n| craft = ${craft}\\n| cap = ${cap}\\n| subcraft = ${subcraft}\\n| subcraft cap = ${subcraftcap}\\n| subcraft 2 = ${subcraft2}\\n| subcraft 2 cap = ${subcraft2cap}\\n| result = ${result}\\n| yield = ${yield}\\n| hq result = ${hqresult}\\n| hq yield = ${hqyield}\\n| hq 2 result = ${hq2result}\\n| hq 2 yield = ${hq2yield}\\n| hq 3 result = ${hq3result}\\n| hq 3 yield = ${hq3yield}\\n| crystal = ${crystal}\\n| balance = ${balance}\\n| crafting tool = ${tool}\\n| ingredient = ${ingred}\\n| ingredient quantity = ${ingredquant}\\n| ingredient 2 = ${ingred2}\\n| ingredient 2 quantity = ${ingred2quant}\\n| ingredient 3 = ${ingred3}\\n| ingredient 3 quantity = ${ingred3quant}\\n| ingredient 4 = ${ingred4}\\n| ingredient 4 quantity = ${ingred4quant}\\n| ingredient 5 = ${ingred5}\\n| ingredient 5 quantity = ${ingred5quant}\\n| ingredient 6 = ${ingred6}\\n| ingredient 6 quantity = ${ingred6quant}\\n| ingredient 7 = ${ingred7}\\n| ingredient 7 quantity = ${ingred7quant}\\n| ingredient 8 = ${ingred8}\\n| ingredient 8 quantity = ${ingred8quant}\\n}}\\n",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "Multiline"
+          },
+          {
+            "enabled": "true",
+            "comment": "Remove crystal if balance",
+            "type": "OnWholePage",
+            "find": "(?<=\\{\\{Synthesis Recipe\\n(?:[^\\n]*\\n)*)^\\| *crystal *= *\\n(?=(.*\\n)*^\\| *balance *= *)",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "Multiline"
+          },
+          {
+            "enabled": "true",
+            "children": [
+              {
+                "enabled": "true",
+                "comment": "Remove blank",
+                "type": "OnWholePage",
+                "find": "(?<=\\{\\{Synthesis Recipe\\n(?:[^\\n]*\\n)*)^\\| balance = \\n",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "Multiline"
+              },
+              {
+                "enabled": "true",
+                "children": [
+                  {
+                    "enabled": "true",
+                    "comment": "Fire",
+                    "type": "OnWholePage",
+                    "find": "(?<=\\{\\{Synthesis Recipe\\n(?:[^\\n]*\\n)*)^\\| *Fire *= *",
+                    "replace": "| fire = ",
+                    "isRegex": "true",
+                    "ifIsRegex": "false",
+                    "numberOfTimes": "1",
+                    "ifRegexOptions": "None",
+                    "regexOptions": "Multiline"
+                  },
+                  {
+                    "enabled": "true",
+                    "comment": "Earth",
+                    "type": "OnWholePage",
+                    "find": "(?<=\\{\\{Synthesis Recipe\\n(?:[^\\n]*\\n)*)^\\| *Earth *= *",
+                    "replace": "| earth = ",
+                    "isRegex": "true",
+                    "ifIsRegex": "false",
+                    "numberOfTimes": "1",
+                    "ifRegexOptions": "None",
+                    "regexOptions": "Multiline"
+                  },
+                  {
+                    "enabled": "true",
+                    "comment": "Water",
+                    "type": "OnWholePage",
+                    "find": "(?<=\\{\\{Synthesis Recipe\\n(?:[^\\n]*\\n)*)^\\| *Water *= *",
+                    "replace": "| water = ",
+                    "isRegex": "true",
+                    "ifIsRegex": "false",
+                    "numberOfTimes": "1",
+                    "ifRegexOptions": "None",
+                    "regexOptions": "Multiline"
+                  },
+                  {
+                    "enabled": "true",
+                    "comment": "Wind",
+                    "type": "OnWholePage",
+                    "find": "(?<=\\{\\{Synthesis Recipe\\n(?:[^\\n]*\\n)*)^\\| *Wind *= *",
+                    "replace": "| wind = ",
+                    "isRegex": "true",
+                    "ifIsRegex": "false",
+                    "numberOfTimes": "1",
+                    "ifRegexOptions": "None",
+                    "regexOptions": "Multiline"
+                  },
+                  {
+                    "enabled": "true",
+                    "comment": "Ice",
+                    "type": "OnWholePage",
+                    "find": "(?<=\\{\\{Synthesis Recipe\\n(?:[^\\n]*\\n)*)^\\| *Ice *= *",
+                    "replace": "| ice = ",
+                    "isRegex": "true",
+                    "ifIsRegex": "false",
+                    "numberOfTimes": "1",
+                    "ifRegexOptions": "None",
+                    "regexOptions": "Multiline"
+                  },
+                  {
+                    "enabled": "true",
+                    "comment": "Lightning",
+                    "type": "OnWholePage",
+                    "find": "(?<=\\{\\{Synthesis Recipe\\n(?:[^\\n]*\\n)*)^\\| *Lightning *= *",
+                    "replace": "| lightning = ",
+                    "isRegex": "true",
+                    "ifIsRegex": "false",
+                    "numberOfTimes": "1",
+                    "ifRegexOptions": "None",
+                    "regexOptions": "Multiline"
+                  },
+                  {
+                    "enabled": "true",
+                    "comment": "Light",
+                    "type": "OnWholePage",
+                    "find": "(?<=\\{\\{Synthesis Recipe\\n(?:[^\\n]*\\n)*)^\\| *Light *= *",
+                    "replace": "| light = ",
+                    "isRegex": "true",
+                    "ifIsRegex": "false",
+                    "numberOfTimes": "1",
+                    "ifRegexOptions": "None",
+                    "regexOptions": "Multiline"
+                  },
+                  {
+                    "enabled": "true",
+                    "comment": "Dark",
+                    "type": "OnWholePage",
+                    "find": "(?<=\\{\\{Synthesis Recipe\\n(?:[^\\n]*\\n)*)^\\| *Dark *= *",
+                    "replace": "| dark = ",
+                    "isRegex": "true",
+                    "ifIsRegex": "false",
+                    "numberOfTimes": "1",
+                    "ifRegexOptions": "None",
+                    "regexOptions": "Multiline"
+                  }
+                ],
+                "comment": "Lowercase",
+                "type": "OnWholePage",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "None"
+              }
+            ],
+            "comment": "Balance",
+            "type": "OnWholePage",
+            "find": "(?<=\\{\\{Synthesis Recipe\\n(?:.*\\n)*?^\\| *balance *= *.*?)\\{\\{(?:[Rr]esist |[Ee]lement *\\| *)(.+?)\\}\\} *(\\d+|\\{\\{(?:[Vv]erification|[Qq]uestion|[Ii]nformation Needed)\\}\\})",
+            "replace": "\\n| $1 = $2",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "Multiline"
+          },
+          {
+            "enabled": "true",
+            "children": [
+              {
+                "enabled": "true",
+                "comment": "Remove duplicate hq 3 yield",
+                "type": "OnWholePage",
+                "find": "(?<=\\| *hq 2 yield *= *(\\d+) *\\n(?:\\|.*?\\n)*)\\| *hq 3 yield *= *\\1 *\\n",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "None"
+              },
+              {
+                "enabled": "true",
+                "comment": "Remove duplicate hq 2 yield",
+                "type": "OnWholePage",
+                "find": "(?<=\\| *hq yield *= *(\\d+) *\\n(?:\\|.*?\\n)*)\\| *hq 2 yield *= *\\1 *\\n",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "None"
+              },
+              {
+                "enabled": "true",
+                "comment": "Remove duplicate hq yield",
+                "type": "OnWholePage",
+                "find": "(?<=\\| *yield *= *(\\d+) *\\n(?:\\|.*?\\n)*)\\| *hq yield *= *\\1 *\\n",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "None"
+              },
+              {
+                "enabled": "true",
+                "comment": "Remove single quantity/yield",
+                "type": "OnWholePage",
+                "find": "\\| *(?:ingredient *\\d? *(?:quantity)?|yield) *=[' ]*1[ ']*\\n",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "None"
+              }
+            ],
+            "comment": "Remove blank lines",
+            "type": "OnWholePage",
+            "find": "\\| *(?:(?:hq)? *\\d? *(?:yield|result)|ingredient *\\d? *(?:quantity)?|crafting tool) *=[' ]*\\n",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "None"
+          },
+          {
+            "enabled": "true",
+            "comment": "Remove blank cap",
+            "type": "OnWholePage",
+            "find": "\\| *(?:subcraft)? *\\d? *(?:cap)? *= *\\n",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "None"
+          },
+          {
+            "enabled": "true",
+            "comment": "Remove redundant results",
+            "type": "OnWholePage",
+            "find": "(\\| *(?:hq *\\d? *)?result * = *(.+?))\\n((?:[^\\}]*\\n)+?)?\\| *hq *\\d? *result *= *\\2 *\\n",
+            "replace": "$1\\n$3",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "3",
+            "ifRegexOptions": "None",
+            "regexOptions": "IgnoreCase"
+          },
+          {
+            "enabled": "true",
+            "comment": "Remove needless categories",
+            "type": "OnWholePage",
+            "find": "\\[\\[[Cc]ategory:(.+?)s?\\]\\]((?:.*\\n)+?\\| *(?:sub)?craft *\\d? *= *\\1)",
+            "replace": "$2",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "3",
+            "ifRegexOptions": "None",
+            "regexOptions": "IgnoreCase"
+          },
+          {
+            "enabled": "true",
+            "comment": "Table",
+            "type": "OnWholePage",
+            "find": "(?<===(?:Desynthesis Recipes?|Synthesis Recipes?)\\=\\=)\\n+(?:\\{\\| *.+?\\n)",
+            "replace": "\\n{|width=\"100%\"\\n",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "None"
+          },
+          {
+            "enabled": "true",
+            "comment": "None",
+            "type": "OnWholePage",
+            "find": "(?<===(?:Desynthesis Recipes?|Synthesis Recipes?)==)\\n+\\*?\\'*None'*",
+            "replace": "\\n{{Synthesis Recipe|None}}",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "IgnoreCase"
+          },
+          {
+            "enabled": "true",
+            "comment": "Spacing",
+            "type": "OnWholePage",
+            "find": "(\\{\\{Synthesis Recipe(?:.*\\n)*?\\}\\})\\n+(?=\\{\\{Synthesis Recipe(?:.*\\n)*?\\}\\})",
+            "replace": "$1\\n<br>\\n",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "None"
+          },
+          {
+            "enabled": "true",
+            "comment": "Apply template",
+            "type": "OnWholePage",
+            "find": "(?<=\\=\\=(?:De)?Synthesis Recipes\\=\\=)\\s+^\\{\\|.*?\\s+(?:^\\|-.*?\\s+)?^\\|.*?\\s+(?:^(\\{\\{Synthesis Recipe\\s+(?:^\\|.*\\s+)*?\\}\\})(?:^\\|.*?|\\<br\\>|\\s)*?)?(?:^(\\{\\{Synthesis Recipe\\s+(?:^\\|.*\\s+)*?\\}\\})(?:^\\|.*?|\\<br\\>|\\s)*?)?(?:^(\\{\\{Synthesis Recipe\\s+(?:^\\|.*\\s+)*?\\}\\})(?:^\\|.*?|\\<br\\>|\\s)*?)?(?:^(\\{\\{Synthesis Recipe\\s+(?:^\\|.*\\s+)*?\\}\\})(?:^\\|.*?|\\<br\\>|\\s)*?)?(?:^(\\{\\{Synthesis Recipe\\s+(?:^\\|.*\\s+)*?\\}\\})(?:^\\|.*?|\\<br\\>|\\s)*?)?(?:^(\\{\\{Synthesis Recipe\\s+(?:^\\|.*\\s+)*?\\}\\})(?:^\\|.*?|\\<br\\>|\\s)*?)?(?:^(\\{\\{Synthesis Recipe\\s+(?:^\\|.*\\s+)*?\\}\\})(?:^\\|.*?|\\<br\\>|\\s)*?)?(?:^(\\{\\{Synthesis Recipe\\s+(?:^\\|.*\\s+)*?\\}\\})(?:^\\|.*?|\\<br\\>|\\s)*?)?^\\|\\}",
+            "replace": "\\n{{Synthesis Recipes\\n| recipe 1 =\\n$1\\n| recipe 2 =\\n$2\\n| recipe 3 =\\n$3\\n| recipe 4 =\\n$4\\n| recipe 5 =\\n$5\\n| recipe 6 =\\n$6\\n| recipe 7 =\\n$7\\n| recipe 8 =\\n$8\\n}}",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "IgnoreCase Multiline"
+          }
+        ],
+        "comment": "Synthesis Recipes",
+        "type": "OnWholePage",
+        "isRegex": "false",
+        "ifIsRegex": "false",
+        "numberOfTimes": "1",
+        "ifRegexOptions": "None",
+        "regexOptions": "None"
+      },
+      {
+        "enabled": "true",
+        "children": [
+          {
+            "enabled": "false",
+            "comment": "Convert legacy format",
+            "type": "OnWholePage",
+            "find": "[' ]*Description[\\:' ]*(.+)\\n",
+            "replace": "'''%%pagename%%'''<br>\\n''$1''\\n",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "None"
+          },
+          {
+            "enabled": "false",
+            "comment": "Ammo",
+            "type": "OnWholePage",
+            "find": "(\\[\\[[Cc]ategory\\:)([Aa]mmunition)(\\]\\](?:.*\\n)+[' ]*)(All Races[' ]*)",
+            "replace": "$1$2$3([[:Category:$2|$2]]) $4",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "Multiline"
+          },
+          {
+            "enabled": "true",
+            "comment": "Jugs",
+            "type": "OnWholePage",
+            "find": "(?<=\\=\\=Statistics\\=\\=\\s*(?:.+\\n)+?[' ]*)(All Races[' ]*(.+\\n)+?[' ]*Calls \\[*[\\w ]+(?:\\|[\\w ]+)?\\.?[' ]*)",
+            "replace": "([[:Category:Pet Items|Pet Item]]) $1",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "None"
+          },
+          {
+            "enabled": "true",
+            "comment": "Fix Shields",
+            "type": "OnWholePage",
+            "find": "\\{\\{Weapon(\\s+(?:^\\|.*\\n)+^\\| *)type( *= *Shield)",
+            "replace": "{{Armor$1slot$2",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "IgnoreCase Multiline"
+          },
+          {
+            "enabled": "true",
+            "children": [
+              {
+                "enabled": "true",
+                "comment": "Apply template",
+                "type": "OnWholePage",
+                "find": "(?<=\\=\\=Statistics\\=\\=\\s+)^['\\[ ]*(?:\\{\\{PAGENAME\\}\\}|([\\w\\d'\" \\+\\-\\.\\&\\(\\)]+?))['\\] ]*((?:\\{\\{(?:Rare|Exclusive|Aug(?:ment(?:ed)?)?)\\}\\})+)?[ ']*(?:\\<br *\\/?\\>)+[' ]*\\n*.+?([Hh]ead|[Nn]eck|[Ee]ar|[Bb]ody|[Hh]ands|[Rr]ing|[Bb]ack|[Ww]aist|[Ll]egs|[Ff]eet|[Ss]hield)s?\\]\\].+?([Aa]ll (?:[Rr]aces|\\&.*?;)|[HhMmEeTtGg])[' ]*(?:\\<br *\\/?\\>)+\\s*?((?:.+\\n+)+)?[' ]*Lv\\.[' ]*(\\d+) *((?:['\\[\\]\\|\\w \\/]+(?:\\<br *\\/?\\>|\\n)\\n?)+)",
+                "replace": "{{Armor\\n| name = $1<!--!!!!Marked for Bot!!!!-->\\n| tags = $2\\n| slot = $3\\n| races = $4\\n| stats = $5\\n| level = $6\\n| jobs = $7\\n}}",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "Multiline"
+              },
+              {
+                "enabled": "true",
+                "comment": "Remove armor category",
+                "type": "OnWholePage",
+                "find": "\\[\\[Category:Armor\\]\\]((?:.*?\\n)+\\{\\{Armor\\s*\\n)",
+                "replace": "$1",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "IgnoreCase"
+              },
+              {
+                "enabled": "true",
+                "comment": "Remove slot category",
+                "type": "OnWholePage",
+                "find": "\\[\\[Category:(.+)s?\\]\\]((?:.*?\\n)+\\{\\{Armor\\s*\\n(?:.*?\\n)*\\| *slot *= *\\1)",
+                "replace": "$2",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "IgnoreCase"
+              },
+              {
+                "enabled": "true",
+                "comment": "Earrings",
+                "type": "OnWholePage",
+                "find": "\\[\\[[Cc]ategory:[Ee]arrings\\]\\]((?:.*?\\n)+\\{\\{[Aa]rmor\\s*\\n(?:.*?\\n)*\\| *slot *= *)(?:[Ee]ar|ring)",
+                "replace": "$1Ear",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "None"
+              },
+              {
+                "enabled": "true",
+                "comment": "Set",
+                "type": "OnWholePage",
+                "find": "(^\\{\\{Armor\\s+(?:^\\|.+|\\n)+)(^\\}\\}(?:[':\\*].*|\\<br\\>|\\s)*?)\\{\\{Equipment Set\\|([^\\|]+?)\\}\\}",
+                "replace": "$1| set = $3\\n$2",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "IgnoreCase Multiline"
+              },
+              {
+                "enabled": "true",
+                "comment": "Shield",
+                "type": "OnWholePage",
+                "find": "(^\\{\\{Armor\\s+(?:^\\|.+|\\n)+)(^\\}\\}(?:[':\\*].*|\\<br\\>|\\s)*?)\\{\\{(\\w+?) Shield\\}\\}",
+                "replace": "$1| shield type = $3\\n$2",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "IgnoreCase Multiline"
+              }
+            ],
+            "comment": "Armor Template",
+            "type": "OnWholePage",
+            "isRegex": "true",
+            "ifIsRegex": "true",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "IgnoreCase",
+            "regexOptions": "Multiline"
+          },
+          {
+            "enabled": "true",
+            "children": [
+              {
+                "enabled": "true",
+                "comment": "Apply template",
+                "type": "OnWholePage",
+                "find": "(?<=\\=\\=Statistics\\=\\=\\s+)^[' ]*([\\w\\d'\" \\+\\-\\.\\&\\(\\)]+?)[' ]*((?:\\{\\{(?:[Rr]are|[Ee]xclusive|[Aa]ug)\\}\\})+)?[' ]*\\<br *\\/?\\> *\\n.+?(Sword|Dagger|Axe|Great Axe|Great Sword|Katana|Great Katana|Polearm|Staff|Club|Scythes?|Hand-to-Hand|Throwing|Marksmanship|Archery|(?:Wind|String) Instr\\.|Grips?|Ammunition|Ammo|Pet Items?|Fishing Tackle)\\]\\].+?All Races[' ]*\\<br *\\/?\\>\\n(?:[ '\\[]+(?:DMG|Damage\\|DMG)[\\]\\:' ]+([\\+\\d]+)[' \\[]*Delay[\\]\\:' ]+([\\+\\d ]+))?\\s*((?:.+\\n)+?)(?: *'{0,3} *Lv\\.[' ]*(\\d+) *((?:['\\[\\]\\|\\w \\/]+(?:\\<br *\\/?\\>|\\n)\\n?)+)|(?:\\s*\\<br\\>\\s*){2})?",
+                "replace": "{{Weapon\\n| name = $1<!--!!!!Marked for Bot!!!!-->\\n| tags = $2\\n| type = $3\\n| damage = $4\\n| delay = $5\\n| stats = $6\\n| level = $7\\n| jobs = $8\\n}}\\n",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "Multiline"
+              }
+            ],
+            "comment": "Weapon Template",
+            "type": "OnWholePage",
+            "isRegex": "true",
+            "ifIsRegex": "true",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "IgnoreCase",
+            "regexOptions": "Multiline"
+          },
+          {
+            "enabled": "true",
+            "children": [
+              {
+                "enabled": "true",
+                "comment": "Apply template",
+                "type": "OnWholePage",
+                "find": "^[' ]*([\\w\\d'\" \\+\\-\\.\\&\\(\\)]+?)['\\: ]*((?:\\{\\{(?:[Rr]are|[Ee]xclusive|[Aa]ug(?:ment)?|[Tt]emp(?:orary)?)\\}\\})+)?\\<br *\\/?\\> *\\n((?:^ *''[^'].+(?:(?:\\<br *\\/?\\>)?\\n))+?)(?:\\<br *\\/?\\>|\\n)*(?:[' ]*(?:Stack(?:able)?[\\:' ]+)?(\\d+|[Nn]o|[Nn]ot *[Ss]tackable|\\{\\{(?:[Ii]nformation(?: [Nn]eeded)?|[Qq]uestion)\\}\\})?[' \\.]*(?:(?:\\<br *\\/?\\>)*\\n)+)?[' ]*Food *(?:[Ee]ffects?|[Dd]uration)?[\\:' ]+(?:\\((?:[Dd]uration[\\: ]*)?((?:\\{\\{(?:[Ii]nformation(?: [Nn]eeded)?|[Qq]uestion)\\}\\}|[\\d\\?]+) *\\w+|\\<?[Dd]uration\\>?)(?:, *(.+))?\\))?( *\\{\\{.*\\}\\})?(?:\\<br *\\/?\\>|[\\s'])*\\n((?:[\\*\\:]+.+\\n)+)?",
+                "replace": "{{Food\\n| name = $1<!--!!!!Marked for Bot!!!!-->\\n| tags = $2\\n| description = $3\\n| stackable = $4\\n| duration = $5$7\\n| races = $6\\n| effects =\\n$8}}\\n",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "Multiline"
+              },
+              {
+                "enabled": "true",
+                "comment": "Set type",
+                "type": "OnWholePage",
+                "find": "(\\{\\{Food\\n.+)^\\| *races *\\= *\\[*[Mm]ithra\\]*(?: *[Oo]nly)? *(?:\\[*(?:[\\w\\#\\- ]+\\|)?\\*\\]*)?",
+                "replace": "$1| type = raw fish",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "Multiline Singleline"
+              },
+              {
+                "enabled": "true",
+                "comment": "Set type",
+                "type": "OnWholePage",
+                "find": "(\\{\\{Food\\n.+)^\\| *races *\\= *\\[*[Gg]alka\\]*(?: *[Oo]nly)? *(?:\\[*(?:[\\w\\#\\- ]+\\|)?\\*\\]*)?",
+                "replace": "$1| type = raw meat",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "Multiline Singleline"
+              },
+              {
+                "enabled": "true",
+                "comment": "Remove food category",
+                "type": "OnWholePage",
+                "find": "\\[\\[[Cc]ategory:[Ff]ood\\]\\]((?:.*?\\n)+\\{\\{[Ff]ood\\s*\\n)",
+                "replace": "$1",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "None"
+              }
+            ],
+            "comment": "Food Template",
+            "type": "OnWholePage",
+            "ifContains": "(?:\\[\\[Category:Food\\]\\]|\\{\\{Food\\n)",
+            "isRegex": "true",
+            "ifIsRegex": "true",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "IgnoreCase",
+            "regexOptions": "Multiline"
+          },
+          {
+            "enabled": "true",
+            "children": [
+              {
+                "enabled": "true",
+                "comment": "Apply template",
+                "type": "OnWholePage",
+                "find": "^[' ]*([\\w\\d'\" \\+\\-\\.\\&\\(\\)]+?)['\\: ]*((?:\\{\\{(?:[Rr]are|[Ee]xclusive|[Aa]ug(?:ment)?|[Tt]emp(?:orary)?)\\}\\})+)?\\<br *\\/?\\> *\\n((?:^ *''[^'].+(?:(?:\\<br *\\/?\\>)?\\n))+?)(?:\\<br *\\/?\\>|\\n)*(?:[' ]*(?:Stack(?:able)?[\\:' ]+)?(\\d+|[Nn]o|[Nn]ot *[Ss]tackable|\\{\\{(?:[Ii]nformation(?: [Nn]eeded)?|[Qq]uestion)\\}\\})?[' \\.]*(?:(?:\\<br *\\/?\\>)*\\n)+)?[' ]*Medicine *(?:[Ee]ffects?|[Dd]uration)?[\\:' ]+(?:\\((?:[Dd]uration[\\: ]*)?((?:\\{\\{(?:[Ii]nformation(?: [Nn]eeded)?|[Qq]uestion)\\}\\}|[\\d\\?]+) *\\w+|\\<?[Dd]uration\\>?)(?:, *(.+))?\\))?( *\\{\\{.*\\}\\})?(?:\\<br *\\/?\\>|[\\s'])*\\n((?:[\\*\\:]+.+\\n)+)?",
+                "replace": "{{Medicine\\n| name = $1<!--!!!!Marked for Bot!!!!-->\\n| tags = $2\\n| description = $3\\n| stackable = $4\\n| duration = $5$7\\n| effects =\\n$8}}\\n",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "Multiline"
+              },
+              {
+                "enabled": "true",
+                "comment": "Remove category",
+                "type": "OnWholePage",
+                "find": "\\[\\[Category:Medicine\\]\\]((?:.*?\\n)+\\{\\{Medicine\\s*\\n)",
+                "replace": "$1",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "IgnoreCase"
+              }
+            ],
+            "comment": "Medicine Template",
+            "type": "OnWholePage",
+            "ifContains": "(?:\\[\\[Category:Food\\]\\]|\\{\\{Food\\n|\\{\\{AH\\|Medicines\\}\\})",
+            "isRegex": "true",
+            "ifIsRegex": "true",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "IgnoreCase",
+            "regexOptions": "Multiline"
+          },
+          {
+            "enabled": "true",
+            "children": [
+              {
+                "enabled": "true",
+                "comment": "Format description",
+                "type": "OnWholePage",
+                "find": "^('')([^'\\n].+[^'\\n])(?:\\1)? *((?:\\<br\\>)*)\\s*^\\1(?=[^'])",
+                "replace": "''$2$3",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "10",
+                "ifRegexOptions": "None",
+                "regexOptions": "Multiline"
+              },
+              {
+                "enabled": "true",
+                "comment": "Apply template",
+                "type": "OnWholePage",
+                "find": "(?<=\\=\\=Statistics\\=\\=)\\s*'''(.*?)'''( *(?:\\{\\{.*?\\}\\})+)?(?: *\\<br\\>)?\\s*''([^'\\n].+[^'\\n])''\\s*(?:(?:\\<br\\>\\s*)*'''Stackable[': ]*([\\w\\d ]+)'*(?:\\s*\\<br\\>\\s*)*)?",
+                "replace": "\\n{{Item Statistics\\n| name = $1\\n| tags = $2\\n| description = $3\\n| stackable = $4\\n}}\\n",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "IgnoreCase"
+              },
+              {
+                "enabled": "true",
+                "children": [
+                  {
+                    "enabled": "true",
+                    "comment": "Fix type",
+                    "type": "InsideTemplate",
+                    "find": "(?<=^\\{\\{Item Statistics\\s*(?:^\\|.*\\s)*?)^\\| *type *= *Materials(?=\\s*(?:^\\|.*\\s)*?^\\}\\})",
+                    "replace": "| type = Material",
+                    "isRegex": "true",
+                    "ifIsRegex": "false",
+                    "numberOfTimes": "1",
+                    "ifRegexOptions": "None",
+                    "regexOptions": "IgnoreCase Multiline"
+                  }
+                ],
+                "comment": "Set type",
+                "type": "OnWholePage",
+                "find": "\\[\\[Category:(Materials|Quest Item)\\]\\]((?:.*\\s)+?^\\{\\{Item Statistics\\s*(?:^\\|.*\\s)+)(?=^\\}\\})",
+                "replace": "$2| type = $1\\n",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "IgnoreCase Multiline"
+              }
+            ],
+            "comment": "Item Statistics Template",
+            "type": "OnWholePage",
+            "ifNotContains": "(\\{\\{|\\[\\[Category:)(Food|Armor|Weapon|Furnishing)(\\]\\])?",
+            "isRegex": "false",
+            "ifIsRegex": "true",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "IgnoreCase",
+            "regexOptions": "IgnoreCase"
+          },
+          {
+            "enabled": "true",
+            "children": [
+              {
+                "enabled": "true",
+                "comment": "Storage slip",
+                "type": "OnWholePage",
+                "find": "[ ']*(?:Can +be +)?(?:storable|stored|held +in +storage +)?with +\\[\\[Storage +Slip +(\\d+)\\]\\][\\.']*",
+                "replace": "{{Storable|Storage Slip|$1}}",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "IgnoreCase"
+              }
+            ],
+            "comment": "Storage",
+            "type": "OnWholePage",
+            "isRegex": "false",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "None"
+          },
+          {
+            "enabled": "true",
+            "children": [
+              {
+                "enabled": "false",
+                "children": [
+                  {
+                    "enabled": "true",
+                    "comment": "Remove bold",
+                    "type": "OnWholePage",
+                    "find": "(\\| *jobs *=.+?)'+",
+                    "replace": "$1",
+                    "isRegex": "true",
+                    "ifIsRegex": "false",
+                    "numberOfTimes": "40",
+                    "ifRegexOptions": "None",
+                    "regexOptions": "Singleline"
+                  }
+                ],
+                "comment": "Compress jobs",
+                "type": "InsideTemplate",
+                "find": "\\| jobs = [' ]*([\\[\\]\\|\\w \\/]+)[' ]*(\\<br\\/?\\>)?[' ]*\\n?[' ]*([\\[\\]\\|\\w \\/]+)[' ]*(\\<br\\/?\\>)?[' ]*\\n?[' ]*([\\[\\]\\|\\w \\/]+)[' ]*(\\<br\\/?\\>)?[' ]*\\n",
+                "replace": "| jobs = $1$2$3$4$5$6\\n",
+                "isRegex": "true",
+                "ifIsRegex": "true",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "None"
+              },
+              {
+                "enabled": "true",
+                "children": [
+                  {
+                    "enabled": "true",
+                    "comment": "Remove newlines",
+                    "type": "InsideTemplate",
+                    "find": "\\| *(stats|description|jobs)[\\= ]+(.+)\\n((?:[^\\|].*\\n+)+\\| *\\w+[\\= ]*)",
+                    "replace": "| $1 = $2$3",
+                    "isRegex": "true",
+                    "ifIsRegex": "true",
+                    "numberOfTimes": "5",
+                    "ifRegexOptions": "None",
+                    "regexOptions": "None"
+                  },
+                  {
+                    "enabled": "true",
+                    "comment": "Separate stats and level",
+                    "type": "InsideTemplate",
+                    "find": "(?<=\\| *stats *= *[^\\n]+?)(?: *|\\<br\\/?\\>)*(\\| *level *=)",
+                    "replace": "\\n$1",
+                    "isRegex": "true",
+                    "ifIsRegex": "false",
+                    "numberOfTimes": "1",
+                    "ifRegexOptions": "None",
+                    "regexOptions": "None"
+                  }
+                ],
+                "comment": "Compress stats/desc",
+                "type": "InsideTemplate",
+                "find": "\\| *(stats|description) *= *(.+(?:\\<br\\/?\\>)+)\\n(?=(?:[^\\|].+(?:\\<br\\/?\\>)+\\n)*\\| *[\\w ]+\\= *)",
+                "replace": "| $1 = $2",
+                "isRegex": "true",
+                "ifIsRegex": "true",
+                "numberOfTimes": "4",
+                "ifRegexOptions": "None",
+                "regexOptions": "None"
+              },
+              {
+                "enabled": "false",
+                "comment": "Remove italics in description",
+                "type": "OnWholePage",
+                "find": "(\\| *description *(?:= *.*?[^']|=))('')([^'^\\n]+?)\\2",
+                "replace": "$1$3",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "None"
+              },
+              {
+                "enabled": "true",
+                "comment": "Remove newlines",
+                "type": "InsideTemplate",
+                "find": "(?<=^\\| *(?:stats|description|jobs) *= *(?:(?:[^\\}].*)?\\n)*?.*?)\\n(?!^(?:\\| *[\\w ]+ *= *|\\}\\})|\\*)(?=(?:.*\\n)*?^\\}\\})",
+                "replace": " ",
+                "isRegex": "true",
+                "ifIsRegex": "true",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "Multiline"
+              },
+              {
+                "enabled": "true",
+                "comment": "Fix field end breaks",
+                "type": "InsideTemplate",
+                "find": "(\\| *(?:stats|jobs|description) *\\= *.*?)(?:\\<br\\/?\\>|\\n)+(^\\}\\}|^\\|[ \\w]+ *\\= *)",
+                "replace": "$1\\n$2",
+                "isRegex": "true",
+                "ifIsRegex": "true",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "Multiline"
+              },
+              {
+                "enabled": "true",
+                "children": [
+                  {
+                    "enabled": "true",
+                    "comment": "Remove DPS template",
+                    "type": "OnWholePage",
+                    "find": "^ *\\{\\{\\s*DPS\\s*\\|\\d+\\s*\\|\\d+\\s*\\}\\}",
+                    "isRegex": "true",
+                    "ifIsRegex": "false",
+                    "numberOfTimes": "1",
+                    "ifRegexOptions": "None",
+                    "regexOptions": "Multiline"
+                  },
+                  {
+                    "enabled": "true",
+                    "comment": "Remove stray TP",
+                    "type": "OnWholePage",
+                    "find": "^(?:[\\n(?:\\<br\\/?\\>) ']+TP [Pp]er [Hh]it[\\:' \\+\\d\\.\\%\\?]+)",
+                    "isRegex": "true",
+                    "ifIsRegex": "false",
+                    "numberOfTimes": "1",
+                    "ifRegexOptions": "None",
+                    "regexOptions": "None"
+                  }
+                ],
+                "comment": "Remove DPS / TP",
+                "type": "OnWholePage",
+                "find": "(?:\\{\\{DPS\\|\\d+\\s*\\|\\d+\\s*\\}\\}|[\\n(?:\\<br\\/?\\>) ']+[Dd]amage *[Pp]er *[Ss]econd[\\:' \\d\\.\\?\\+\\w\\-]+(?:\\<br\\/?\\>)*\\s*?)(?:[(?:\\<br\\/?\\>)\\s']+TP [Pp]er [Hh]it[\\:' \\+\\d\\.\\%\\?]+)",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "None"
+              },
+              {
+                "enabled": "true",
+                "comment": "Enchantment",
+                "type": "OnWholePage",
+                "find": "(\\{\\{(?:Armor|Weapon).+)\\n?\\}\\}\\n*\\:*\\{\\{EnchantmentDetails\\|(\\d+)\\|([\\d\\:]+)\\|([\\d\\:]+)\\}\\}\\s*",
+                "replace": "$1\\n| charges = $2\\n| use delay = $3\\n| recast = $4\\n}}\\n",
+                "isRegex": "true",
+                "ifIsRegex": "true",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "Singleline"
+              },
+              {
+                "enabled": "true",
+                "comment": "Clean stackable",
+                "type": "OnWholePage",
+                "find": "^\\}\\}\\n\\| stackable",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "Multiline"
+              },
+              {
+                "enabled": "true",
+                "children": [
+                  {
+                    "enabled": "true",
+                    "comment": "Spacing after end of equipment",
+                    "type": "OnWholePage",
+                    "find": "(?<=\\{\\{(?:Armor|Weapon)\\n.+?\\| *(?:level|jobs|stats) *= *[^\\n]+[\\d'\\}\\]])(?:\\<br\\/?\\>|\\n)*(\\}\\})\\n*(?=[^\\n])",
+                    "replace": "\\n$1\\n",
+                    "isRegex": "true",
+                    "ifIsRegex": "false",
+                    "numberOfTimes": "1",
+                    "ifRegexOptions": "None",
+                    "regexOptions": "None"
+                  }
+                ],
+                "comment": "Spacing after equipment line",
+                "type": "OnWholePage",
+                "find": "(?<=\\{\\{(?:Armor|Weapon)\\n.+?\\| *(?:level|jobs|stats) *= *[^\\n]+?[\\d'\\]\\}])(?:\\n|\\<br\\/?\\>){2,}\\|\\s*(?=[^\\n])",
+                "replace": "\\n|",
+                "isRegex": "true",
+                "ifIsRegex": "true",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "Singleline"
+              },
+              {
+                "enabled": "true",
+                "comment": "Stackable",
+                "type": "OnWholePage",
+                "find": "(?<=\\{\\{(?:Armor|Weapon|Item Statistics)\\n.+?\\| *(?:level|jobs|stats|description) *= *[^\\n]+\\n*)\\}\\}(.*?)[' \\n(?:\\<br\\/?\\>)]*Stackable[\\:' ]*(\\d+|Not Stackable)[' ]*",
+                "replace": "| stackable = $2\\n}}\\n$1",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "Multiline Singleline"
+              },
+              {
+                "enabled": "true",
+                "comment": "Stats to description",
+                "type": "OnWholePage",
+                "find": "\\| *stats *= *('')([^'][^\\1]+?)\\1",
+                "replace": "| description = $2",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "None"
+              },
+              {
+                "enabled": "true",
+                "comment": "Evolith",
+                "type": "OnWholePage",
+                "find": "\\}\\}(?:\\< *br *\\/? *\\>|[ \\n])*'*Evolith *(?:[Aa]pertures|[Ss]lots)?:?'*\\n.+?\\[(\\d)\\].+?(\\{\\{Evolith.+?\\}\\}[ \\d]*).+\\n",
+                "replace": "| evolith $1 = $2\\n}}",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "None"
+              },
+              {
+                "enabled": "true",
+                "comment": "Reduce trailing breaks",
+                "type": "OnWholePage",
+                "find": "(?<=\\{\\{(?:Armor|Weapon|Food)\\n.+?\\| *(?:level|jobs) *= *[^\\n]+\\n\\}\\})(?:\\<br\\/?\\>\\n?){2,4}",
+                "replace": "\\n<br>",
+                "isRegex": "true",
+                "ifIsRegex": "true",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "Singleline"
+              },
+              {
+                "enabled": "true",
+                "children": [
+                  {
+                    "enabled": "true",
+                    "comment": "Remove excess breaks",
+                    "type": "OnWholePage",
+                    "find": "(?<=\\{\\{(?:Armor|Weapon)\\n.+?\\| *[a-zA-Z]+ *= *[^\\n]+\\n*\\}\\}\\n*)(?:\\<br\\/?\\>)+",
+                    "replace": "<br>",
+                    "isRegex": "true",
+                    "ifIsRegex": "false",
+                    "numberOfTimes": "1",
+                    "ifRegexOptions": "None",
+                    "regexOptions": "Singleline"
+                  },
+                  {
+                    "enabled": "true",
+                    "comment": "Remove unneccessary breaks",
+                    "type": "OnWholePage",
+                    "find": "(?<=\\{\\{(?:Armor|Weapon)\\n.+?\\| *[a-zA-Z]+ *= *[^\\n]+\\n*\\}\\}\\n)(?:\\<br\\/?\\>|\\n)+(?=\\|width=)",
+                    "isRegex": "true",
+                    "ifIsRegex": "false",
+                    "numberOfTimes": "1",
+                    "ifRegexOptions": "None",
+                    "regexOptions": "Singleline"
+                  }
+                ],
+                "comment": "Remove excess spacing",
+                "type": "OnWholePage",
+                "find": "(?<=\\{\\{(?:Armor|Weapon)\\n.+?\\| *[a-zA-Z]+ *= *[^\\n]+\\n*\\}\\}\\n)\\s+",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "Singleline"
+              },
+              {
+                "enabled": "true",
+                "comment": "Spacing after consumables",
+                "type": "OnWholePage",
+                "find": "(\\{\\{(?:Food|Medicine)\\n.+?\\| *effects *= *\\n(?:[\\*\\:]+[^\\n]+\\n)+\\}\\})([^\\n])",
+                "replace": "$1\\n$2",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "Singleline"
+              },
+              {
+                "enabled": "true",
+                "comment": "Replace instruments",
+                "type": "InsideTemplate",
+                "find": "^(\\| *type[ \\=]*\\w+) *Instr\\.",
+                "replace": "$1 Instrument",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "Multiline"
+              },
+              {
+                "enabled": "true",
+                "comment": "Item Level",
+                "type": "OnWholePage",
+                "find": "(?:\\< *br *\\/? *\\>)*(\\n\\}\\}\\n)?:*<?'*\\[*[Ii]tem [Ll]evel\\]*\\:?'* *(\\d+)>?",
+                "replace": "\\n| ilevel = $2$1",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "None"
+              },
+              {
+                "enabled": "true",
+                "comment": "Alternate DPS",
+                "type": "OnWholePage",
+                "find": "(?<=\\{\\{Weapon\\n(?:[^\\}].*\\n|\\n)+)\\}\\}\\s*(?:\\<br[\\/ ]*\\>\\s*)*[\\s']*[Dd]amage [Pp]er [Ss]econd:[ ']*[\\d\\.]+ *\\/ *([\\d\\.]+)",
+                "replace": "| alternate dps = $1\\n}}\\n",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "None"
+              },
+              {
+                "enabled": "true",
+                "comment": "Image",
+                "type": "OnWholePage",
+                "find": "\\[\\[File:(.+\\.[A-Za-z]{3})[ \\t]*(?:\\|[ \\t]*([\\w ']+)[ \\t]*)?(?:\\|[ \\t]*(?:thumb|right)[ \\t]*)?(?:\\|[ \\t]*(\\d+px)[ \\t]*)?.+?\\]\\]\\n(\\{\\{(?:[Aa]rmor|[Ww]eapon))\\s*\\n",
+                "replace": "$4\\n| image = $1\\n| image caption = $2\\n| image size = $3\\n",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "None"
+              },
+              {
+                "enabled": "true",
+                "comment": "Remove blank lines",
+                "type": "OnWholePage",
+                "find": "(?<=\\{\\{(?:Armor|Weapon|Food|Medicine)(.*?\\n)*?)^\\|(?=\\}\\})",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "Multiline"
+              }
+            ],
+            "comment": "Clean",
+            "type": "OnWholePage",
+            "ifContains": "\\{\\{(?:Armor|Weapon|Food|Item Statistics)",
+            "isRegex": "false",
+            "ifIsRegex": "true",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "None"
+          },
+          {
+            "enabled": "false",
+            "children": [
+              {
+                "enabled": "true",
+                "comment": "Resist",
+                "type": "OnWholePage",
+                "find": "(?<=\\| *stats *=.*?)'*\\[\\[File\\:Trans[ _](.*?)\\.gif(?:\\|.*?)?\\]\\][' ]*([\\-\\+]\\d+)",
+                "replace": "{{Resist|$1|$2}}",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "IgnoreCase"
+              },
+              {
+                "enabled": "true",
+                "comment": "MAB MDB",
+                "type": "OnWholePage",
+                "find": "(?<=\\| *stats *=.*?)'*\\\"'*\\[\\[ *(Magic (?:Attack|Defense) Bonus) *(?:\\|.*?)?\\]\\]'*\\\"[\\:' ]*([\\+\\-]?\\d+)",
+                "replace": "{{Stat|$1|$2}}",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "IgnoreCase"
+              },
+              {
+                "enabled": "true",
+                "comment": "Enhances",
+                "type": "OnWholePage",
+                "find": "(?<=\\| *stats *=.*?)'*([Ee]nhances|[Aa]dds|[Aa]ugments) *\\\"'*\\[\\[(.*?)\\]\\]'*\\\" *[Ee]ffect'*",
+                "replace": "{{Stat|$1|$2}}",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "IgnoreCase"
+              },
+              {
+                "enabled": "true",
+                "comment": "Abilities",
+                "type": "OnWholePage",
+                "find": "(?<=\\| *stats *=.*?)'*\\\"?(?:\\[\\[)(Store TP|Subtle Blow|Zanshin)\\]\\]\\\"?'* *([\\-\\+]?\\d+)?",
+                "replace": "{{Stat|$1|$2}}",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "IgnoreCase"
+              },
+              {
+                "enabled": "true",
+                "comment": "Quotes",
+                "type": "OnWholePage",
+                "find": "(?<=\\| *stats *=.*?)'*\\\"(?:\\[\\[)(.*?)\\]\\]\\\"'* *([\\-\\+]?\\d+)?",
+                "replace": "{{Stat|\"\"|$1|$2}}",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "IgnoreCase"
+              },
+              {
+                "enabled": "true",
+                "comment": "Basic stats",
+                "type": "OnWholePage",
+                "find": "(?<=\\| *stats *=.*?)'*(?:\\[\\[(?:[\\w \\(\\)]*?\\|)?) *(HP|MP|STR|DEX|VIT|AGI|INT|MND|CHR|(?:Ranged|Magic|Weapon Skill)? *(?:Attack|Accuracy)|(?:Magic )?Evasion|Haste|Enmity) *(?:\\]\\])[' ]*([\\+\\-]?\\d+\\%?)",
+                "replace": "{{Stat|$1|$2}}",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "IgnoreCase"
+              },
+              {
+                "enabled": "true",
+                "comment": "Defense",
+                "type": "OnWholePage",
+                "find": "(?<=\\| *stats *=.*?)'*(?:\\[\\[(?: *Defense *\\| *)?)? *DEF *(?:\\]\\])?[\\:' ]*([\\+\\-]?\\d+\\%?)",
+                "replace": "{{Stat|DEF|$1}}",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "IgnoreCase"
+              },
+              {
+                "enabled": "true",
+                "comment": "Skill",
+                "type": "OnWholePage",
+                "find": "(?<=\\| *stats *=.*?)'*\\[\\[(?:\\:Category\\:)?(?:(.*?)(?: Skill)?\\|.*?|(.+)) +Skill *(?:\\]\\])?[\\:' ]*([\\+\\-]?\\d+)",
+                "replace": "{{Stat|$1$2|skill|$3}}",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "IgnoreCase"
+              },
+              {
+                "enabled": "true",
+                "comment": "Fix bold",
+                "type": "OnWholePage",
+                "find": "(?<=\\| *stats *=.*?)('+)([^'^\\n]+?)(?= *\\{\\{Stat)",
+                "replace": "$1$2$1",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "IgnoreCase"
+              }
+            ],
+            "comment": "Stat",
+            "type": "OnWholePage",
+            "isRegex": "false",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "None"
+          }
+        ],
+        "comment": "Statistics",
+        "type": "OnWholePage",
+        "isRegex": "false",
+        "ifIsRegex": "false",
+        "numberOfTimes": "1",
+        "ifRegexOptions": "None",
+        "regexOptions": "None"
+      },
+      {
+        "enabled": "true",
+        "children": [
+          {
+            "enabled": "true",
+            "comment": "Apply template",
+            "type": "OnWholePage",
+            "find": "\\{\\|cellpadding=\"5\" width=\"100%\"\\n\\|width=\"50%\" valign=\"top\"\\|\\n==Statistics==\\n((?:.*?\\n)*?)(?:\\|width=\"50%\" valign=\"top\"\\|\\n==Other Uses==\\n((?:.*?\\n)*?))(?:\\|-\\n\\|width=\"50%\" valign=\"top\"\\|\\n==Synthesis Recipes?==\\n((?:.*?\\n)*?))(?:\\|width=\"50%\" valign=\"top\"\\|\\n==Used in Recipes?==\\n((?:.*?\\n)*?))(?:\\|-\\n\\|width=\"50%\" valign=\"top\"\\|\\n==Desynthesis Recipes?==\\n((?:.*?\\n)*?))(?:\\|width=\"50%\" valign=\"top\"\\|\\n==Obtained from Desynthesis==\\n((?:.*?\\n)*?))\\|\\}\\n==How to Obtain==\\n((?:.*?|\\n)*?)(?=\\n==[^=]*?==|$)",
+            "replace": "\\n{{Item Header|Statistics}}\\n$1\\n{{Item Header|Other Uses}}\\n$2\\n{{Item Header|Synthesis Recipes}}\\n$3\\n{{Item Header|Used in Recipes}}\\n$4\\n{{Item Header|Desynthesis Recipes}}\\n$5\\n{{Item Header|Obtained from Desynthesis}}\\n$6\\n{{Item Header|How to Obtain}}\\n$7\\n\\n{{Item Header|How to Obtain|end}}",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "IgnoreCase"
+          },
+          {
+            "enabled": "true",
+            "comment": "How to Obtain",
+            "type": "OnWholePage",
+            "find": "(?<=\\{\\{Item Header\\|How to Obtain\\}\\}(?:.*\\n)*?)===([^=#\\|\\{\\}]*?)===(?=(?:.*\\n)*?\\{\\{Item Header\\|How to Obtain\\|end\\}\\})",
+            "replace": "\\n{{Item Header|How to Obtain|$1}}",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "IgnoreCase"
+          },
+          {
+            "enabled": "true",
+            "comment": "Remove NOTOC",
+            "type": "OnWholePage",
+            "find": "__NOTOC__(?=(?:.*\\n)*\\{\\{Item Header)",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "IgnoreCase"
+          }
+        ],
+        "comment": "Item Header",
+        "type": "OnWholePage",
+        "isRegex": "false",
+        "ifIsRegex": "false",
+        "numberOfTimes": "1",
+        "ifRegexOptions": "None",
+        "regexOptions": "None"
+      },
+      {
+        "enabled": "true",
+        "children": [
+          {
+            "enabled": "false",
+            "comment": "Remove trailing lines",
+            "type": "OnWholePage",
+            "find": "(^\\{\\{[\\w\\s]+\\s*(?:^\\|.+\\s+)+?^\\}\\})\\s*",
+            "replace": "$1\\n",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "Multiline"
+          }
+        ],
+        "comment": "Clean templates",
+        "type": "OnWholePage",
+        "isRegex": "false",
+        "ifIsRegex": "false",
+        "numberOfTimes": "1",
+        "ifRegexOptions": "None",
+        "regexOptions": "IgnoreCase"
+      },
+      {
+        "enabled": "false",
+        "children": [
+          {
+            "enabled": "true",
+            "children": [
+              {
+                "enabled": "true",
+                "comment": "Plus",
+                "type": "OnWholePage",
+                "find": "(?<=\\{\\{Synthesis Recipe(?:.*?\\n)*\\| (?:subcraft *\\d* *)?cap = \\d+\\+)(?=\\n)",
+                "replace": "{{verification}}",
+                "isRegex": "true",
+                "ifIsRegex": "false",
+                "numberOfTimes": "1",
+                "ifRegexOptions": "None",
+                "regexOptions": "None"
+              }
+            ],
+            "comment": "Crafting cap",
+            "type": "OnWholePage",
+            "find": "(?<=\\{\\{Synthesis Recipe(?:.*?\\n)*\\| (?:subcraft *\\d* *)?cap = \\d+ *\\- *\\d+ *)(?=\\n)",
+            "replace": "{{verification}}",
+            "isRegex": "true",
+            "ifIsRegex": "false",
+            "numberOfTimes": "1",
+            "ifRegexOptions": "None",
+            "regexOptions": "None"
+          }
+        ],
+        "comment": "Verification",
+        "type": "OnWholePage",
+        "isRegex": "false",
+        "ifIsRegex": "false",
+        "numberOfTimes": "1",
+        "ifRegexOptions": "None",
+        "regexOptions": "None"
+      }
+    ]
+  },
+  "skipPreferences": {
+    "doesContain": "true",
+    "doesContainIsAfterProcessing": "false",
+    "doesContainIsCaseSensitive": "false",
+    "doesContainIsRegex": "true",
+    "doesContainText": "(?:\\< *div.*\\>)"
+  }
+}

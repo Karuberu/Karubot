@@ -1,100 +1,10 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<AutoWikiBrowserPreferences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xml:space="preserve" Version="5.9.0.0">
+<?xml version="1.0" encoding="utf-8"?>
+<AutoWikiBrowserPreferences Version="5.9.0.0" xml:space="preserve" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Project>custom</Project>
   <LanguageCode>en</LanguageCode>
   <CustomProject>ffxiclopedia.wikia.com/</CustomProject>
   <Protocol>http://</Protocol>
-  <LoginDomain />
-  <List>
-    <ListSource>Jobs</ListSource>
-    <SelectedProvider>CategoryListProvider</SelectedProvider>
-    <ArticleList>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Bard</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Beastmaster</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Black Mage</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Blue Mage</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Corsair</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Dancer</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Dark Knight</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Dragoon</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Monk</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Ninja</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Paladin</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Ranger</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Red Mage</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Rune Fencer</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Samurai</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Scholar</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Summoner</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Thief</Name>
-      </Article>
-      <Article NameSpaceKey="200">
-        <PreProcessed>false</PreProcessed>
-        <Name>UserWiki:HigoshiRyozo</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>Warrior</Name>
-      </Article>
-      <Article NameSpaceKey="0">
-        <PreProcessed>false</PreProcessed>
-        <Name>White Mage</Name>
-      </Article>
-    </ArticleList>
-  </List>
+  <LoginDomain/>
   <FindAndReplace>
     <Enabled>true</Enabled>
     <IgnoreSomeText>false</IgnoreSomeText>
@@ -103,8 +13,8 @@
     <Replacements>
       <Replacement>
         <Find>&lt;!--!!!!Marked\ for\ Bot!!!!--&gt;</Find>
-        <Replace />
-        <Comment />
+        <Replace/>
+        <Comment/>
         <IsRegex>false</IsRegex>
         <Enabled>true</Enabled>
         <Minor>false</Minor>
@@ -114,7 +24,7 @@
       <Replacement>
         <Find>cellspaing</Find>
         <Replace>cellspacing</Replace>
-        <Comment />
+        <Comment/>
         <IsRegex>false</IsRegex>
         <Enabled>true</Enabled>
         <Minor>true</Minor>
@@ -123,8 +33,8 @@
       </Replacement>
       <Replacement>
         <Find>\*\[\[]]</Find>
-        <Replace />
-        <Comment />
+        <Replace/>
+        <Comment/>
         <IsRegex>false</IsRegex>
         <Enabled>true</Enabled>
         <Minor>true</Minor>
@@ -134,7 +44,7 @@
       <Replacement>
         <Find>\[\[ *([^\|]*?) *(?:\| *\1 *)?\]\]</Find>
         <Replace>[[$1]]</Replace>
-        <Comment />
+        <Comment/>
         <IsRegex>true</IsRegex>
         <Enabled>true</Enabled>
         <Minor>true</Minor>
@@ -144,7 +54,7 @@
       <Replacement>
         <Find>\{\{Template:</Find>
         <Replace>{{</Replace>
-        <Comment />
+        <Comment/>
         <IsRegex>false</IsRegex>
         <Enabled>true</Enabled>
         <Minor>true</Minor>
@@ -154,7 +64,7 @@
       <Replacement>
         <Find>^(.+?)[ \t]+$</Find>
         <Replace>$1</Replace>
-        <Comment />
+        <Comment/>
         <IsRegex>true</IsRegex>
         <Enabled>true</Enabled>
         <Minor>true</Minor>
@@ -164,7 +74,7 @@
       <Replacement>
         <Find>\&lt; *br *\/? *\&gt;</Find>
         <Replace>&lt;br&gt;</Replace>
-        <Comment />
+        <Comment/>
         <IsRegex>true</IsRegex>
         <Enabled>true</Enabled>
         <Minor>true</Minor>
@@ -174,7 +84,7 @@
       <Replacement>
         <Find>(?:\&lt;br\&gt;)*(\n?^[\:\*]+.+?)(?:\&lt;br\&gt;)*\n+</Find>
         <Replace>$1\n</Replace>
-        <Comment />
+        <Comment/>
         <IsRegex>true</IsRegex>
         <Enabled>false</Enabled>
         <Minor>true</Minor>
@@ -184,7 +94,7 @@
       <Replacement>
         <Find>([^'])([ ']+)([^'^\n]+?)\2((?:\&lt;br\&gt;| )+)\2</Find>
         <Replace>$1$2$3$4</Replace>
-        <Comment />
+        <Comment/>
         <IsRegex>true</IsRegex>
         <Enabled>true</Enabled>
         <Minor>true</Minor>
@@ -194,7 +104,7 @@
       <Replacement>
         <Find>(^'''.+?)\&lt;br\/?\&gt;(.+?''(?:&lt;br\/?\&gt;)*\n)</Find>
         <Replace>$1'''&lt;br&gt;\n''$2</Replace>
-        <Comment />
+        <Comment/>
         <IsRegex>true</IsRegex>
         <Enabled>true</Enabled>
         <Minor>false</Minor>
@@ -204,7 +114,7 @@
       <Replacement>
         <Find>(__NOTOC__)(.+)\n</Find>
         <Replace>$2$1\n</Replace>
-        <Comment />
+        <Comment/>
         <IsRegex>true</IsRegex>
         <Enabled>true</Enabled>
         <Minor>true</Minor>
@@ -214,7 +124,7 @@
       <Replacement>
         <Find>(\[\[File\:.+?\]\] *\n)(__NOTOC__ *\n)</Find>
         <Replace>$2$1</Replace>
-        <Comment />
+        <Comment/>
         <IsRegex>true</IsRegex>
         <Enabled>true</Enabled>
         <Minor>true</Minor>
@@ -223,8 +133,8 @@
       </Replacement>
       <Replacement>
         <Find>(?&lt;=__NOTOC__(?:.*?\n)*?)__NOTOC__</Find>
-        <Replace />
-        <Comment />
+        <Replace/>
+        <Comment/>
         <IsRegex>true</IsRegex>
         <Enabled>true</Enabled>
         <Minor>true</Minor>
@@ -234,7 +144,7 @@
       <Replacement>
         <Find>(\[\[Category:.+?\]\])\s(\[\[Category)</Find>
         <Replace>$1$2</Replace>
-        <Comment />
+        <Comment/>
         <IsRegex>true</IsRegex>
         <Enabled>true</Enabled>
         <Minor>true</Minor>
@@ -244,7 +154,7 @@
       <Replacement>
         <Find>^(.+) +$</Find>
         <Replace>$1</Replace>
-        <Comment />
+        <Comment/>
         <IsRegex>true</IsRegex>
         <Enabled>true</Enabled>
         <Minor>true</Minor>
@@ -254,7 +164,7 @@
       <Replacement>
         <Find>((?:.*?\n)+.*?)((?:\[\[(?:category|\w\w):.+?\]\]\s*)+)</Find>
         <Replace>$2$1</Replace>
-        <Comment />
+        <Comment/>
         <IsRegex>true</IsRegex>
         <Enabled>true</Enabled>
         <Minor>true</Minor>
@@ -264,7 +174,7 @@
       <Replacement>
         <Find>\{\{Rare2}}</Find>
         <Replace>{{Rare|nc}}</Replace>
-        <Comment />
+        <Comment/>
         <IsRegex>false</IsRegex>
         <Enabled>true</Enabled>
         <Minor>false</Minor>
@@ -274,7 +184,7 @@
       <Replacement>
         <Find>\{\{Exclusive2}}</Find>
         <Replace>{{Exclusive|nc}}</Replace>
-        <Comment />
+        <Comment/>
         <IsRegex>false</IsRegex>
         <Enabled>true</Enabled>
         <Minor>false</Minor>
@@ -284,7 +194,7 @@
       <Replacement>
         <Find>\{\{Temp2}}</Find>
         <Replace>{{Temp|nc}}</Replace>
-        <Comment />
+        <Comment/>
         <IsRegex>false</IsRegex>
         <Enabled>true</Enabled>
         <Minor>false</Minor>
@@ -294,7 +204,7 @@
       <Replacement>
         <Find>\{\{Augment2}}</Find>
         <Replace>{{Augment|nc}}</Replace>
-        <Comment />
+        <Comment/>
         <IsRegex>false</IsRegex>
         <Enabled>true</Enabled>
         <Minor>false</Minor>
@@ -304,7 +214,7 @@
       <Replacement>
         <Find>^((?:\&lt;br\/?\&gt;)+)(\{\|[\w ])</Find>
         <Replace>$1\n$2</Replace>
-        <Comment />
+        <Comment/>
         <IsRegex>true</IsRegex>
         <Enabled>true</Enabled>
         <Minor>false</Minor>
@@ -312,9 +222,9 @@
         <RegularExpressionOptions>IgnoreCase Multiline</RegularExpressionOptions>
       </Replacement>
       <Replacement>
-        <Find>\| *valign *= *"top" *width *= *" *50% *" *\|\s+</Find>
-        <Replace>|width="50%" valign="top"|\n</Replace>
-        <Comment />
+        <Find>\| *valign *= *&quot;top&quot; *width *= *&quot; *50% *&quot; *\|\s+</Find>
+        <Replace>|width=&quot;50%&quot; valign=&quot;top&quot;|\n</Replace>
+        <Comment/>
         <IsRegex>true</IsRegex>
         <Enabled>true</Enabled>
         <Minor>true</Minor>
@@ -322,9 +232,9 @@
         <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
       </Replacement>
       <Replacement>
-        <Find>\| *width *= *" *50% *" *valign *= *" *top *" *\|\s*</Find>
-        <Replace>|width="50%" valign="top"|\n</Replace>
-        <Comment />
+        <Find>\| *width *= *&quot; *50% *&quot; *valign *= *&quot; *top *&quot; *\|\s*</Find>
+        <Replace>|width=&quot;50%&quot; valign=&quot;top&quot;|\n</Replace>
+        <Comment/>
         <IsRegex>true</IsRegex>
         <Enabled>true</Enabled>
         <Minor>true</Minor>
@@ -332,9 +242,9 @@
         <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
       </Replacement>
       <Replacement>
-        <Find>\}\}\|width="50%" valign="top"\|\n\|width="50%" valign="top"\|</Find>
-        <Replace>}}\n|width="50%" valign="top"|</Replace>
-        <Comment />
+        <Find>\}\}\|width=&quot;50%&quot; valign=&quot;top&quot;\|\n\|width=&quot;50%&quot; valign=&quot;top&quot;\|</Find>
+        <Replace>}}\n|width=&quot;50%&quot; valign=&quot;top&quot;|</Replace>
+        <Comment/>
         <IsRegex>true</IsRegex>
         <Enabled>true</Enabled>
         <Minor>true</Minor>
@@ -344,7 +254,7 @@
       <Replacement>
         <Find>\|\-\s*\|\}\s*</Find>
         <Replace>|}\n</Replace>
-        <Comment />
+        <Comment/>
         <IsRegex>true</IsRegex>
         <Enabled>true</Enabled>
         <Minor>true</Minor>
@@ -418,13 +328,13 @@
         <Children>
           <IRule xsi:type="Rule">
             <enabled_>true</enabled_>
-            <Children />
+            <Children/>
             <Name>Convert nc to regular</Name>
             <ruletype_>OnWholePage</ruletype_>
             <replace_>(?&lt;=\[\[Category:(Rare|Exclusive|Augmented|Temporary)\]\](?:.*?\n)*?.*?)\{\{\1(?:\|nc)?\}\}</replace_>
             <with_>{{$1}}</with_>
-            <ifContains_ />
-            <ifNotContains_ />
+            <ifContains_/>
+            <ifNotContains_/>
             <regex_>true</regex_>
             <ifIsRegex_>false</ifIsRegex_>
             <numoftimes_>7</numoftimes_>
@@ -433,13 +343,13 @@
           </IRule>
           <IRule xsi:type="Rule">
             <enabled_>true</enabled_>
-            <Children />
+            <Children/>
             <Name>Remove excess categories</Name>
             <ruletype_>OnWholePage</ruletype_>
             <replace_>\[\[Category:(Rare|Exclusive|Augmented|Temporary)\]\]\s*(?=(?:.*?\n)*?.*?\{\{\1\}\})</replace_>
-            <with_ />
-            <ifContains_ />
-            <ifNotContains_ />
+            <with_/>
+            <ifContains_/>
+            <ifNotContains_/>
             <regex_>true</regex_>
             <ifIsRegex_>false</ifIsRegex_>
             <numoftimes_>1</numoftimes_>
@@ -449,10 +359,10 @@
         </Children>
         <Name>Tags</Name>
         <ruletype_>OnWholePage</ruletype_>
-        <replace_ />
-        <with_ />
-        <ifContains_ />
-        <ifNotContains_ />
+        <replace_/>
+        <with_/>
+        <ifContains_/>
+        <ifNotContains_/>
         <regex_>false</regex_>
         <ifIsRegex_>false</ifIsRegex_>
         <numoftimes_>1</numoftimes_>
@@ -464,13 +374,13 @@
         <Children>
           <IRule xsi:type="Rule">
             <enabled_>true</enabled_>
-            <Children />
+            <Children/>
             <Name>Location</Name>
             <ruletype_>OnWholePage</ruletype_>
             <replace_>(?&lt;=\| *)\[\[([^\]^\|]*?)\]\](?:,? '*([^\(].*?[^\)])'*|,? '*\((.*?)\)'*)? *\(?([A-Z]-\d+)\)?</replace_>
             <with_>{{Location|$1|map = $2$3|$4}}</with_>
-            <ifContains_ />
-            <ifNotContains_ />
+            <ifContains_/>
+            <ifNotContains_/>
             <regex_>true</regex_>
             <ifIsRegex_>false</ifIsRegex_>
             <numoftimes_>1</numoftimes_>
@@ -479,13 +389,13 @@
           </IRule>
           <IRule xsi:type="Rule">
             <enabled_>true</enabled_>
-            <Children />
+            <Children/>
             <Name>Specific Location</Name>
             <ruletype_>OnWholePage</ruletype_>
             <replace_>(\{\{Location\|.*)\}\}(?:\&lt;br\&gt;|&amp;nbsp;|[ \:\*])*\n[\:' \(]*([^\|].*?)[\)' ]*\n</replace_>
             <with_>$1|$2}}\n</with_>
-            <ifContains_ />
-            <ifNotContains_ />
+            <ifContains_/>
+            <ifNotContains_/>
             <regex_>true</regex_>
             <ifIsRegex_>false</ifIsRegex_>
             <numoftimes_>1</numoftimes_>
@@ -494,13 +404,13 @@
           </IRule>
           <IRule xsi:type="Rule">
             <enabled_>true</enabled_>
-            <Children />
+            <Children/>
             <Name>Cleanup</Name>
             <ruletype_>OnWholePage</ruletype_>
             <replace_>(?&lt;=\{\{Location\|.*?\|)map = \|(?=.*?\}\})</replace_>
-            <with_ />
-            <ifContains_ />
-            <ifNotContains_ />
+            <with_/>
+            <ifContains_/>
+            <ifNotContains_/>
             <regex_>true</regex_>
             <ifIsRegex_>false</ifIsRegex_>
             <numoftimes_>1</numoftimes_>
@@ -510,10 +420,10 @@
         </Children>
         <Name>Location</Name>
         <ruletype_>OnWholePage</ruletype_>
-        <replace_ />
-        <with_ />
-        <ifContains_ />
-        <ifNotContains_ />
+        <replace_/>
+        <with_/>
+        <ifContains_/>
+        <ifNotContains_/>
         <regex_>false</regex_>
         <ifIsRegex_>false</ifIsRegex_>
         <numoftimes_>1</numoftimes_>
@@ -525,13 +435,13 @@
         <Children>
           <IRule xsi:type="Rule">
             <enabled_>true</enabled_>
-            <Children />
+            <Children/>
             <Name>Regional</Name>
             <ruletype_>OnWholePage</ruletype_>
             <replace_>\[\[ *Regional Merchants? *\]\]\s+(?:\:?[' ]*\[\[(.+?)\|[' ]*\1(?: [Rr]egion)?[' ]*\]\][' ]*|[' ]*\([' ]*\[\[(.*?)\]\][' ]*\)[' ]*)\n</replace_>
             <with_>{{Merchant|Regional|$1$2}}\n</with_>
-            <ifContains_ />
-            <ifNotContains_ />
+            <ifContains_/>
+            <ifNotContains_/>
             <regex_>true</regex_>
             <ifIsRegex_>false</ifIsRegex_>
             <numoftimes_>1</numoftimes_>
@@ -540,13 +450,13 @@
           </IRule>
           <IRule xsi:type="Rule">
             <enabled_>true</enabled_>
-            <Children />
+            <Children/>
             <Name>Standard</Name>
             <ruletype_>OnWholePage</ruletype_>
             <replace_>\[\[ *Standard Merchants? *\]\]</replace_>
             <with_>{{Merchant|Standard}}</with_>
-            <ifContains_ />
-            <ifNotContains_ />
+            <ifContains_/>
+            <ifNotContains_/>
             <regex_>true</regex_>
             <ifIsRegex_>false</ifIsRegex_>
             <numoftimes_>1</numoftimes_>
@@ -555,13 +465,13 @@
           </IRule>
           <IRule xsi:type="Rule">
             <enabled_>true</enabled_>
-            <Children />
+            <Children/>
             <Name>Guild</Name>
             <ruletype_>OnWholePage</ruletype_>
             <replace_>\| *\[\[(?:Guild Merchant(?:\|Guild Merchants)?(?:\|?([\w']+?) Guild)?|([\w']+?) Guild)\]\]</replace_>
             <with_>| {{Merchant|Guild|$1$2}}</with_>
-            <ifContains_ />
-            <ifNotContains_ />
+            <ifContains_/>
+            <ifNotContains_/>
             <regex_>true</regex_>
             <ifIsRegex_>false</ifIsRegex_>
             <numoftimes_>1</numoftimes_>
@@ -570,13 +480,13 @@
           </IRule>
           <IRule xsi:type="Rule">
             <enabled_>true</enabled_>
-            <Children />
+            <Children/>
             <Name>Conquest</Name>
             <ruletype_>OnWholePage</ruletype_>
             <replace_>\{\{Merchant\|Standard\}\}(?:\&lt;br\&gt;|&amp;nbsp;|[\s\:\*'])*(?:(.+?)n?(?: citizens?)?(?: only)?,? (?:\1 in )?(1st|2nd) place|(.+?) (?:[Cc]onquest\:? )?(?:1st */ *)?(2nd)\+?|(.+?) 1st or (2nd) in [Cc]onquest|Conquest[\: ]*(.+?) (1st|2nd))(?: *place *)?[\.' ]*(?=\n)</replace_>
             <with_>{{Merchant|Standard|nation = $1$3$5$7|conquest = $2$4$6$8}}</with_>
-            <ifContains_ />
-            <ifNotContains_ />
+            <ifContains_/>
+            <ifNotContains_/>
             <regex_>true</regex_>
             <ifIsRegex_>false</ifIsRegex_>
             <numoftimes_>1</numoftimes_>
@@ -585,13 +495,13 @@
           </IRule>
           <IRule xsi:type="Rule">
             <enabled_>true</enabled_>
-            <Children />
+            <Children/>
             <Name>Hours</Name>
             <ruletype_>OnWholePage</ruletype_>
             <replace_>(\{\{Merchant\|.+?)\}\}(?:\&lt;br\&gt;|\s)*\(?Open *([\d\:\- ]+)\)?</replace_>
             <with_>$1|hours = $2}}</with_>
-            <ifContains_ />
-            <ifNotContains_ />
+            <ifContains_/>
+            <ifNotContains_/>
             <regex_>true</regex_>
             <ifIsRegex_>false</ifIsRegex_>
             <numoftimes_>1</numoftimes_>
@@ -600,13 +510,13 @@
           </IRule>
           <IRule xsi:type="Rule">
             <enabled_>true</enabled_>
-            <Children />
+            <Children/>
             <Name>Holiday</Name>
             <ruletype_>OnWholePage</ruletype_>
             <replace_>(\{\{Merchant\|.+?)\}\}\s*Closed *(?:on)? *(\w+day)</replace_>
             <with_>$1|holiday = $2}}</with_>
-            <ifContains_ />
-            <ifNotContains_ />
+            <ifContains_/>
+            <ifNotContains_/>
             <regex_>true</regex_>
             <ifIsRegex_>false</ifIsRegex_>
             <numoftimes_>1</numoftimes_>
@@ -615,13 +525,13 @@
           </IRule>
           <IRule xsi:type="Rule">
             <enabled_>true</enabled_>
-            <Children />
+            <Children/>
             <Name>Restock</Name>
             <ruletype_>OnWholePage</ruletype_>
             <replace_>(\{\{Merchant\|.+?)\}\}[\s\:']*(?:Not (?:[Aa]utomatically )?[Rr]estocked\.?)[\s']*</replace_>
             <with_>$1|restocked = false}}\n</with_>
-            <ifContains_ />
-            <ifNotContains_ />
+            <ifContains_/>
+            <ifNotContains_/>
             <regex_>true</regex_>
             <ifIsRegex_>false</ifIsRegex_>
             <numoftimes_>1</numoftimes_>
@@ -631,10 +541,10 @@
         </Children>
         <Name>Merchant</Name>
         <ruletype_>OnWholePage</ruletype_>
-        <replace_ />
-        <with_ />
-        <ifContains_ />
-        <ifNotContains_ />
+        <replace_/>
+        <with_/>
+        <ifContains_/>
+        <ifNotContains_/>
         <regex_>false</regex_>
         <ifIsRegex_>false</ifIsRegex_>
         <numoftimes_>1</numoftimes_>
@@ -646,12 +556,13 @@
         <Children>
           <IRule xsi:type="Rule">
             <enabled_>true</enabled_>
+            <Children/>
             <Name>Rule</Name>
             <ruletype_>OnWholePage</ruletype_>
-            <replace_>\| *valign="top" *width="(\d+)%" *\|</replace_>
-            <with_>&lt;/div&gt;\n&lt;br style="clear: left;"/&gt;\n&lt;div style="float:left; margin-left:5px; width:$1%;"&gt;</with_>
-            <ifContains_ />
-            <ifNotContains_ />
+            <replace_>\| *valign=&quot;top&quot; *width=&quot;(\d+)%&quot; *\|</replace_>
+            <with_>&lt;/div&gt;\n&lt;br style=&quot;clear: left;&quot;/&gt;\n&lt;div style=&quot;float:left; margin-left:5px; width:$1%;&quot;&gt;</with_>
+            <ifContains_/>
+            <ifNotContains_/>
             <regex_>true</regex_>
             <ifIsRegex_>false</ifIsRegex_>
             <numoftimes_>1</numoftimes_>
@@ -660,12 +571,13 @@
           </IRule>
           <IRule xsi:type="Rule">
             <enabled_>true</enabled_>
+            <Children/>
             <Name>Rule</Name>
             <ruletype_>OnWholePage</ruletype_>
             <replace_>\|\}\r?\n\|\}</replace_>
-            <with_>|}\n&lt;/div&gt;\n&lt;br style="clear: left;"/&gt;</with_>
-            <ifContains_ />
-            <ifNotContains_ />
+            <with_>|}\n&lt;/div&gt;\n&lt;br style=&quot;clear: left;&quot;/&gt;</with_>
+            <ifContains_/>
+            <ifNotContains_/>
             <regex_>true</regex_>
             <ifIsRegex_>false</ifIsRegex_>
             <numoftimes_>1</numoftimes_>
@@ -675,10 +587,10 @@
         </Children>
         <Name>Replace nested tables</Name>
         <ruletype_>OnWholePage</ruletype_>
-        <replace_>\{\| *border="0" *cellpadding="5" *cellspacing="0" *width="100%"\r?\n\| *valign="top" *width="(\d+)%" *\|</replace_>
-        <with_>&lt;div style="float:left; margin-left:5px; width:$1%;"&gt;</with_>
-        <ifContains_ />
-        <ifNotContains_ />
+        <replace_>\{\| *border=&quot;0&quot; *cellpadding=&quot;5&quot; *cellspacing=&quot;0&quot; *width=&quot;100%&quot;\r?\n\| *valign=&quot;top&quot; *width=&quot;(\d+)%&quot; *\|</replace_>
+        <with_>&lt;div style=&quot;float:left; margin-left:5px; width:$1%;&quot;&gt;</with_>
+        <ifContains_/>
+        <ifNotContains_/>
         <regex_>true</regex_>
         <ifIsRegex_>false</ifIsRegex_>
         <numoftimes_>1</numoftimes_>
@@ -686,7 +598,7 @@
         <regexOptions_>None</regexOptions_>
       </IRule>
     </AdvancedReps>
-    <SubstTemplates />
+    <SubstTemplates/>
     <IncludeComments>false</IncludeComments>
     <ExpandRecursively>true</ExpandRecursively>
     <IgnoreUnformatted>false</IgnoreUnformatted>
@@ -696,18 +608,18 @@
     <Tagger>false</Tagger>
     <Unicodify>false</Unicodify>
     <Recategorisation>0</Recategorisation>
-    <NewCategory />
-    <NewCategory2 />
+    <NewCategory/>
+    <NewCategory2/>
     <ReImage>0</ReImage>
-    <ImageFind />
-    <Replace />
+    <ImageFind/>
+    <Replace/>
     <SkipIfNoCatChange>false</SkipIfNoCatChange>
     <RemoveSortKey>false</RemoveSortKey>
     <SkipIfNoImgChange>false</SkipIfNoImgChange>
     <AppendText>false</AppendText>
     <AppendTextMetaDataSort>false</AppendTextMetaDataSort>
     <Append>true</Append>
-    <Text />
+    <Text/>
     <Newlines>2</Newlines>
     <AutoDelay>0</AutoDelay>
     <BotMaxEdits>0</BotMaxEdits>
@@ -715,40 +627,7 @@
     <RegexTypoFix>false</RegexTypoFix>
   </Editprefs>
   <General>
-    <AutoSaveEdit>
-      <Enabled>false</Enabled>
-      <SavePeriod>30</SavePeriod>
-      <SaveFile />
-    </AutoSaveEdit>
-    <SelectedSummary>formatting</SelectedSummary>
-    <Summaries>
-      <string>clean up</string>
-      <string>re-categorisation per [[WP:CFD|CFD]]</string>
-      <string>clean up and re-categorisation per [[WP:CFD|CFD]]</string>
-      <string>removing category per [[WP:CFD|CFD]]</string>
-      <string>[[Wikipedia:Template substitution|subst:'ing]]</string>
-      <string>[[Wikipedia:WikiProject Stub sorting|stub sorting]]</string>
-      <string>[[WP:AWB/T|Typo fixing]]</string>
-      <string>bad link repair</string>
-      <string>Fixing [[Wikipedia:Disambiguation pages with links|links to disambiguation pages]]</string>
-      <string>Unicodifying</string>
-      <string>Applying templates</string>
-      <string>Applying templates for standardization</string>
-      <string>formatting</string>
-    </Summaries>
-    <PasteMore>
-      <string />
-      <string />
-      <string />
-      <string />
-      <string />
-      <string />
-      <string />
-      <string />
-      <string />
-      <string />
-    </PasteMore>
-    <FindText />
+    <FindText/>
     <FindRegex>false</FindRegex>
     <FindCaseSensitive>false</FindCaseSensitive>
     <WordWrap>true</WordWrap>
@@ -790,29 +669,6 @@
     <SortInterWikiOrder>true</SortInterWikiOrder>
     <ReplaceReferenceTags>true</ReplaceReferenceTags>
     <LoggingEnabled>true</LoggingEnabled>
-    <AlertPreferences>
-      <int>1</int>
-      <int>2</int>
-      <int>3</int>
-      <int>4</int>
-      <int>5</int>
-      <int>6</int>
-      <int>7</int>
-      <int>8</int>
-      <int>9</int>
-      <int>10</int>
-      <int>11</int>
-      <int>12</int>
-      <int>13</int>
-      <int>14</int>
-      <int>15</int>
-      <int>16</int>
-      <int>17</int>
-      <int>18</int>
-      <int>19</int>
-      <int>20</int>
-      <int>21</int>
-    </AlertPreferences>
   </General>
   <SkipOptions>
     <SkipNonexistent>true</SkipNonexistent>
@@ -829,12 +685,12 @@
     <SkipIfRedirect>true</SkipIfRedirect>
     <SkipIfNoAlerts>false</SkipIfNoAlerts>
     <SkipDoes>false</SkipDoes>
-    <SkipDoesText />
+    <SkipDoesText/>
     <SkipDoesRegex>false</SkipDoesRegex>
     <SkipDoesCaseSensitive>false</SkipDoesCaseSensitive>
     <SkipDoesAfterProcessing>false</SkipDoesAfterProcessing>
     <SkipDoesNot>false</SkipDoesNot>
-    <SkipDoesNotText />
+    <SkipDoesNotText/>
     <SkipDoesNotRegex>false</SkipDoesNotRegex>
     <SkipDoesNotCaseSensitive>false</SkipDoesNotCaseSensitive>
     <SkipDoesNotAfterProcessing>false</SkipDoesNotAfterProcessing>
@@ -843,49 +699,5 @@
     <SkipNoRegexTypoFix>false</SkipNoRegexTypoFix>
     <SkipNoDisambiguation>false</SkipNoDisambiguation>
     <SkipNoLinksOnPage>false</SkipNoLinksOnPage>
-    <GeneralSkipList />
   </SkipOptions>
-  <Module>
-    <Enabled>false</Enabled>
-    <Language>C# 3.5</Language>
-    <Code>        public string ProcessArticle(string ArticleText, string ArticleTitle, int wikiNamespace, out string Summary, out bool Skip)
-        {
-            Skip = false;
-            Summary = "test";
-            ArticleText = "test \r\n\r\n" + ArticleText;
-            return ArticleText;
-        }</Code>
-  </Module>
-  <ExternalProgram>
-    <Enabled>false</Enabled>
-    <Skip>false</Skip>
-    <Program />
-    <Parameters />
-    <PassAsFile>true</PassAsFile>
-    <OutputFile />
-  </ExternalProgram>
-  <Disambiguation>
-    <Enabled>false</Enabled>
-    <Link />
-    <Variants />
-    <ContextChars>20</ContextChars>
-  </Disambiguation>
-  <Special>
-    <namespaceValues />
-    <remDupes>true</remDupes>
-    <sortAZ>true</sortAZ>
-    <filterTitlesThatContain>true</filterTitlesThatContain>
-    <filterTitlesThatContainText>Support Job</filterTitlesThatContainText>
-    <filterTitlesThatDontContain>false</filterTitlesThatDontContain>
-    <filterTitlesThatDontContainText />
-    <areRegex>true</areRegex>
-    <opType>0</opType>
-    <remove />
-  </Special>
-  <Tool>
-    <ListComparerUseCurrentArticleList>0</ListComparerUseCurrentArticleList>
-    <ListSplitterUseCurrentArticleList>0</ListSplitterUseCurrentArticleList>
-    <DatabaseScannerUseCurrentArticleList>0</DatabaseScannerUseCurrentArticleList>
-  </Tool>
-  <Plugin />
 </AutoWikiBrowserPreferences>
