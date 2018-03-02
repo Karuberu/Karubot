@@ -5,11 +5,6 @@
   <CustomProject>ffxiclopedia.wikia.com/</CustomProject>
   <Protocol>http://</Protocol>
   <LoginDomain />
-  <List>
-    <ListSource>Fish</ListSource>
-    <SelectedProvider>CategoryListProvider</SelectedProvider>
-    <ArticleList />
-  </List>
   <FindAndReplace>
     <Enabled>true</Enabled>
     <IgnoreSomeText>false</IgnoreSomeText>
@@ -129,7 +124,7 @@
       <Replacement>
         <Find>cellspaing</Find>
         <Replace>cellspacing</Replace>
-        <Comment />
+        <Comment>Typo</Comment>
         <IsRegex>false</IsRegex>
         <Enabled>true</Enabled>
         <Minor>true</Minor>
@@ -139,7 +134,7 @@
       <Replacement>
         <Find>\*\[\[]]</Find>
         <Replace />
-        <Comment />
+        <Comment>Cleanup</Comment>
         <IsRegex>false</IsRegex>
         <Enabled>true</Enabled>
         <Minor>true</Minor>
@@ -149,7 +144,7 @@
       <Replacement>
         <Find>\[\[ *([^\|]*?) *(?:\| *\1 *)?\]\]</Find>
         <Replace>[[$1]]</Replace>
-        <Comment />
+        <Comment>Cleanup</Comment>
         <IsRegex>true</IsRegex>
         <Enabled>true</Enabled>
         <Minor>true</Minor>
@@ -159,7 +154,7 @@
       <Replacement>
         <Find>\{\{Template:</Find>
         <Replace>{{</Replace>
-        <Comment />
+        <Comment>Cleanup</Comment>
         <IsRegex>false</IsRegex>
         <Enabled>true</Enabled>
         <Minor>true</Minor>
@@ -167,9 +162,9 @@
         <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
       </Replacement>
       <Replacement>
-        <Find>^(.+?)[ \t]+$</Find>
-        <Replace>$1</Replace>
-        <Comment />
+        <Find>(?&lt;=^.+?)[ \t]+$</Find>
+        <Replace />
+        <Comment>Whitespace</Comment>
         <IsRegex>true</IsRegex>
         <Enabled>true</Enabled>
         <Minor>true</Minor>
@@ -179,7 +174,7 @@
       <Replacement>
         <Find>\*\[\[\&lt;stat\&gt;\|\{\{\&lt;Color\&gt;\|\&lt;stat and modifier\&gt;\}\}\]\]\s+</Find>
         <Replace />
-        <Comment />
+        <Comment>Cleanup</Comment>
         <IsRegex>true</IsRegex>
         <Enabled>true</Enabled>
         <Minor>true</Minor>
@@ -189,7 +184,7 @@
       <Replacement>
         <Find>\&lt; *br *\/? *\&gt;</Find>
         <Replace>&lt;br&gt;</Replace>
-        <Comment />
+        <Comment>Technical</Comment>
         <IsRegex>true</IsRegex>
         <Enabled>true</Enabled>
         <Minor>true</Minor>
@@ -1127,6 +1122,16 @@
         <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
       </Replacement>
       <Replacement>
+        <Find>(^\{\{(?:Armor|Item Statistics)\s+(?:^\|.+|\n)+)^\}\}(?:\&lt;br\&gt;|\s)*((?:[':\*].*|\&lt;br\&gt;|\s)+?)(?=^\|width="50%" valign="top"\|\s+\=\=Other Uses\=\=)</Find>
+        <Replace>$1| notes = $2}}</Replace>
+        <Comment>Item notes</Comment>
+        <IsRegex>true</IsRegex>
+        <Enabled>true</Enabled>
+        <Minor>true</Minor>
+        <BeforeOrAfter>true</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase Multiline</RegularExpressionOptions>
+      </Replacement>
+      <Replacement>
         <Find>\| *(jobs|races) *=[' ]*(All )?\1[' (?:\&lt;br\/?\&gt;)]*\n+</Find>
         <Replace />
         <Comment />
@@ -1137,12 +1142,32 @@
         <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
       </Replacement>
       <Replacement>
-        <Find>^\| *(?:name|tags|races|damage|delay|stats|image.*?|description|evolith *\d|charges|use delay|recast|stackable|level|jobs) *=(?:\&lt;br\/?\&gt;|[\n '])*$\n</Find>
+        <Find>^\| *(?:name|tags|races|damage|delay|stats|image.*?|description|evolith *\d|charges|use delay|recast|stackable|level|jobs|notes) *=(?:\&lt;br\/?\&gt;|[\n '])*$\n</Find>
         <Replace />
         <Comment />
         <IsRegex>true</IsRegex>
         <Enabled>true</Enabled>
         <Minor>true</Minor>
+        <BeforeOrAfter>true</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase Multiline</RegularExpressionOptions>
+      </Replacement>
+      <Replacement>
+        <Find>(?&lt;=^\{\{Synthesis Recipes\s+(?:.|\n)+)^\| recipe \d =\s+(?=^(?:\| recipe|\}\}))</Find>
+        <Replace />
+        <Comment>Template cleanup</Comment>
+        <IsRegex>true</IsRegex>
+        <Enabled>true</Enabled>
+        <Minor>true</Minor>
+        <BeforeOrAfter>true</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase Multiline</RegularExpressionOptions>
+      </Replacement>
+      <Replacement>
+        <Find>[' \[][^\|\n]*\|Used in Quest[s \]:'\n]*(?=^\|-)</Find>
+        <Replace />
+        <Comment />
+        <IsRegex>true</IsRegex>
+        <Enabled>true</Enabled>
+        <Minor>false</Minor>
         <BeforeOrAfter>true</BeforeOrAfter>
         <RegularExpressionOptions>IgnoreCase Multiline</RegularExpressionOptions>
       </Replacement>
@@ -1287,8 +1312,8 @@
         <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
       </Replacement>
       <Replacement>
-        <Find>(^== *(?:Synthesis Recipes?|Used in Recipes?|Desynthesis *Recipes?|Obtained from Desynthesis) *\=\= *$)\s+(?:\s*(?:\&lt;br\&gt;)*)*(\*)?[' ]*(?:Unknown|\?+)?[' ]*?\n+(?:^\|\- *$\s+)*(?:(^\| *width\=" *50\% *" *valign\=\"top\"\| *$|^\|\} *$)\s+)+</Find>
-        <Replace>$1\n$2{{Information Needed}}\n$3\n</Replace>
+        <Find>(?&lt;=^\=\= *(?:Synthesis Recipes?|Used in Recipes?|Desynthesis *Recipes?|Obtained from Desynthesis) *\=\= *$)\s+(?:\s*(?:\&lt;br\&gt;)*)*(\*)?[' ]*(?:Unknown|\?+)?[' ]*?\n+(?:^\|\- *$\s+)*(?:(^\| *width\=" *50\% *" *valign\=\"top\"\| *$|^\|\} *$)\s+)+</Find>
+        <Replace>\n$1{{Information Needed}}\n$2\n</Replace>
         <Comment />
         <IsRegex>true</IsRegex>
         <Enabled>true</Enabled>
@@ -1469,7 +1494,7 @@
       <Replacement>
         <Find>\|\-\s*\|\}\s*</Find>
         <Replace>|}\n</Replace>
-        <Comment />
+        <Comment>Table</Comment>
         <IsRegex>true</IsRegex>
         <Enabled>true</Enabled>
         <Minor>true</Minor>
@@ -1647,7 +1672,17 @@
         <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
       </Replacement>
       <Replacement>
-        <Find>(?&lt;=\[\[|\{\{) *(.*?) *(?=\]\]|\}\})</Find>
+        <Find>(?&lt;=\[\[|\{\{) +(.*?)(?=\]\]|\}\})</Find>
+        <Replace>$1</Replace>
+        <Comment>Whitespace</Comment>
+        <IsRegex>true</IsRegex>
+        <Enabled>true</Enabled>
+        <Minor>true</Minor>
+        <BeforeOrAfter>false</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
+      </Replacement>
+      <Replacement>
+        <Find>(?&lt;=\[\[|\{\{)(.*?) +(?=\]\]|\}\})</Find>
         <Replace>$1</Replace>
         <Comment>Whitespace</Comment>
         <IsRegex>true</IsRegex>
@@ -1665,6 +1700,46 @@
         <Minor>true</Minor>
         <BeforeOrAfter>false</BeforeOrAfter>
         <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
+      </Replacement>
+      <Replacement>
+        <Find>(?&lt;=\=\=How to Obtain\=\=\s+(?:[^=]+?)*?)(?:\s|\&lt;br\&gt;)+(?=\=\=\=[^=\n]+?\=\=\=)</Find>
+        <Replace>\n</Replace>
+        <Comment>Whitespace</Comment>
+        <IsRegex>true</IsRegex>
+        <Enabled>true</Enabled>
+        <Minor>true</Minor>
+        <BeforeOrAfter>true</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase Multiline</RegularExpressionOptions>
+      </Replacement>
+      <Replacement>
+        <Find>(?&lt;=^\}\})(?=\|[^\|\n]+?\|$)</Find>
+        <Replace>\n</Replace>
+        <Comment>Whitespace</Comment>
+        <IsRegex>true</IsRegex>
+        <Enabled>true</Enabled>
+        <Minor>false</Minor>
+        <BeforeOrAfter>true</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase Multiline</RegularExpressionOptions>
+      </Replacement>
+      <Replacement>
+        <Find>^\s*(?=\{\{Item Image)</Find>
+        <Replace />
+        <Comment>Whitespace</Comment>
+        <IsRegex>true</IsRegex>
+        <Enabled>true</Enabled>
+        <Minor>true</Minor>
+        <BeforeOrAfter>true</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
+      </Replacement>
+      <Replacement>
+        <Find>(^\n[ \t]*$)+</Find>
+        <Replace>\n</Replace>
+        <Comment>Whitespace</Comment>
+        <IsRegex>true</IsRegex>
+        <Enabled>true</Enabled>
+        <Minor>true</Minor>
+        <BeforeOrAfter>true</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase Multiline</RegularExpressionOptions>
       </Replacement>
       <Replacement>
         <Find>\{\{ *AH\|? *(?:Exclusive *[^}]*)? *\}\}</Find>
@@ -1716,100 +1791,18 @@
         <BeforeOrAfter>true</BeforeOrAfter>
         <RegularExpressionOptions>IgnoreCase</RegularExpressionOptions>
       </Replacement>
+      <Replacement>
+        <Find>^===Historical (Information|Background)===$</Find>
+        <Replace>==Historical Background==</Replace>
+        <Comment />
+        <IsRegex>true</IsRegex>
+        <Enabled>true</Enabled>
+        <Minor>true</Minor>
+        <BeforeOrAfter>false</BeforeOrAfter>
+        <RegularExpressionOptions>IgnoreCase Multiline</RegularExpressionOptions>
+      </Replacement>
     </Replacements>
     <AdvancedReps>
-      <IRule xsi:type="Rule">
-        <enabled_>false</enabled_>
-        <Children />
-        <Name>Convert legacy format</Name>
-        <ruletype_>OnWholePage</ruletype_>
-        <replace_>[' ]*Description[\:' ]*(.+)\n</replace_>
-        <with_>'''%%pagename%%'''&lt;br&gt;
-''$1''\n</with_>
-        <ifContains_ />
-        <ifNotContains_ />
-        <regex_>true</regex_>
-        <ifIsRegex_>false</ifIsRegex_>
-        <numoftimes_>1</numoftimes_>
-        <ifRegexOptions_>None</ifRegexOptions_>
-        <regexOptions_>None</regexOptions_>
-      </IRule>
-      <IRule xsi:type="Rule">
-        <enabled_>false</enabled_>
-        <Children />
-        <Name>Ammo</Name>
-        <ruletype_>OnWholePage</ruletype_>
-        <replace_>(\[\[[Cc]ategory\:)([Aa]mmunition)(\]\](?:.*\n)+[' ]*)(All Races[' ]*)</replace_>
-        <with_>$1$2$3([[:Category:$2|$2]]) $4</with_>
-        <ifContains_ />
-        <ifNotContains_ />
-        <regex_>true</regex_>
-        <ifIsRegex_>false</ifIsRegex_>
-        <numoftimes_>1</numoftimes_>
-        <ifRegexOptions_>None</ifRegexOptions_>
-        <regexOptions_>Multiline</regexOptions_>
-      </IRule>
-      <IRule xsi:type="Rule">
-        <enabled_>false</enabled_>
-        <Children />
-        <Name>Jugs</Name>
-        <ruletype_>OnWholePage</ruletype_>
-        <replace_>(?&lt;===Statistics==\s*(?:.+\n)+?[' ]*)(All Races[' ]*(.+\n)+?[' ]*Calls \[*[\w ]+(?:\|[\w ]+)?\.?[' ]*)</replace_>
-        <with_>([[:Category:Pet Items|Pet Item]]) $1</with_>
-        <ifContains_ />
-        <ifNotContains_ />
-        <regex_>true</regex_>
-        <ifIsRegex_>false</ifIsRegex_>
-        <numoftimes_>1</numoftimes_>
-        <ifRegexOptions_>None</ifRegexOptions_>
-        <regexOptions_>None</regexOptions_>
-      </IRule>
-      <IRule xsi:type="Rule">
-        <enabled_>true</enabled_>
-        <Children />
-        <Name>Resale Price</Name>
-        <ruletype_>OnWholePage</ruletype_>
-        <replace_>'''\[\[Resale Price\]\]''': .*</replace_>
-        <with_ />
-        <ifContains_ />
-        <ifNotContains_ />
-        <regex_>false</regex_>
-        <ifIsRegex_>false</ifIsRegex_>
-        <numoftimes_>1</numoftimes_>
-        <ifRegexOptions_>None</ifRegexOptions_>
-        <regexOptions_>None</regexOptions_>
-      </IRule>
-      <IRule xsi:type="Rule">
-        <enabled_>true</enabled_>
-        <Children>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Remove excess spacing</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(\=\=How to Obtain\=\=\s*(?:[^=\n]+\n)?)(?:\s|\&lt;br\&gt;)+(?=\=\=\=[^=\n]+?\=\=\=)</replace_>
-            <with_>$1</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>IgnoreCase</regexOptions_>
-          </IRule>
-        </Children>
-        <Name>How to Obtain</Name>
-        <ruletype_>OnWholePage</ruletype_>
-        <replace_ />
-        <with_ />
-        <ifContains_>==How to Obtain==</ifContains_>
-        <ifNotContains_ />
-        <regex_>false</regex_>
-        <ifIsRegex_>false</ifIsRegex_>
-        <numoftimes_>1</numoftimes_>
-        <ifRegexOptions_>IgnoreCase</ifRegexOptions_>
-        <regexOptions_>None</regexOptions_>
-      </IRule>
       <IRule xsi:type="Rule">
         <enabled_>true</enabled_>
         <Children>
@@ -1853,21 +1846,6 @@
         <regex_>false</regex_>
         <ifIsRegex_>false</ifIsRegex_>
         <numoftimes_>1</numoftimes_>
-        <ifRegexOptions_>None</ifRegexOptions_>
-        <regexOptions_>None</regexOptions_>
-      </IRule>
-      <IRule xsi:type="Rule">
-        <enabled_>false</enabled_>
-        <Children />
-        <Name>Remove excess bolding</Name>
-        <ruletype_>OnWholePage</ruletype_>
-        <replace_>(?&lt;=[^'])([ ']+)([^'^\n]+?)\1((?:\&lt;br\&gt;| )+)\1</replace_>
-        <with_>$1$2$3</with_>
-        <ifContains_ />
-        <ifNotContains_ />
-        <regex_>true</regex_>
-        <ifIsRegex_>false</ifIsRegex_>
-        <numoftimes_>5</numoftimes_>
         <ifRegexOptions_>None</ifRegexOptions_>
         <regexOptions_>None</regexOptions_>
       </IRule>
@@ -1941,10 +1919,7 @@
             <Name>Single Trial</Name>
             <ruletype_>OnWholePage</ruletype_>
             <replace_>[ '\*\:]*\[\[(?:(?:\:Category\:)?Trial of the Magians\|)?Trial of the Magians\]\][:' ]*(?:[\(\[]*\w+?(?: *Trials?)?[\)\]]*)?\[\[Trial ([^\]]+?)\]\][' ]*(?: *\((.*?)\))?(?:\&lt;br\&gt;|[ ])*\n(?=(?:.*?\n)*?==How *to *Obtain==)</replace_>
-            <with_>{{Used In
-| trial = $1
-| trial descriptor = $2
-}}\n</with_>
+            <with_>{{Used In\n| trial = $1\n| trial descriptor = $2\n}}\n</with_>
             <ifContains_ />
             <ifNotContains_ />
             <regex_>true</regex_>
@@ -1959,19 +1934,7 @@
             <Name>Multiple trials</Name>
             <ruletype_>OnWholePage</ruletype_>
             <replace_>(?:[' \[]*(?:(?:\:Category:)?Quests?\|)?Used *in *Quest[\]: ']*)?[ '\*\:]*\[\[(?:(?:\:Category\:)?Trial of the Magians\|)?Trial *of *the *Magians\]\][:' ]*(?:[\(\[]*\w[\w\t ]+?(?: *Trials?)?[\)\]]*)?\s*\n(?:[ \t\:\*]*(\[\[Trial .+?\]\](?:[ \t]*\(.*?\))?)[ \t]*\n)(?:[ \t\:\*]*(\[\[Trial .+?\]\](?:[ \t]*\(.*?\))?)[ \t]*\n)?(?:[ \t\:\*]*(\[\[Trial .+?\]\](?:[ \t]*\(.*?\))?)[ \t]*\n)?(?:[ \t\:\*]*(\[\[Trial .+?\]\](?:[ \t]*\(.*?\))?)[ \t]*\n)?(?:[ \t\:\*]*(\[\[Trial .+?\]\](?:[ \t]*\(.*?\))?)[ \t]*\n)?(?:[ \t\:\*]*(\[\[Trial .+?\]\](?:[ \t]*\(.*?\))?)[ \t]*\n)?(?:[ \t\:\*]*(\[\[Trial .+?\]\](?:[ \t]*\(.*?\))?)[ \t]*\n)?(?:[ \t\:\*]*(\[\[Trial .+?\]\](?:[ \t]*\(.*?\))?)[ \t]*\n)?(?:[ \t\:\*]*(\[\[Trial .+?\]\](?:[ \t]*\(.*?\))?)[ \t]*\n)?(?:[ \t\:\*]*(\[\[Trial .+?\]\](?:[ \t]*\(.*?\))?)[ \t]*\n)?(?=(?:.*?\n)*?==How *to *Obtain==)</replace_>
-            <with_>{{Used In
-| trial = $1
-| trial 2 = $2
-| trial 3 = $3
-| trial 4 = $4
-| trial 5 = $5
-| trial 6 = $6
-| trial 7 = $7
-| trial 8 = $8
-| trial 9 = $9
-| trial 10 = $10
-}}
-</with_>
+            <with_>{{Used In\n| trial = $1\n| trial 2 = $2\n| trial 3 = $3\n| trial 4 = $4\n| trial 5 = $5\n| trial 6 = $6\n| trial 7 = $7\n| trial 8 = $8\n| trial 9 = $9\n| trial 10 = $10\n}}\n</with_>
             <ifContains_ />
             <ifNotContains_ />
             <regex_>true</regex_>
@@ -1986,8 +1949,7 @@
             <Name>Trial number and descriptor</Name>
             <ruletype_>OnWholePage</ruletype_>
             <replace_>(?&lt;=\| *trial *(\d+ *)?= *)\[\[Trial ([\d\?]+)\]\](?: *\((.*?)\))?</replace_>
-            <with_>$2
-| trial $1descriptor = $3</with_>
+            <with_>$2\n| trial $1descriptor = $3</with_>
             <ifContains_ />
             <ifNotContains_ />
             <regex_>true</regex_>
@@ -2016,17 +1978,15 @@
             <Children />
             <Name>Single quest</Name>
             <ruletype_>OnWholePage</ruletype_>
-            <replace_>[ ']*\[\[(?:\:Category\:)?Quests?\|Used in Quests?\]\]s?[:' ]*\[\[([^\]]+?)\]\][' ]*(?:\&lt;br\&gt;|[ ])*\n(?=(?:.*?\n)*?==How *to *Obtain==)</replace_>
-            <with_>{{Used In
-| quest = $1
-}}\n</with_>
+            <replace_>^[ ']*(?:\[\[[^\|\n]*?\|)?Used in Quest[s?\]:' ]*\[\[([^\]\n]+?)\]\][' ]*(?:\&lt;br\&gt;| )*\n(?=(?:.*?\n)*?^\=\=How +to +Obtain\=\=)</replace_>
+            <with_>{{Used In\n| quest = $1\n}}\n</with_>
             <ifContains_ />
             <ifNotContains_ />
             <regex_>true</regex_>
             <ifIsRegex_>false</ifIsRegex_>
             <numoftimes_>1</numoftimes_>
             <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>IgnoreCase</regexOptions_>
+            <regexOptions_>IgnoreCase Multiline</regexOptions_>
           </IRule>
           <IRule xsi:type="Rule">
             <enabled_>true</enabled_>
@@ -2034,18 +1994,7 @@
             <Name>Multiple quests</Name>
             <ruletype_>OnWholePage</ruletype_>
             <replace_>[ ']*\[\[(?:\:Category\:)?Quests?\|Used in Quests?\]\]s?[:' ]*\s*\n(?:[ \t]*:*\*[ \t]*\[\[(.+?)\]\][ \t]*\n)(?:[ \t]*:*\*[ \t]*\[\[(.+?)\]\][ \t]*\n)?(?:[ \t]*:*\*[ \t]*\[\[(.+?)\]\][ \t]*\n)?(?:[ \t]*:*\*[ \t]*\[\[(.+?)\]\][ \t]*\n)?(?:[ \t]*:*\*[ \t]*\[\[(.+?)\]\][ \t]*\n)?(?:[ \t]*:*\*[ \t]*\[\[(.+?)\]\][ \t]*\n)?(?:[ \t]*:*\*[ \t]*\[\[(.+?)\]\][ \t]*\n)?(?:[ \t]*:*\*[ \t]*\[\[(.+?)\]\][ \t]*\n)?(?:[ \t]*:*\*[ \t]*\[\[(.+?)\]\][ \t]*\n)?(?:[ \t]*:*\*[ \t]*\[\[(.+?)\]\][ \t]*\n)?(?=(?:.*?\n)*?==How *to *Obtain==)</replace_>
-            <with_>{{Used In
-| quest = $1
-| quest 2 = $2
-| quest 3 = $3
-| quest 4 = $4
-| quest 5 = $5
-| quest 6 = $6
-| quest 7 = $7
-| quest 8 = $8
-| quest 9 = $9
-| quest 10 = $10
-}}</with_>
+            <with_>{{Used In\n| quest = $1\n| quest 2 = $2\n| quest 3 = $3\n| quest 4 = $4\n| quest 5 = $5\n| quest 6 = $6\n| quest 7 = $7\n| quest 8 = $8\n| quest 9 = $9\n| quest 10 = $10\n}}\n</with_>
             <ifContains_ />
             <ifNotContains_ />
             <regex_>true</regex_>
@@ -2060,9 +2009,7 @@
             <Name>Single mission</Name>
             <ruletype_>OnWholePage</ruletype_>
             <replace_>[ ']*\[\[(?:\:Category\:)?Missions?\|Used in Missions?\]\]s?[:' ]*\[\[([^\]]+?)\]\][' ]*\n(?=(?:.*?\n)*?==How *to *Obtain==)</replace_>
-            <with_>{{Used In
-| mission = $1
-}}\n</with_>
+            <with_>{{Used In\n| mission = $1\n}}\n</with_>
             <ifContains_ />
             <ifNotContains_ />
             <regex_>true</regex_>
@@ -2077,19 +2024,7 @@
             <Name>Multiple missions</Name>
             <ruletype_>OnWholePage</ruletype_>
             <replace_>[ ']*(?:\[\[(?:\:Category\:)?Missions?\|)?Used in Missions?(?:\]\])?s?[:' ]*\s*\n(?:[ \t]*:*\*[ \t]*\[\[(.+?)\]\][ \t]*\n)(?:[ \t]*:*\*[ \t]*\[\[(.+?)\]\][ \t]*\n)?(?:[ \t]*:*\*[ \t]*\[\[(.+?)\]\][ \t]*\n)?(?:[ \t]*:*\*[ \t]*\[\[(.+?)\]\][ \t]*\n)?(?:[ \t]*:*\*[ \t]*\[\[(.+?)\]\][ \t]*\n)?(?:[ \t]*:*\*[ \t]*\[\[(.+?)\]\][ \t]*\n)?(?:[ \t]*:*\*[ \t]*\[\[(.+?)\]\][ \t]*\n)?(?:[ \t]*:*\*[ \t]*\[\[(.+?)\]\][ \t]*\n)?(?:[ \t]*:*\*[ \t]*\[\[(.+?)\]\][ \t]*\n)?(?:[ \t]*:*\*[ \t]*\[\[(.+?)\]\][ \t]*\n)?(?=(?:.*?\n)*?==How *to *Obtain==)</replace_>
-            <with_>{{Used In
-| mission = $1
-| mission 2 = $2
-| mission 3 = $3
-| mission 4 = $4
-| mission 5 = $5
-| mission 6 = $6
-| mission 7 = $7
-| mission 8 = $8
-| mission 9 = $9
-| mission 10 = $10
-}}
-</with_>
+            <with_>{{Used In\n| mission = $1\n| mission 2 = $2\n| mission 3 = $3\n| mission 4 = $4\n| mission 5 = $5\n| mission 6 = $6\n| mission 7 = $7\n| mission 8 = $8\n| mission 9 = $9\n| mission 10 = $10\n}}\n</with_>
             <ifContains_ />
             <ifNotContains_ />
             <regex_>true</regex_>
@@ -2104,9 +2039,7 @@
             <Name>Single campaign op</Name>
             <ruletype_>OnWholePage</ruletype_>
             <replace_>[ ']*\[\[(?:(?:\:Category\:)?Campaign Ops?\|)?(?:Used in )?Campaign Ops?\]\]s?[:' ]*\[\[([^\]]+?)\]\][' ]*\n(?=(?:.*?\n)*?==How *to *Obtain==)</replace_>
-            <with_>{{Used In
-| campaign op = $1
-}}\n</with_>
+            <with_>{{Used In\n| campaign op = $1\n}}\n</with_>
             <ifContains_ />
             <ifNotContains_ />
             <regex_>true</regex_>
@@ -2121,18 +2054,7 @@
             <Name>Multiple campaign ops</Name>
             <ruletype_>OnWholePage</ruletype_>
             <replace_>[ ']*\[\[(?:(?:\:Category\:)?Campaign Ops?\|)?(?:Used in )?Campaign Ops?\]\]s?[:' ]*\s*\n(?:[ \t]*:*\*[ \t]*\[\[(.+?)\]\][ \t]*\n)(?:[ \t]*:*\*[ \t]*\[\[(.+?)\]\][ \t]*\n)?(?:[ \t]*:*\*[ \t]*\[\[(.+?)\]\][ \t]*\n)?(?:[ \t]*:*\*[ \t]*\[\[(.+?)\]\][ \t]*\n)?(?:[ \t]*:*\*[ \t]*\[\[(.+?)\]\][ \t]*\n)?(?:[ \t]*:*\*[ \t]*\[\[(.+?)\]\][ \t]*\n)?(?:[ \t]*:*\*[ \t]*\[\[(.+?)\]\][ \t]*\n)?(?:[ \t]*:*\*[ \t]*\[\[(.+?)\]\][ \t]*\n)?(?:[ \t]*:*\*[ \t]*\[\[(.+?)\]\][ \t]*\n)?(?:[ \t]*:*\*[ \t]*\[\[(.+?)\]\][ \t]*\n)?(?=(?:.*?\n)*?==How *to *Obtain==)</replace_>
-            <with_>{{Used In
-| campaign op = $1
-| campaign op 2 = $2
-| campaign op 3 = $3
-| campaign op 4 = $4
-| campaign op 5 = $5
-| campaign op 6 = $6
-| campaign op 7 = $7
-| campaign op 8 = $8
-| campaign op 9 = $9
-| campaign op 10 = $10
-}}</with_>
+            <with_>{{Used In\n| campaign op = $1\n| campaign op 2 = $2\n| campaign op 3 = $3\n| campaign op 4 = $4\n| campaign op 5 = $5\n| campaign op 6 = $6\n| campaign op 7 = $7\n| campaign op 8 = $8\n| campaign op 9 = $9\n| campaign op 10 = $10\n}}</with_>
             <ifContains_ />
             <ifNotContains_ />
             <regex_>true</regex_>
@@ -2159,7 +2081,22 @@
           <IRule xsi:type="Rule">
             <enabled_>true</enabled_>
             <Children />
-            <Name>Relic Weapon</Name>
+            <Name>Relic weapon</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>^[ ']*(?:\[\[[^\|\n]*?\|)?Used in Quest[s?\]:' ]*\[\[.*?Relic Weapon.*?\]\][' ]*\[\[(.*?)\]\](?:\&lt;br\&gt;| )*\n</replace_>
+            <with_>{{Used In\n| relic weapon = $1\n}}\n</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase Multiline</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Relic weapon as quest</Name>
             <ruletype_>OnWholePage</ruletype_>
             <replace_>\| *quest *= *(?:\:Category\:)?Relic Weapons?\n\| *quest *display *= *(?:Relic .*?\: *)?(.+?)\n</replace_>
             <with_>| relic weapon = $1\n</with_>
@@ -2222,10 +2159,7 @@
             <Name>Guild Test Item</Name>
             <ruletype_>OnWholePage</ruletype_>
             <replace_>[' ]*\[\[.+?\|Guild Test Item\]\][:' ]*\[\[(.+?)\]\](?: *\((.+?)\))?</replace_>
-            <with_>{{Used In
-| guild test item = $1
-| guild test rank = $2
-}}</with_>
+            <with_>{{Used In\n| guild test item = $1\n| guild test rank = $2\n}}</with_>
             <ifContains_ />
             <ifNotContains_ />
             <regex_>true</regex_>
@@ -2240,9 +2174,7 @@
             <Name>Forced Spawn</Name>
             <ruletype_>OnWholePage</ruletype_>
             <replace_>[' ]*\[\[.+?\|Used (?:to|in) Spawn\]\][:' ]*\[\[(.+?)\]\]</replace_>
-            <with_>{{Used In
-| forced spawn = $1
-}}</with_>
+            <with_>{{Used In\n| forced spawn = $1\n}}</with_>
             <ifContains_ />
             <ifNotContains_ />
             <regex_>true</regex_>
@@ -2257,9 +2189,7 @@
             <Name>Freelance</Name>
             <ruletype_>OnWholePage</ruletype_>
             <replace_>[' ]*\[\[.+?\|Influences Freelance\]\][:' ]*\[\[(.+?)\]\]</replace_>
-            <with_>{{Used In
-| influences freelance = $1
-}}</with_>
+            <with_>{{Used In\n| influences freelance = $1\n}}</with_>
             <ifContains_ />
             <ifNotContains_ />
             <regex_>true</regex_>
@@ -2274,9 +2204,7 @@
             <Name>Guild Points Value</Name>
             <ruletype_>OnWholePage</ruletype_>
             <replace_>(?&lt;===Other Uses==(?:.*?\n)*)^(\{\{Guild Points Value\|.*?\}\})(?=(?:.*?\n)*==How to Obtain==)</replace_>
-            <with_>{{Used In
-| guild points value = $1
-}}</with_>
+            <with_>{{Used In\n| guild points value = $1\n}}</with_>
             <ifContains_ />
             <ifNotContains_ />
             <regex_>true</regex_>
@@ -2291,7 +2219,7 @@
               <IRule xsi:type="Rule">
                 <enabled_>true</enabled_>
                 <Children />
-                <Name>Rule</Name>
+                <Name>None</Name>
                 <ruletype_>OnWholePage</ruletype_>
                 <replace_>(?&lt;=\| *resale price *= *)\{\{Resale Price\|[Nn]o(?:ne)?\}\}</replace_>
                 <with_>none</with_>
@@ -2307,9 +2235,7 @@
             <Name>Resale Price</Name>
             <ruletype_>OnWholePage</ruletype_>
             <replace_>(?&lt;===Other Uses==(?:.*?\n)*)^(\{\{Resale Price\|.*?\}\})(?=(?:.*?\n)*==How to Obtain==)</replace_>
-            <with_>{{Used In
-| resale price = $1
-}}</with_>
+            <with_>{{Used In\n| resale price = $1\n}}</with_>
             <ifContains_ />
             <ifNotContains_ />
             <regex_>true</regex_>
@@ -2323,10 +2249,8 @@
             <Children />
             <Name>Guild Resale Price</Name>
             <ruletype_>OnWholePage</ruletype_>
-            <replace_>(?&lt;===Other Uses==(?:.*?\n)*)^(\{\{Guild Resale Price\|.*?\}\})(?=(?:.*?\n)*==How to Obtain==)</replace_>
-            <with_>{{Used In
-| guild resale price = $1
-}}</with_>
+            <replace_>(?&lt;=\=\=Other Uses\=\=(?:.*?\n)*)^(\{\{Guild Resale Price\|.*?\}\})(?=(?:.*?\n)*\=\=How to Obtain\=\=)</replace_>
+            <with_>{{Used In\n| guild resale price = $1\n}}</with_>
             <ifContains_ />
             <ifNotContains_ />
             <regex_>true</regex_>
@@ -2401,8 +2325,8 @@
             <Children />
             <Name>Combine</Name>
             <ruletype_>OnWholePage</ruletype_>
-            <replace_>(^\{\{Used In\s*(?:\|.+\n)+?)^\}\}((?:.|\n)*)(?:^\{\{Used In\s*((?:^\|.+\n)+?^\}\}))</replace_>
-            <with_>$1$3$2</with_>
+            <replace_>(?&lt;=^\{\{Used In\s*(?:\|.+\n)+?)^\}\}((?:.|\n)*)(?:^\{\{Used In\s*((?:^\|.+\n)+?^\}\}))</replace_>
+            <with_>$2$1</with_>
             <ifContains_ />
             <ifNotContains_ />
             <regex_>true</regex_>
@@ -2416,12 +2340,12 @@
         <ruletype_>OnWholePage</ruletype_>
         <replace_ />
         <with_ />
-        <ifContains_ />
+        <ifContains_>(?:^\=\=How to Obtain\=\=|\=\=Other Uses\=\=)</ifContains_>
         <ifNotContains_ />
         <regex_>true</regex_>
-        <ifIsRegex_>false</ifIsRegex_>
+        <ifIsRegex_>true</ifIsRegex_>
         <numoftimes_>1</numoftimes_>
-        <ifRegexOptions_>None</ifRegexOptions_>
+        <ifRegexOptions_>IgnoreCase Multiline</ifRegexOptions_>
         <regexOptions_>IgnoreCase</regexOptions_>
       </IRule>
       <IRule xsi:type="Rule">
@@ -2432,8 +2356,295 @@
             <Children />
             <Name>Remove table indentation</Name>
             <ruletype_>OnWholePage</ruletype_>
-            <replace_>(\=\=How to Obtain\=\=\s+(?:^.*\n)+?)^\s*: *(?=\{\|)</replace_>
-            <with_>$1</with_>
+            <replace_>(?&lt;=\=\=How to Obtain\=\=\s+(?:^.*\n)+?)^\s*: *(?=\{\|)</replace_>
+            <with_ />
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase Multiline</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Regional</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>^\| *\[\[ *Regional Merchants? *\]\]\s+(?:\:?[' ]*\[\[(.+?)\|[' ]*\1(?: [Rr]egion)?[' ]*\]\][' ]*|[' ]*\([' ]*\[\[(.*?)\]\][' ]*\)[' ]*)\n</replace_>
+                <with_>| {{Merchant|Regional|$1$2}}\n</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>Multiline</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Standard</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>^\| *\[\[ *Standard Merchants? *\]\]</replace_>
+                <with_>| {{Merchant|Standard}}</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>Multiline</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Guild</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>^\| *\[\[(?:Guild Merchant(?:\|Guild Merchants)?(?:\|?([\w']+?) Guild)?|([\w']+?) Guild)\]\]</replace_>
+                <with_>| {{Merchant|Guild|$1$2}}</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>Multiline</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Conquest</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>\{\{Merchant\|Standard\}\}(?:\&lt;br\&gt;|&amp;nbsp;|[\s\:\*'])*(?:(.+?)n?(?: citizens?)?(?: only)?,? (?:\1 in )?(1st|2nd) place|(.+?) (?:[Cc]onquest\:? )?(?:1st */ *)?(2nd)\+?|(.+?) 1st or (2nd) in [Cc]onquest|Conquest[\: ]*(.+?) (1st|2nd))(?: *place *)?[\.' ]*(?=\n)</replace_>
+                <with_>{{Merchant|Standard|nation = $1$3$5$7|conquest = $2$4$6$8}}</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>None</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Hours</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(?&lt;=\{\{Merchant\|.+?)\}\}(?:\&lt;br\&gt;|\s)*\(?Open *([\d\:\- ]+)\)?</replace_>
+                <with_>|hours = $1}}</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>None</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Holiday</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(?&lt;=\{\{Merchant\|.+?)\}\}\s*Closed *(?:on)? *(\w+day)</replace_>
+                <with_>|holiday = $1}}</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Restock</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(?&lt;=\{\{Merchant\|.+?)\}\}[\s\:']*(?:Not (?:automatically )?restocked\.?)[\s']*</replace_>
+                <with_>|restocked = false}}\n</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Guildworker's Union</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>^\| *\[\[ *Guildworker's Union *(?:\| *Guild\.? Union Rep\.?)? *\]\]</replace_>
+                <with_>| {{Merchant|Guildworker's Union}}</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>Multiline</regexOptions_>
+              </IRule>
+            </Children>
+            <Name>Merchant</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_ />
+            <with_ />
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>false</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Apply template</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>^\=\=\=Fishing\=\=\=\s*((?:^[;:\*].*?\n+)*)^\{\|.*?\s+(?:\|-.*?\s+)?\|.*?(?:Skill +)Cap[:' ]*(.*?)[' ]*\n(?:\|-.*?\s+^\|.*?Size[:' ]*(.*?)(?: *\(.*?\).*)?\s*\n)?^\|-.*?\s+^[!\|].*?Location.*?\s+^[!\|].*?Bait.*?\s+^[!\|].*?Rods.*?\s+^\|-.*?\s+^\|\s*((?:^[:*].*\n)+)^\|\s*((?:^[:*].*\n)+)^\|\s*((?:^[:*'].*|(?:\&lt;br\&gt;|&amp;nbsp;)+.*|\n)+)(?:^\|-.*?\s+^\|.*?colspan="3".*?\|.*Recommended.*\s+)?\|\}\s*(?:^(?:['\s:]|\&lt;nowiki\/\&gt;)*\*.*?Recommended.*\s*)?</replace_>
+                <with_>===Fishing===\n$1{{Fishing\n| skill cap = $2\n| size = $3\n| location =\n$4\n| bait =\n$5\n| rods =\n$6\n}}\n</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase Multiline</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Remove category</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>\[\[Category:Fishing\]\](?=(?:.*?\n)+\{\{Fishing)</replace_>
+                <with_ />
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Mark section too small</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(?&lt;=^\{\{Fishing\n(?:^[\|\*:]+.*\n+)*^\| *rods *=\s*(?:^[\*:].+\n+)*)((?:^[\*:].+\n+|(?:\&lt;br\&gt;|&amp;nbsp;|[:'\s]).*\n+)*?)((?:\&lt;br\&gt;|&amp;nbsp;|[:'\s])+(?:Fish +)?(?:Possibl[ey] +)?too +small:?['\s]*\n)^( *[\*:]+\[\[.+?\]\](?: *\* *])?)(?! *\{\{Fishing\|.*?\}\})\n</replace_>
+                <with_>$3{{Fishing|Too small}}\n$1$2</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase Multiline</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Remove blank too small</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(?&lt;=^\{\{Fishing\n(?:^[\|\*:]+.*\n+)*^\| *rods *=\s*(?:^\*.+\n+|(?:\&lt;br\&gt;|&amp;nbsp;|[:'\s]).*\n+)*?)((?:\&lt;br\&gt;|&amp;nbsp;|[:'\s])+(?:Fish +)?(?:Possibl[ey] +)?too +small:?['\s]*\n)(?!^ *[:\*]+.*)</replace_>
+                <with_ />
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase Multiline</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Mark section breakable rods</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(?&lt;=^\{\{Fishing\n(?:^[\|\*:]+.*\n+)*^\| *rods *=\s*(?:^[\*:].+\n+)*)((?:^[\*:].+\n+|(?:\&lt;br\&gt;|&amp;nbsp;|[:'\s]).*\n+)*?)((?:\&lt;br\&gt;|&amp;nbsp;|[:'\s])+Will(?: +possibly)? +break:?['\s]*\n)^( *[\*:]+\[\[.+?\]\](?: *\* *])?)(?! *\{\{Fishing\|.*?\}\})\n</replace_>
+                <with_>$3{{Fishing|May break}}\n$1$2</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase Multiline</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Remove blank breakable</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(?&lt;=^\{\{Fishing\n(?:^[\|\*:]+.*\n+)*^\| *rods *=\s*(?:^\*.+\n+|(?:\&lt;br\&gt;|&amp;nbsp;|[:'\s]).*\n+)*?)((?:\&lt;br\&gt;|&amp;nbsp;|[:'\s])+Will(?: +possibly)? +break:?['\s]*\n)(?!^ *[:\*]+.*)</replace_>
+                <with_ />
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase Multiline</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Mark recommended</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(?&lt;=^\{\{Fishing\n(?:^[\|\*:]+.*\n+)*?^\| *(?:rods|bait|location) *=\s*(?:^\*.+\n+|(?:\&lt;br\&gt;|&amp;nbsp;|[:'\s]).*\n+)*?^ *[\*:]+.*)\*</replace_>
+                <with_>{{Fishing|Recommended}}</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase Multiline</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Mark too small</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(?&lt;=^\{\{Fishing\n(?:^[\|\*:]+.*\n+)*?^\| *(?:rods|bait|location) *=\s*(?:^\*.+\n+|(?:\&lt;br\&gt;|&amp;nbsp;|[:'\s]).*\n+)*?^ *[\*:]+.*)[' ]*\(Too small\)[' ]*</replace_>
+                <with_>{{Fishing|Too small}}</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase Multiline</regexOptions_>
+              </IRule>
+            </Children>
+            <Name>Fishing Template</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_ />
+            <with_ />
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>false</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase Multiline</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Sparks Template</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>\=\=\=Sparks +of +Eminence\=\=\=\s+^\{\|.*?\s+(?:^\|-.*?\s+)?^\|.*?Price[:' ]*(.*?) *\[*Sparks\]*.*?\s+(?:^[\|!].*?\s+)+?^\|\}(?:\&lt;br\&gt;|\s)*</replace_>
+            <with_>===Sparks of Eminence===\n{{Sparks of Eminence|$1}}\n</with_>
             <ifContains_ />
             <ifNotContains_ />
             <regex_>true</regex_>
@@ -2447,16 +2658,16 @@
         <ruletype_>OnWholePage</ruletype_>
         <replace_ />
         <with_ />
-        <ifContains_ />
+        <ifContains_>(?:\=\=How +to +Obtain\=\=)</ifContains_>
         <ifNotContains_ />
         <regex_>false</regex_>
-        <ifIsRegex_>false</ifIsRegex_>
+        <ifIsRegex_>true</ifIsRegex_>
         <numoftimes_>1</numoftimes_>
-        <ifRegexOptions_>None</ifRegexOptions_>
+        <ifRegexOptions_>IgnoreCase</ifRegexOptions_>
         <regexOptions_>IgnoreCase Multiline</regexOptions_>
       </IRule>
       <IRule xsi:type="Rule">
-        <enabled_>false</enabled_>
+        <enabled_>true</enabled_>
         <Children>
           <IRule xsi:type="Rule">
             <enabled_>true</enabled_>
@@ -2478,8 +2689,8 @@
             <Children />
             <Name>Combine broken lines</Name>
             <ruletype_>OnWholePage</ruletype_>
-            <replace_>(^\|(?:.+\|)?.*?\&lt;br\&gt; *)\n</replace_>
-            <with_>$1</with_>
+            <replace_>(?&lt;=^\|(?:.+\|)?.*?\&lt;br\&gt; *)\n</replace_>
+            <with_ />
             <ifContains_ />
             <ifNotContains_ />
             <regex_>true</regex_>
@@ -2555,7 +2766,7 @@
             </Children>
             <Name>Replace style background with bgcolor</Name>
             <ruletype_>OnWholePage</ruletype_>
-            <replace_>style *= *" *(.*?)background(?:-color)?: *(#\w+);? *(.*?) *"</replace_>
+            <replace_>style *= *" *(.*?)background(?:-color)?: *(#?\w+);? *(.*?) *"</replace_>
             <with_>BGCOLOR="$2" style="$1$3"</with_>
             <ifContains_ />
             <ifNotContains_ />
@@ -2630,13 +2841,13 @@
             <Children />
             <Name>Use header markup</Name>
             <ruletype_>OnWholePage</ruletype_>
-            <replace_>(\{\|.*?class="ffxi-table".*\s*(?:^[\|!].*\s*)*?)^\| *align="center" +BGCOLOR="#ffdead" +(.*?)\| *'''(.*?)'''(\s*)</replace_>
-            <with_>$1!$2| $3$4</with_>
+            <replace_>(?&lt;=\{\|.*?class="ffxi-table".*\s*(?:^[\|!].*\s*)*?)^\| *align="center" +BGCOLOR="#ffdead" +(.*?)\| *'''(.*?)'''(\s*)</replace_>
+            <with_>!$1| $2$3</with_>
             <ifContains_ />
             <ifNotContains_ />
             <regex_>true</regex_>
             <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>30</numoftimes_>
+            <numoftimes_>1</numoftimes_>
             <ifRegexOptions_>None</ifRegexOptions_>
             <regexOptions_>IgnoreCase Multiline</regexOptions_>
           </IRule>
@@ -2645,8 +2856,8 @@
             <Children />
             <Name>Apply header class</Name>
             <ruletype_>OnWholePage</ruletype_>
-            <replace_>(\{\|.*?class="ffxi-table".*\s*(?:^[\|!].*\s*)*?)^\|(.*?) *BGCOLOR="#ffdead;?" *(.*?)\|(?=.*\s*(?:^[\|!].*\s*)*?^\|\})</replace_>
-            <with_>$1|class="ffxi-header" $2 $3|</with_>
+            <replace_>(?&lt;=\{\|.*?class="ffxi-table".*\s*(?:^[\|!].*\s*)*?)^\|(.*?) *BGCOLOR="#ffdead;?" *(.*?)\|(?=.*\s*(?:^[\|!].*\s*)*?^\|\})</replace_>
+            <with_>|class="ffxi-header" $1 $2|</with_>
             <ifContains_ />
             <ifNotContains_ />
             <regex_>true</regex_>
@@ -2660,13 +2871,13 @@
             <Children />
             <Name>Replace blue bg</Name>
             <ruletype_>OnWholePage</ruletype_>
-            <replace_>(\{\|.*?class="ffxi-table".*\s*(?:^[\|!:\*].*\s*)*?)^(\|-?.*?) *BGCOLOR="#(?:e3e6ff|d5d9ff);?"(?=.*\s*(?:^[\|!:\*].*\s*)*?^\|\})</replace_>
-            <with_>$1$2</with_>
+            <replace_>(?&lt;=\{\|.*?class="ffxi-table".*\s*(?:^[\|!:\*].*\s*)*?)^(\|-?.*?) *BGCOLOR="#(?:e3e6ff|d5d9ff);?"(?=.*\s*(?:^[\|!:\*].*\s*)*?^\|\})</replace_>
+            <with_>$1</with_>
             <ifContains_ />
             <ifNotContains_ />
             <regex_>true</regex_>
             <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>100</numoftimes_>
+            <numoftimes_>1</numoftimes_>
             <ifRegexOptions_>None</ifRegexOptions_>
             <regexOptions_>IgnoreCase Multiline</regexOptions_>
           </IRule>
@@ -2675,8 +2886,8 @@
             <Children />
             <Name>Replace footer bg</Name>
             <ruletype_>OnWholePage</ruletype_>
-            <replace_>(\{\|.*?class="ffxi-table".*\s*(?:^[\|!:\*].*\s*)*?)^(\|-?.*?) *BGCOLOR="#(?:ffdead);?"(?=.*\s*(?:^[\|!:\*].*\s*)^\|\})</replace_>
-            <with_>$1$2 class="ffxi-footer"</with_>
+            <replace_>(?&lt;=\{\|.*?class="ffxi-table".*\s*(?:^[\|!:\*].*\s*)*?)^(\|-?.*?) *BGCOLOR="#(?:ffdead);?"(?=.*\s*(?:^[\|!:\*].*\s*)^\|\})</replace_>
+            <with_> class="ffxi-footer"</with_>
             <ifContains_ />
             <ifNotContains_ />
             <regex_>true</regex_>
@@ -2693,8 +2904,8 @@
                 <Children />
                 <Name>Replace with class</Name>
                 <ruletype_>OnWholePage</ruletype_>
-                <replace_>(\{\|.*?class="ffxi-table".*\s*(?:^[\|!:\*].*\s*)*?)^((?:\|-?|!).*?) *BGCOLOR="#(?:ffdead);?"(?=.*\s*(?:^[\|!:\*].*\s*)+?^\|\})</replace_>
-                <with_>$1$2 class="ffxi-header"</with_>
+                <replace_>(?&lt;=\{\|.*?class="ffxi-table".*\s*(?:^[\|!:\*].*\s*)*?)^((?:\|-?|!).*?) *BGCOLOR="#(?:ffdead);?"(?=.*\s*(?:^[\|!:\*].*\s*)+?^\|\})</replace_>
+                <with_>$1 class="ffxi-header"</with_>
                 <ifContains_ />
                 <ifNotContains_ />
                 <regex_>true</regex_>
@@ -2708,8 +2919,8 @@
                 <Children />
                 <Name>Remove redundant class</Name>
                 <ruletype_>OnWholePage</ruletype_>
-                <replace_>(\{\|.*?class="ffxi-table".*\s*(?:^[\|!:\*].*\s*)*?^!.*?) *class="ffxi-header"</replace_>
-                <with_>$1</with_>
+                <replace_>(?&lt;=\{\|.*?class="ffxi-table".*\s*(?:^[\|!:\*].*\s*)*?^!.*?) *class="ffxi-header"</replace_>
+                <with_ />
                 <ifContains_ />
                 <ifNotContains_ />
                 <regex_>true</regex_>
@@ -2721,13 +2932,13 @@
             </Children>
             <Name>Replace header bg</Name>
             <ruletype_>OnWholePage</ruletype_>
-            <replace_>(\{\|.*?class="ffxi-table".*\s*(?:^[\|!:\*].*\s*)*?)^(\|-?.*?) *BGCOLOR="#(?:ffdead);?"(?=.*\s*^!.*\s*(?:^[\|!:\*].*\s*)*?^\|\})</replace_>
-            <with_>$1$2</with_>
+            <replace_>(?&lt;=\{\|.*?class="ffxi-table".*\s*(?:^[\|!:\*].*\s*)*?)^(\|-?.*?) *BGCOLOR="#(?:ffdead);?"(?=.*\s*^!.*\s*(?:^[\|!:\*].*\s*)*?^\|\})</replace_>
+            <with_>$1</with_>
             <ifContains_ />
             <ifNotContains_ />
             <regex_>true</regex_>
             <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>100</numoftimes_>
+            <numoftimes_>1</numoftimes_>
             <ifRegexOptions_>None</ifRegexOptions_>
             <regexOptions_>IgnoreCase Multiline</regexOptions_>
           </IRule>
@@ -2736,13 +2947,13 @@
             <Children />
             <Name>Replace nm bg</Name>
             <ruletype_>OnWholePage</ruletype_>
-            <replace_>(\{\|.*?class="ffxi-table".*\s*(?:^[\|!:\*].*\s*)*?)^\|-?(.*?) *BGCOLOR="#ffd9d9;?"(?=.*\s*(?:^\|(?:.*\|)? *''' *\[\[[^\[\n]*?\]\][^'\n]*'''.*\s*)(?:^[\|!:\*].*\s*)*?^\|\})</replace_>
-            <with_>$1|- class="bg-nm"</with_>
+            <replace_>(?&lt;=\{\|.*?class="ffxi-table".*\s*(?:^[\|!:\*].*\s*)*?)^(\|-?.*?) *BGCOLOR="(?:#ffd9d9|mistyrose);?"(?=.*\s*(?:^\|(?:.*\|)? *''' *\[\[[^\[\n]*?\]\][^'\n]*'''.*\s*)(?:^[\|!:\*].*\s*)*?^\|\})</replace_>
+            <with_>$1 class="bg-nm"</with_>
             <ifContains_ />
             <ifNotContains_ />
             <regex_>true</regex_>
             <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>30</numoftimes_>
+            <numoftimes_>1</numoftimes_>
             <ifRegexOptions_>None</ifRegexOptions_>
             <regexOptions_>IgnoreCase Multiline</regexOptions_>
           </IRule>
@@ -2754,26 +2965,26 @@
                 <Children />
                 <Name>Replace nm bg</Name>
                 <ruletype_>OnWholePage</ruletype_>
-                <replace_>(\{\|.*?class="ffxi-table".*\s*(?:^[\|!:\*].*\s*)*?)^\|-?(.*?) *BGCOLOR="#ffd9d9;?"(?=.*\s*(?:^\|(?:.*\|)? *''' *\[\[[^\[\n]*?\]\][^'\n]*'''.*\s*)(?:^[\|!:\*].*\s*)*?^\|\})</replace_>
-                <with_>$1|- class="bg-nm"</with_>
+                <replace_>(?&lt;=\{\|.*?class="ffxi-table".*\s*(?:^[\|!:\*].*\s*)*?)^\|-?(.*?) *BGCOLOR="#ffd9d9;?"(?=.*\s*(?:^\|(?:.*\|)? *''' *\[\[[^\[\n]*?\]\][^'\n]*'''.*\s*)(?:^[\|!:\*].*\s*)*?^\|\})</replace_>
+                <with_>|- class="bg-nm"</with_>
                 <ifContains_ />
                 <ifNotContains_ />
                 <regex_>true</regex_>
                 <ifIsRegex_>false</ifIsRegex_>
-                <numoftimes_>30</numoftimes_>
+                <numoftimes_>1</numoftimes_>
                 <ifRegexOptions_>None</ifRegexOptions_>
                 <regexOptions_>IgnoreCase Multiline</regexOptions_>
               </IRule>
             </Children>
             <Name>Replace red bg</Name>
             <ruletype_>OnWholePage</ruletype_>
-            <replace_>(\{\|.*?class="ffxi-table".*\s*(?:^[\|!:\*].*\s*)*?)^\|-?(.*?) *BGCOLOR="#ffd9d9;?"(?=.*\s*(?:^[\|!:\*].*\s*)*?^\|\})</replace_>
-            <with_>$1|- class="bg-red"</with_>
+            <replace_>(?&lt;=\{\|.*?class="ffxi-table".*\s*(?:^[\|!:\*].*\s*)*?)^(\|-?.*?) *BGCOLOR="#ffd9d9;?"(?=.*\s*(?:^[\|!:\*].*\s*)*?^\|\})</replace_>
+            <with_>$1 class="bg-red"</with_>
             <ifContains_ />
             <ifNotContains_ />
             <regex_>true</regex_>
             <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>30</numoftimes_>
+            <numoftimes_>1</numoftimes_>
             <ifRegexOptions_>None</ifRegexOptions_>
             <regexOptions_>IgnoreCase Multiline</regexOptions_>
           </IRule>
@@ -2792,6 +3003,21 @@
             <ifRegexOptions_>None</ifRegexOptions_>
             <regexOptions_>Multiline</regexOptions_>
           </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Apply wide-table class</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>\{\| *width="\d\d%" class="ffxi-table"</replace_>
+            <with_>{|class="ffxi-table wide-table"</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase Multiline</regexOptions_>
+          </IRule>
         </Children>
         <Name>Tables</Name>
         <ruletype_>OnWholePage</ruletype_>
@@ -2806,130 +3032,40 @@
         <regexOptions_>None</regexOptions_>
       </IRule>
       <IRule xsi:type="Rule">
-        <enabled_>true</enabled_>
+        <enabled_>false</enabled_>
         <Children>
           <IRule xsi:type="Rule">
             <enabled_>true</enabled_>
             <Children />
-            <Name>Regional</Name>
+            <Name>Replace generic</Name>
             <ruletype_>OnWholePage</ruletype_>
-            <replace_>^\| *\[\[ *Regional Merchants? *\]\]\s+(?:\:?[' ]*\[\[(.+?)\|[' ]*\1(?: [Rr]egion)?[' ]*\]\][' ]*|[' ]*\([' ]*\[\[(.*?)\]\][' ]*\)[' ]*)\n</replace_>
-            <with_>| {{Merchant|Regional|$1$2}}\n</with_>
+            <replace_>(?&lt;=^\| *)'''\[\[(.*?)\]\] *\(\[\[(?:(?:\:Category:)?Notorious Monsters?\|)?NM\]\]\)'''</replace_>
+            <with_>{{NM|$1}}</with_>
             <ifContains_ />
             <ifNotContains_ />
             <regex_>true</regex_>
             <ifIsRegex_>false</ifIsRegex_>
             <numoftimes_>1</numoftimes_>
             <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>Multiline</regexOptions_>
+            <regexOptions_>IgnoreCase Multiline</regexOptions_>
           </IRule>
           <IRule xsi:type="Rule">
             <enabled_>true</enabled_>
             <Children />
-            <Name>Standard</Name>
+            <Name>Replace specific</Name>
             <ruletype_>OnWholePage</ruletype_>
-            <replace_>^\| *\[\[ *Standard Merchants? *\]\]</replace_>
-            <with_>| {{Merchant|Standard}}</with_>
+            <replace_>(?&lt;=^\| *)'''\[\[(.*?)\]\] *\(\[\[(?:(?:\:Category:)?[^\]\n]*?Notorious Monsters?\|)?([A-Za-z]+NM)\]\]\)'''</replace_>
+            <with_>{{NM|$1|$2}}</with_>
             <ifContains_ />
             <ifNotContains_ />
             <regex_>true</regex_>
             <ifIsRegex_>false</ifIsRegex_>
             <numoftimes_>1</numoftimes_>
             <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>Multiline</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Guild</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>^\| *\[\[(?:Guild Merchant(?:\|Guild Merchants)?(?:\|?([\w']+?) Guild)?|([\w']+?) Guild)\]\]</replace_>
-            <with_>| {{Merchant|Guild|$1$2}}</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>Multiline</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Conquest</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>\{\{Merchant\|Standard\}\}(?:\&lt;br\&gt;|&amp;nbsp;|[\s\:\*'])*(?:(.+?)n?(?: citizens?)?(?: only)?,? (?:\1 in )?(1st|2nd) place|(.+?) (?:[Cc]onquest\:? )?(?:1st */ *)?(2nd)\+?|(.+?) 1st or (2nd) in [Cc]onquest|Conquest[\: ]*(.+?) (1st|2nd))(?: *place *)?[\.' ]*(?=\n)</replace_>
-            <with_>{{Merchant|Standard|nation = $1$3$5$7|conquest = $2$4$6$8}}</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>None</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Hours</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(\{\{Merchant\|.+?)\}\}(?:\&lt;br\&gt;|\s)*\(?Open *([\d\:\- ]+)\)?</replace_>
-            <with_>$1|hours = $2}}</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>None</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Holiday</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(\{\{Merchant\|.+?)\}\}\s*Closed *(?:on)? *(\w+day)</replace_>
-            <with_>$1|holiday = $2}}</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>None</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Restock</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(\{\{Merchant\|.+?)\}\}[\s\:']*(?:Not (?:[Aa]utomatically )?[Rr]estocked\.?)[\s']*</replace_>
-            <with_>$1|restocked = false}}\n</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>None</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Guildworker's Union</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>^\| *\[\[ *Guildworker's Union *(?:\| *Guild\.? Union Rep\.?)? *\]\]</replace_>
-            <with_>| {{Merchant|Guildworker's Union}}</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>Multiline</regexOptions_>
+            <regexOptions_>IgnoreCase Multiline</regexOptions_>
           </IRule>
         </Children>
-        <Name>Merchant</Name>
+        <Name>NM Link</Name>
         <ruletype_>OnWholePage</ruletype_>
         <replace_ />
         <with_ />
@@ -3072,41 +3208,7 @@
             <Name>Synthesis Recipes</Name>
             <ruletype_>OnWholePage</ruletype_>
             <replace_>^ *\{\{[Cc]raft\|(?&lt;craft&gt;[^\|^\n^\{^\}]+?)\|[ \(]*(?&lt;cap&gt;([\?\d\-\+~]+|\w+)(?:\{\{(?:[Vv]erification|[Qq]uestion|[Ii]nformation Needed)\}\})?)[ *\)]*\}\}(?:(?:[, ']*|\n[: ']*Skills[:' ]*)\{\{[Cc]raft\|(?&lt;subcraft&gt;[^\|^\n^\{^\}]+?)\|[ \(]*(?&lt;subcraftcap&gt;([\?\d\-\+~]+|\w+)(?:\{\{(?:[Vv]erification|[Qq]uestion|[Ii]nformation Needed)\}\})?)[ \)]*\}\}[ ']*)?(?:[, ']*\{\{[Cc]raft\|(?&lt;subcraft2&gt;[^\|^\n^\{^\}]+?)\|[ \(]*(?&lt;subcraft2cap&gt;([\?\d\-\+~]+|\w+)(?:\{\{(?:[Vv]erification|[Qq]uestion|[Ii]nformation Needed)\}\})?)[ \)]*\}\}[ ']*)?\n+(?:[:' ]*(?:Elemental *)?[Bb]alance[:' ]*(?&lt;balance&gt;.+)\n+)?[:' ]*(?:Yield|Result)[:' \[]*(?&lt;result&gt;.+?)(?:''|\]\])*(?: *x *(?&lt;yield&gt;[\d\?]+))? *\n(?:[:' ]*HQ *\d?[:' \[]*(?&lt;hqresult&gt;.+?)(?:''|\]\])*(?: *x *(?&lt;hqyield&gt;[\d\?]+))? *\n+)?(?:[:' ]*HQ *\d?[:' \[]*(?&lt;hq2result&gt;.+?)(?:''|\]\])*(?: *x *(?&lt;hq2yield&gt;[\d\?]+))? *\n+)?(?:[:' ]*HQ *\d?[:' \[]*(?&lt;hq3result&gt;.+?)(?:''|\]\])*(?: *x *(?&lt;hq3yield&gt;[\d\?]+))? *\n+)?(?:[:\{\* ']+(?&lt;crystal&gt;.+)\|[Cc]rystal\}\}[ ']*\n+)?([:' ]*(?:Elemental *)?[Bb]alance[\:' ]+(?&lt;balance&gt;.+)\n+)?(?:[:\{\* ]+Crafting Tool\|(?&lt;tool&gt;.+)\}\}[' ]*\n+)?(?:[\:\*' ]+(?&lt;ingredquant&gt;\d) *x[ \[']*(?&lt;ingred&gt;[^\]^\n]+?)[\]\t' ]*\n+)?(?:[:\*' ]+(?&lt;ingred2quant&gt;\d) *x[ \[']*(?&lt;ingred2&gt;[^\]^\n]+?)[\]\t' ]*\n+)?(?:[:\*' ]+(?&lt;ingred3quant&gt;\d) *x[ \[']*(?&lt;ingred3&gt;[^\]^\n]+?)[\]\t' ]*\n+)?(?:[:\*' ]+(?&lt;ingred4quant&gt;\d) *x[ \[']*(?&lt;ingred4&gt;[^\]^\n]+?)[\]\t' ]*\n+)?(?:[:\*' ]+(?&lt;ingred5quant&gt;\d) *x[ \[']*(?&lt;ingred5&gt;[^\]^\n]+?)[\]\t' ]*\n+)?(?:[:\*' ]+(?&lt;ingred6quant&gt;\d) *x[ \[']*(?&lt;ingred6&gt;[^\]^\n]+?)[\]\t' ]*\n+)?(?:[:\*' ]+(?&lt;ingred7quant&gt;\d) *x[ \[']*(?&lt;ingred7&gt;[^\]^\n]+?)[\]\t' ]*\n+)?(?:[:\*' ]+(?&lt;ingred8quant&gt;\d) *x[ \[']*(?&lt;ingred8&gt;[^\]^\n]+?)[\]\t' ]*\n+)?</replace_>
-            <with_>{{Synthesis Recipe
-| craft = ${craft}
-| cap = ${cap}
-| subcraft = ${subcraft}
-| subcraft cap = ${subcraftcap}
-| subcraft 2 = ${subcraft2}
-| subcraft 2 cap = ${subcraft2cap}
-| result = ${result}
-| yield = ${yield}
-| hq result = ${hqresult}
-| hq yield = ${hqyield}
-| hq 2 result = ${hq2result}
-| hq 2 yield = ${hq2yield}
-| hq 3 result = ${hq3result}
-| hq 3 yield = ${hq3yield}
-| crystal = ${crystal}
-| balance = ${balance}
-| crafting tool = ${tool}
-| ingredient = ${ingred}
-| ingredient quantity = ${ingredquant}
-| ingredient 2 = ${ingred2}
-| ingredient 2 quantity = ${ingred2quant}
-| ingredient 3 = ${ingred3}
-| ingredient 3 quantity = ${ingred3quant}
-| ingredient 4 = ${ingred4}
-| ingredient 4 quantity = ${ingred4quant}
-| ingredient 5 = ${ingred5}
-| ingredient 5 quantity = ${ingred5quant}
-| ingredient 6 = ${ingred6}
-| ingredient 6 quantity = ${ingred6quant}
-| ingredient 7 = ${ingred7}
-| ingredient 7 quantity = ${ingred7quant}
-| ingredient 8 = ${ingred8}
-| ingredient 8 quantity = ${ingred8quant}
-}}\n</with_>
+            <with_>{{Synthesis Recipe\n| craft = ${craft}\n| cap = ${cap}\n| subcraft = ${subcraft}\n| subcraft cap = ${subcraftcap}\n| subcraft 2 = ${subcraft2}\n| subcraft 2 cap = ${subcraft2cap}\n| result = ${result}\n| yield = ${yield}\n| hq result = ${hqresult}\n| hq yield = ${hqyield}\n| hq 2 result = ${hq2result}\n| hq 2 yield = ${hq2yield}\n| hq 3 result = ${hq3result}\n| hq 3 yield = ${hq3yield}\n| crystal = ${crystal}\n| balance = ${balance}\n| crafting tool = ${tool}\n| ingredient = ${ingred}\n| ingredient quantity = ${ingredquant}\n| ingredient 2 = ${ingred2}\n| ingredient 2 quantity = ${ingred2quant}\n| ingredient 3 = ${ingred3}\n| ingredient 3 quantity = ${ingred3quant}\n| ingredient 4 = ${ingred4}\n| ingredient 4 quantity = ${ingred4quant}\n| ingredient 5 = ${ingred5}\n| ingredient 5 quantity = ${ingred5quant}\n| ingredient 6 = ${ingred6}\n| ingredient 6 quantity = ${ingred6quant}\n| ingredient 7 = ${ingred7}\n| ingredient 7 quantity = ${ingred7quant}\n| ingredient 8 = ${ingred8}\n| ingredient 8 quantity = ${ingred8quant}\n}}\n</with_>
             <ifContains_ />
             <ifNotContains_ />
             <regex_>true</regex_>
@@ -3463,6 +3565,21 @@
             <ifRegexOptions_>None</ifRegexOptions_>
             <regexOptions_>None</regexOptions_>
           </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Apply template</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(?&lt;=\=\=(?:De)?Synthesis Recipes\=\=)\s+^\{\|.*?\s+(?:^\|-.*?\s+)?^\|.*?\s+(?:^(\{\{Synthesis Recipe\s+(?:^\|.*\s+)*?\}\})(?:^\|.*?|\&lt;br\&gt;|\s)*?)?(?:^(\{\{Synthesis Recipe\s+(?:^\|.*\s+)*?\}\})(?:^\|.*?|\&lt;br\&gt;|\s)*?)?(?:^(\{\{Synthesis Recipe\s+(?:^\|.*\s+)*?\}\})(?:^\|.*?|\&lt;br\&gt;|\s)*?)?(?:^(\{\{Synthesis Recipe\s+(?:^\|.*\s+)*?\}\})(?:^\|.*?|\&lt;br\&gt;|\s)*?)?(?:^(\{\{Synthesis Recipe\s+(?:^\|.*\s+)*?\}\})(?:^\|.*?|\&lt;br\&gt;|\s)*?)?(?:^(\{\{Synthesis Recipe\s+(?:^\|.*\s+)*?\}\})(?:^\|.*?|\&lt;br\&gt;|\s)*?)?(?:^(\{\{Synthesis Recipe\s+(?:^\|.*\s+)*?\}\})(?:^\|.*?|\&lt;br\&gt;|\s)*?)?(?:^(\{\{Synthesis Recipe\s+(?:^\|.*\s+)*?\}\})(?:^\|.*?|\&lt;br\&gt;|\s)*?)?^\|\}</replace_>
+            <with_>\n{{Synthesis Recipes\n| recipe 1 =\n$1\n| recipe 2 =\n$2\n| recipe 3 =\n$3\n| recipe 4 =\n$4\n| recipe 5 =\n$5\n| recipe 6 =\n$6\n| recipe 7 =\n$7\n| recipe 8 =\n$8\n}}</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase Multiline</regexOptions_>
+          </IRule>
         </Children>
         <Name>Synthesis Recipes</Name>
         <ruletype_>OnWholePage</ruletype_>
@@ -3477,199 +3594,67 @@
         <regexOptions_>None</regexOptions_>
       </IRule>
       <IRule xsi:type="Rule">
-        <enabled_>false</enabled_>
-        <Children>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Remove armor category</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>\[\[[Cc]ategory:[Aa]rmor\]\]((?:.*?\n)+\{\{Armor\s*\n)</replace_>
-            <with_>$1</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>None</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Remove slot category</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>\[\[Category:(.+)s?\]\]((?:.*?\n)+\{\{Armor\s*\n(?:.*?\n)*\| *slot *= *\1)</replace_>
-            <with_>$2</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>IgnoreCase</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Earrings</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>\[\[[Cc]ategory:[Ee]arrings\]\]((?:.*?\n)+\{\{[Aa]rmor\s*\n(?:.*?\n)*\| *slot *= *)(?:[Ee]ar|ring)</replace_>
-            <with_>$1Ear</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>None</regexOptions_>
-          </IRule>
-        </Children>
-        <Name>Armor Template</Name>
-        <ruletype_>OnWholePage</ruletype_>
-        <replace_>^['\[ ]*(?:\{\{PAGENAME\}\}|([\w\d'" \+\-\.\&amp;\(\)]+?))['\] ]*((?:\{\{(?:Rare|Exclusive|Aug(?:ment(?:ed)?)?)\}\})+)?[ ']*(?:\&lt;br *\/?\&gt;)+[' ]*\n*.+?([Hh]ead|[Nn]eck|[Ee]ar|[Bb]ody|[Hh]ands|[Rr]ing|[Bb]ack|[Ww]aist|[Ll]egs|[Ff]eet|[Ss]hield)s?\]\].+?([Aa]ll [Rr]aces|[HhMmEeTtGg])[' ]*(?:\&lt;br *\/?\&gt;)+\s*?((?:.+\n+)+)?[' ]*Lv\.[' ]*(\d+) *((?:['\[\]\|\w \/]+(?:\&lt;br *\/?\&gt;|\n)\n?)+)</replace_>
-        <with_>{{Armor
-| name = $1&lt;!--!!!!Marked for Bot!!!!--&gt;
-| tags = $2
-| slot = $3
-| races = $4
-| stats = $5
-| level = $6
-| jobs = $7
-}}</with_>
-        <ifContains_>\[\[Category:Armor\]\]</ifContains_>
-        <ifNotContains_ />
-        <regex_>true</regex_>
-        <ifIsRegex_>true</ifIsRegex_>
-        <numoftimes_>1</numoftimes_>
-        <ifRegexOptions_>IgnoreCase</ifRegexOptions_>
-        <regexOptions_>Multiline</regexOptions_>
-      </IRule>
-      <IRule xsi:type="Rule">
-        <enabled_>false</enabled_>
-        <Children />
-        <Name>Weapon Template</Name>
-        <ruletype_>OnWholePage</ruletype_>
-        <replace_>^[' ]*([\w\d'" \+\-\.\&amp;\(\)]+?)[' ]*((?:\{\{(?:[Rr]are|[Ee]xclusive|[Aa]ug)\}\})+)?[' ]*\&lt;br *\/?\&gt; *\n.+?(Sword|Dagger|Axe|Great Axe|Great Sword|Katana|Great Katana|Polearm|Staff|Club|Scythes?|Hand-to-Hand|Throwing|Marksmanship|Archery|(?:Wind|String) Instr\.|Grips?|Ammunition|Ammo|Pet Items?|Fishing Tackle)\]\].+?All Races[' ]*\&lt;br *\/?\&gt;\n(?:[ '\[]+(?:DMG|Damage\|DMG)[\]\:' ]+([\+\d]+)[' \[]*Delay[\]\:' ]+([\+\d ]+))?\s*((?:.+\n)+?)(?: *'{0,3} *Lv\.[' ]*(\d+) *((?:['\[\]\|\w \/]+(?:\&lt;br *\/?\&gt;|\n)\n?)+)|(?:\s*\&lt;br\&gt;\s*){2})?</replace_>
-        <with_>{{Weapon
-| name = $1&lt;!--!!!!Marked for Bot!!!!--&gt;
-| tags = $2
-| type = $3
-| damage = $4
-| delay = $5
-| stats = $6
-| level = $7
-| jobs = $8
-}}</with_>
-        <ifContains_>\[\[Category:Weapons\]\]</ifContains_>
-        <ifNotContains_ />
-        <regex_>true</regex_>
-        <ifIsRegex_>true</ifIsRegex_>
-        <numoftimes_>1</numoftimes_>
-        <ifRegexOptions_>IgnoreCase</ifRegexOptions_>
-        <regexOptions_>Multiline</regexOptions_>
-      </IRule>
-      <IRule xsi:type="Rule">
-        <enabled_>false</enabled_>
-        <Children>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Set type</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(\{\{Food\n.+)^\| *races *\= *\[*[Mm]ithra\]*(?: *[Oo]nly)? *(?:\[*(?:[\w\#\- ]+\|)?\*\]*)?</replace_>
-            <with_>$1| type = raw fish</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>Multiline Singleline</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Set type</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(\{\{Food\n.+)^\| *races *\= *\[*[Gg]alka\]*(?: *[Oo]nly)? *(?:\[*(?:[\w\#\- ]+\|)?\*\]*)?</replace_>
-            <with_>$1| type = raw meat</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>Multiline Singleline</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Remove food category</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>\[\[[Cc]ategory:[Ff]ood\]\]((?:.*?\n)+\{\{[Ff]ood\s*\n)</replace_>
-            <with_>$1</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>None</regexOptions_>
-          </IRule>
-        </Children>
-        <Name>Food Template</Name>
-        <ruletype_>OnWholePage</ruletype_>
-        <replace_>^[' ]*([\w\d'" \+\-\.\&amp;\(\)]+?)['\: ]*((?:\{\{(?:[Rr]are|[Ee]xclusive|[Aa]ug(?:ment)?|[Tt]emp(?:orary)?)\}\})+)?\&lt;br *\/?\&gt; *\n((?:^ *''[^'].+(?:(?:\&lt;br *\/?\&gt;)?\n))+?)(?:\&lt;br *\/?\&gt;|\n)*(?:[' ]*(?:Stack(?:able)?[\:' ]+)?(\d+|[Nn]o|[Nn]ot *[Ss]tackable|\{\{(?:[Ii]nformation(?: [Nn]eeded)?|[Qq]uestion)\}\})?[' \.]*(?:(?:\&lt;br *\/?\&gt;)*\n)+)?[' ]*Food *(?:[Ee]ffects?|[Dd]uration)?[\:' ]+(?:\((?:[Dd]uration[\: ]*)?((?:\{\{(?:[Ii]nformation(?: [Nn]eeded)?|[Qq]uestion)\}\}|[\d\?]+) *\w+|\&lt;?[Dd]uration\&gt;?)(?:, *(.+))?\))?( *\{\{.*\}\})?(?:\&lt;br *\/?\&gt;|[\s'])*\n((?:[\*\:]+.+\n)+)?</replace_>
-        <with_>{{Food
-| name = $1&lt;!--!!!!Marked for Bot!!!!--&gt;
-| tags = $2
-| description = $3
-| stackable = $4
-| duration = $5$7
-| races = $6
-| effects =
-$8}}</with_>
-        <ifContains_>\[\[Category:Food\]\]</ifContains_>
-        <ifNotContains_ />
-        <regex_>true</regex_>
-        <ifIsRegex_>true</ifIsRegex_>
-        <numoftimes_>1</numoftimes_>
-        <ifRegexOptions_>IgnoreCase</ifRegexOptions_>
-        <regexOptions_>Multiline</regexOptions_>
-      </IRule>
-      <IRule xsi:type="Rule">
         <enabled_>true</enabled_>
         <Children>
           <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
+            <enabled_>false</enabled_>
             <Children />
-            <Name>Format description</Name>
+            <Name>Convert legacy format</Name>
             <ruletype_>OnWholePage</ruletype_>
-            <replace_>^''([^'\n]+.*[^'\n])'' *((?:\&lt;br\&gt;)*)\s*^''(?=[^'])</replace_>
-            <with_>''$1$2</with_>
+            <replace_>[' ]*Description[\:' ]*(.+)\n</replace_>
+            <with_>'''%%pagename%%'''&lt;br&gt;\n''$1''\n</with_>
             <ifContains_ />
             <ifNotContains_ />
             <regex_>true</regex_>
             <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>10</numoftimes_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>false</enabled_>
+            <Children />
+            <Name>Ammo</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(\[\[[Cc]ategory\:)([Aa]mmunition)(\]\](?:.*\n)+[' ]*)(All Races[' ]*)</replace_>
+            <with_>$1$2$3([[:Category:$2|$2]]) $4</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
             <ifRegexOptions_>None</ifRegexOptions_>
             <regexOptions_>Multiline</regexOptions_>
           </IRule>
           <IRule xsi:type="Rule">
             <enabled_>true</enabled_>
             <Children />
-            <Name>Apply template</Name>
+            <Name>Jugs</Name>
             <ruletype_>OnWholePage</ruletype_>
-            <replace_>(?&lt;=\=\=Statistics\=\=)\s*'''(.*?)'''( *(?:\{\{.*?\}\})+)?(?: *\&lt;br\&gt;)?\s*''(.*?)''\s*(?:(?:\&lt;br\&gt;\s*)*'''Stackable:?''':? *'*([\w\d ]+)'*(?:\s*\&lt;br\&gt;\s*)*)?</replace_>
-            <with_>\n{{Item Statistics\n| name = $1\n| tags = $2\n| description = $3\n| stackable = $4\n}}\n</with_>
+            <replace_>(?&lt;=\=\=Statistics\=\=\s*(?:.+\n)+?[' ]*)(All Races[' ]*(.+\n)+?[' ]*Calls \[*[\w ]+(?:\|[\w ]+)?\.?[' ]*)</replace_>
+            <with_>([[:Category:Pet Items|Pet Item]]) $1</with_>
             <ifContains_ />
             <ifNotContains_ />
             <regex_>true</regex_>
             <ifIsRegex_>false</ifIsRegex_>
             <numoftimes_>1</numoftimes_>
             <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>IgnoreCase</regexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Fix Shields</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>\{\{Weapon(\s+(?:^\|.*\n)+^\| *)type( *= *Shield)</replace_>
+            <with_>{{Armor$1slot$2</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase Multiline</regexOptions_>
           </IRule>
           <IRule xsi:type="Rule">
             <enabled_>true</enabled_>
@@ -3677,316 +3662,10 @@ $8}}</with_>
               <IRule xsi:type="Rule">
                 <enabled_>true</enabled_>
                 <Children />
-                <Name>Fix type</Name>
-                <ruletype_>InsideTemplate</ruletype_>
-                <replace_>(^\{\{Item Statistics\s*(?:^\|.*\s)*?)^\| *type *= *Materials(?=\s*(?:^\|.*\s)*?^\}\})</replace_>
-                <with_>$1| type = Material</with_>
-                <ifContains_ />
-                <ifNotContains_ />
-                <regex_>true</regex_>
-                <ifIsRegex_>false</ifIsRegex_>
-                <numoftimes_>1</numoftimes_>
-                <ifRegexOptions_>None</ifRegexOptions_>
-                <regexOptions_>IgnoreCase Multiline</regexOptions_>
-              </IRule>
-            </Children>
-            <Name>Set type</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>\[\[Category:(Materials|Quest Item)\]\]((?:.*\s)+?^\{\{Item Statistics\s*(?:^\|.*\s)+)(?=^\}\})</replace_>
-            <with_>$2| type = $1\n</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>IgnoreCase Multiline</regexOptions_>
-          </IRule>
-        </Children>
-        <Name>Item Statistics</Name>
-        <ruletype_>OnWholePage</ruletype_>
-        <replace_ />
-        <with_ />
-        <ifContains_ />
-        <ifNotContains_>(\{\{|\[\[Category:)(Food|Armor|Weapon|Furnishing)(\]\])?</ifNotContains_>
-        <regex_>false</regex_>
-        <ifIsRegex_>true</ifIsRegex_>
-        <numoftimes_>1</numoftimes_>
-        <ifRegexOptions_>IgnoreCase</ifRegexOptions_>
-        <regexOptions_>IgnoreCase</regexOptions_>
-      </IRule>
-      <IRule xsi:type="Rule">
-        <enabled_>true</enabled_>
-        <Children>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Apply template</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>^\=\=\=Fishing\=\=\=\s*((?:^[;:\*].*?\n+)*)^\{\|.*?\s+(?:\|-.*?\s+)?\|.*?(?:Skill +)Cap[:' ]*(.*?)[' ]*\n(?:\|-.*?\s+^\|.*?Size[:' ]*(.*?)(?: *\(.*?\).*)?\s*\n)?^\|-.*?\s+^[!\|].*?Location.*?\s+^[!\|].*?Bait.*?\s+^[!\|].*?Rods.*?\s+^\|-.*?\s+^\|\s*((?:^[:*].*\n)+)^\|\s*((?:^[:*].*\n)+)^\|\s*((?:^[:*'].*|(?:\&lt;br\&gt;|&amp;nbsp;)+.*|\n)+)(?:^\|-.*?\s+^\|.*?colspan="3".*?\|.*Recommended.*\s+)?\|\}\s*(?:^(?:['\s:]|\&lt;nowiki\/\&gt;)*\*.*?Recommended.*\s*)?</replace_>
-            <with_>===Fishing===\n$1{{Fishing\n| skill cap = $2\n| size = $3\n| location =\n$4\n| bait =\n$5\n| rods =\n$6\n}}\n</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>IgnoreCase Multiline</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Remove category</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>\[\[Category:Fishing\]\](?=(?:.*?\n)+\{\{Fishing)</replace_>
-            <with_ />
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>IgnoreCase</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Mark section too small</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(^\{\{Fishing\n(?:^[\|\*:]+.*\n+)*^\| *rods *=\s*(?:^[\*:].+\n+)*)((?:^[\*:].+\n+|(?:\&lt;br\&gt;|&amp;nbsp;|[:'\s]).*\n+)*?)((?:\&lt;br\&gt;|&amp;nbsp;|[:'\s])+(?:Fish +)?(?:Possibl[ey] +)?too +small:?['\s]*\n)^( *[\*:]+\[\[.+?\]\](?: *\* *])?)(?! *\{\{Fishing\|.*?\}\})\n</replace_>
-            <with_>$1$4{{Fishing|Too small}}\n$2$3</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>20</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>IgnoreCase Multiline</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Remove blank too small</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(^\{\{Fishing\n(?:^[\|\*:]+.*\n+)*^\| *rods *=\s*(?:^\*.+\n+|(?:\&lt;br\&gt;|&amp;nbsp;|[:'\s]).*\n+)*?)((?:\&lt;br\&gt;|&amp;nbsp;|[:'\s])+(?:Fish +)?(?:Possibl[ey] +)?too +small:?['\s]*\n)(?!^ *[:\*]+.*)</replace_>
-            <with_>$1</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>IgnoreCase Multiline</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Mark section breakable rods</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(^\{\{Fishing\n(?:^[\|\*:]+.*\n+)*^\| *rods *=\s*(?:^[\*:].+\n+)*)((?:^[\*:].+\n+|(?:\&lt;br\&gt;|&amp;nbsp;|[:'\s]).*\n+)*?)((?:\&lt;br\&gt;|&amp;nbsp;|[:'\s])+Will(?: +possibly)? +break:?['\s]*\n)^( *[\*:]+\[\[.+?\]\](?: *\* *])?)(?! *\{\{Fishing\|.*?\}\})\n</replace_>
-            <with_>$1$4{{Fishing|May break}}\n$2$3</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>20</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>IgnoreCase Multiline</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Remove blank breakable</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(^\{\{Fishing\n(?:^[\|\*:]+.*\n+)*^\| *rods *=\s*(?:^\*.+\n+|(?:\&lt;br\&gt;|&amp;nbsp;|[:'\s]).*\n+)*?)((?:\&lt;br\&gt;|&amp;nbsp;|[:'\s])+Will(?: +possibly)? +break:?['\s]*\n)(?!^ *[:\*]+.*)</replace_>
-            <with_>$1</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>IgnoreCase Multiline</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Mark recommended</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(^\{\{Fishing\n(?:^[\|\*:]+.*\n+)*?^\| *(?:rods|bait|location) *=\s*(?:^\*.+\n+|(?:\&lt;br\&gt;|&amp;nbsp;|[:'\s]).*\n+)*?^ *[\*:]+.*)\*</replace_>
-            <with_>$1{{Fishing|Recommended}}</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>100</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>IgnoreCase Multiline</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Mark too small</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(^\{\{Fishing\n(?:^[\|\*:]+.*\n+)*?^\| *(?:rods|bait|location) *=\s*(?:^\*.+\n+|(?:\&lt;br\&gt;|&amp;nbsp;|[:'\s]).*\n+)*?^ *[\*:]+.*)[' ]*\(Too small\)[' ]*</replace_>
-            <with_>$1{{Fishing|Too small}}</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>100</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>IgnoreCase Multiline</regexOptions_>
-          </IRule>
-        </Children>
-        <Name>Fishing Template</Name>
-        <ruletype_>OnWholePage</ruletype_>
-        <replace_ />
-        <with_ />
-        <ifContains_ />
-        <ifNotContains_ />
-        <regex_>false</regex_>
-        <ifIsRegex_>false</ifIsRegex_>
-        <numoftimes_>1</numoftimes_>
-        <ifRegexOptions_>None</ifRegexOptions_>
-        <regexOptions_>IgnoreCase Multiline</regexOptions_>
-      </IRule>
-      <IRule xsi:type="Rule">
-        <enabled_>true</enabled_>
-        <Children>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children>
-              <IRule xsi:type="Rule">
-                <enabled_>true</enabled_>
-                <Children />
-                <Name>Remove bold</Name>
+                <Name>Apply template</Name>
                 <ruletype_>OnWholePage</ruletype_>
-                <replace_>(\| *jobs *=.+?)'+</replace_>
-                <with_>$1</with_>
-                <ifContains_ />
-                <ifNotContains_ />
-                <regex_>true</regex_>
-                <ifIsRegex_>false</ifIsRegex_>
-                <numoftimes_>40</numoftimes_>
-                <ifRegexOptions_>None</ifRegexOptions_>
-                <regexOptions_>Singleline</regexOptions_>
-              </IRule>
-            </Children>
-            <Name>Compress jobs</Name>
-            <ruletype_>InsideTemplate</ruletype_>
-            <replace_>\| jobs = [' ]*([\[\]\|\w \/]+)[' ]*(\&lt;br\/?\&gt;)?[' ]*\n?[' ]*([\[\]\|\w \/]+)[' ]*(\&lt;br\/?\&gt;)?[' ]*\n?[' ]*([\[\]\|\w \/]+)[' ]*(\&lt;br\/?\&gt;)?[' ]*\n</replace_>
-            <with_>| jobs = $1$2$3$4$5$6\n</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>true</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>None</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children>
-              <IRule xsi:type="Rule">
-                <enabled_>true</enabled_>
-                <Children />
-                <Name>Remove newlines</Name>
-                <ruletype_>InsideTemplate</ruletype_>
-                <replace_>\| *(stats|description|jobs)[\= ]+(.+)\n((?:[^\|].*\n+)+\| *\w+[\= ]*)</replace_>
-                <with_>| $1 = $2$3</with_>
-                <ifContains_ />
-                <ifNotContains_ />
-                <regex_>true</regex_>
-                <ifIsRegex_>true</ifIsRegex_>
-                <numoftimes_>5</numoftimes_>
-                <ifRegexOptions_>None</ifRegexOptions_>
-                <regexOptions_>None</regexOptions_>
-              </IRule>
-              <IRule xsi:type="Rule">
-                <enabled_>true</enabled_>
-                <Children />
-                <Name>Separate stats and level</Name>
-                <ruletype_>InsideTemplate</ruletype_>
-                <replace_>(?&lt;=\| *stats *= *[^\n]+?)(?: *|\&lt;br\/?\&gt;)*(\| *level *=)</replace_>
-                <with_>\n$1</with_>
-                <ifContains_ />
-                <ifNotContains_ />
-                <regex_>true</regex_>
-                <ifIsRegex_>false</ifIsRegex_>
-                <numoftimes_>1</numoftimes_>
-                <ifRegexOptions_>None</ifRegexOptions_>
-                <regexOptions_>None</regexOptions_>
-              </IRule>
-            </Children>
-            <Name>Compress stats/desc</Name>
-            <ruletype_>InsideTemplate</ruletype_>
-            <replace_>\| *(stats|description) *= *(.+(?:\&lt;br\/?\&gt;)+)\n(?=(?:[^\|].+(?:\&lt;br\/?\&gt;)+\n)*\| *[\w ]+\= *)</replace_>
-            <with_>| $1 = $2</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>true</ifIsRegex_>
-            <numoftimes_>4</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>None</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Remove italics in description</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(?&lt;=\| *description *(?:= *.*?[^']|=))('')([^'^\n]+?)\1</replace_>
-            <with_>$2</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>None</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Remove newlines</Name>
-            <ruletype_>InsideTemplate</ruletype_>
-            <replace_>(?&lt;=^\| *(?:stats|description|jobs) *= *(?:(?:[^\}].*)?\n)*?.*?)\n(?!^(?:\| *[\w ]+ *= *|\}\})|\*)(?=(?:.*\n)*?^\}\})</replace_>
-            <with_> </with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>true</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>Multiline</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Fix field end breaks</Name>
-            <ruletype_>InsideTemplate</ruletype_>
-            <replace_>(\| *(?:stats|jobs|description) *\= *.*?)(?:\&lt;br\/?\&gt;|\n)+(^\}\}|^\|[ \w]+ *\= *)</replace_>
-            <with_>$1
-$2</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>true</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>Multiline</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children>
-              <IRule xsi:type="Rule">
-                <enabled_>true</enabled_>
-                <Children />
-                <Name>Remove DPS template</Name>
-                <ruletype_>OnWholePage</ruletype_>
-                <replace_>^ *\{\{\s*DPS\s*\|\d+\s*\|\d+\s*\}\}</replace_>
-                <with_ />
+                <replace_>(?&lt;=\=\=Statistics\=\=\s+)^['\[ ]*(?:\{\{PAGENAME\}\}|([\w\d'" \+\-\.\&amp;\(\)]+?))['\] ]*((?:\{\{(?:Rare|Exclusive|Aug(?:ment(?:ed)?)?)\}\})+)?[ ']*(?:\&lt;br *\/?\&gt;)+[' ]*\n*.+?([Hh]ead|[Nn]eck|[Ee]ar|[Bb]ody|[Hh]ands|[Rr]ing|[Bb]ack|[Ww]aist|[Ll]egs|[Ff]eet|[Ss]hield)s?\]\].+?([Aa]ll (?:[Rr]aces|\&amp;.*?;)|[HhMmEeTtGg])[' ]*(?:\&lt;br *\/?\&gt;)+\s*?((?:.+\n+)+)?[' ]*Lv\.[' ]*(\d+) *((?:['\[\]\|\w \/]+(?:\&lt;br *\/?\&gt;|\n)\n?)+)</replace_>
+                <with_>{{Armor\n| name = $1&lt;!--!!!!Marked for Bot!!!!--&gt;\n| tags = $2\n| slot = $3\n| races = $4\n| stats = $5\n| level = $6\n| jobs = $7\n}}</with_>
                 <ifContains_ />
                 <ifNotContains_ />
                 <regex_>true</regex_>
@@ -3998,9 +3677,514 @@ $2</with_>
               <IRule xsi:type="Rule">
                 <enabled_>true</enabled_>
                 <Children />
-                <Name>Remove stray TP</Name>
+                <Name>Remove armor category</Name>
                 <ruletype_>OnWholePage</ruletype_>
-                <replace_>^(?:[\n(?:\&lt;br\/?\&gt;) ']+TP [Pp]er [Hh]it[\:' \+\d\.\%\?]+)</replace_>
+                <replace_>\[\[Category:Armor\]\]((?:.*?\n)+\{\{Armor\s*\n)</replace_>
+                <with_>$1</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Remove slot category</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>\[\[Category:(.+)s?\]\]((?:.*?\n)+\{\{Armor\s*\n(?:.*?\n)*\| *slot *= *\1)</replace_>
+                <with_>$2</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Earrings</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>\[\[[Cc]ategory:[Ee]arrings\]\]((?:.*?\n)+\{\{[Aa]rmor\s*\n(?:.*?\n)*\| *slot *= *)(?:[Ee]ar|ring)</replace_>
+                <with_>$1Ear</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>None</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Set</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(^\{\{Armor\s+(?:^\|.+|\n)+)(^\}\}(?:[':\*].*|\&lt;br\&gt;|\s)*?)\{\{Equipment Set\|([^\|]+?)\}\}</replace_>
+                <with_>$1| set = $3\n$2</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase Multiline</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Shield</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(^\{\{Armor\s+(?:^\|.+|\n)+)(^\}\}(?:[':\*].*|\&lt;br\&gt;|\s)*?)\{\{(\w+?) Shield\}\}</replace_>
+                <with_>$1| shield type = $3\n$2</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase Multiline</regexOptions_>
+              </IRule>
+            </Children>
+            <Name>Armor Template</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_ />
+            <with_ />
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>true</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>IgnoreCase</ifRegexOptions_>
+            <regexOptions_>Multiline</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Apply template</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(?&lt;=\=\=Statistics\=\=\s+)^[' ]*([\w\d'" \+\-\.\&amp;\(\)]+?)[' ]*((?:\{\{(?:[Rr]are|[Ee]xclusive|[Aa]ug)\}\})+)?[' ]*\&lt;br *\/?\&gt; *\n.+?(Sword|Dagger|Axe|Great Axe|Great Sword|Katana|Great Katana|Polearm|Staff|Club|Scythes?|Hand-to-Hand|Throwing|Marksmanship|Archery|(?:Wind|String) Instr\.|Grips?|Ammunition|Ammo|Pet Items?|Fishing Tackle)\]\].+?All Races[' ]*\&lt;br *\/?\&gt;\n(?:[ '\[]+(?:DMG|Damage\|DMG)[\]\:' ]+([\+\d]+)[' \[]*Delay[\]\:' ]+([\+\d ]+))?\s*((?:.+\n)+?)(?: *'{0,3} *Lv\.[' ]*(\d+) *((?:['\[\]\|\w \/]+(?:\&lt;br *\/?\&gt;|\n)\n?)+)|(?:\s*\&lt;br\&gt;\s*){2})?</replace_>
+                <with_>{{Weapon\n| name = $1&lt;!--!!!!Marked for Bot!!!!--&gt;\n| tags = $2\n| type = $3\n| damage = $4\n| delay = $5\n| stats = $6\n| level = $7\n| jobs = $8\n}}\n</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>Multiline</regexOptions_>
+              </IRule>
+            </Children>
+            <Name>Weapon Template</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_ />
+            <with_ />
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>true</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>IgnoreCase</ifRegexOptions_>
+            <regexOptions_>Multiline</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Apply template</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>^[' ]*([\w\d'" \+\-\.\&amp;\(\)]+?)['\: ]*((?:\{\{(?:[Rr]are|[Ee]xclusive|[Aa]ug(?:ment)?|[Tt]emp(?:orary)?)\}\})+)?\&lt;br *\/?\&gt; *\n((?:^ *''[^'].+(?:(?:\&lt;br *\/?\&gt;)?\n))+?)(?:\&lt;br *\/?\&gt;|\n)*(?:[' ]*(?:Stack(?:able)?[\:' ]+)?(\d+|[Nn]o|[Nn]ot *[Ss]tackable|\{\{(?:[Ii]nformation(?: [Nn]eeded)?|[Qq]uestion)\}\})?[' \.]*(?:(?:\&lt;br *\/?\&gt;)*\n)+)?[' ]*Food *(?:[Ee]ffects?|[Dd]uration)?[\:' ]+(?:\((?:[Dd]uration[\: ]*)?((?:\{\{(?:[Ii]nformation(?: [Nn]eeded)?|[Qq]uestion)\}\}|[\d\?]+) *\w+|\&lt;?[Dd]uration\&gt;?)(?:, *(.+))?\))?( *\{\{.*\}\})?(?:\&lt;br *\/?\&gt;|[\s'])*\n((?:[\*\:]+.+\n)+)?</replace_>
+                <with_>{{Food\n| name = $1&lt;!--!!!!Marked for Bot!!!!--&gt;\n| tags = $2\n| description = $3\n| stackable = $4\n| duration = $5$7\n| races = $6\n| effects =\n$8}}\n</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>Multiline</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Set type</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(\{\{Food\n.+)^\| *races *\= *\[*[Mm]ithra\]*(?: *[Oo]nly)? *(?:\[*(?:[\w\#\- ]+\|)?\*\]*)?</replace_>
+                <with_>$1| type = raw fish</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>Multiline Singleline</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Set type</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(\{\{Food\n.+)^\| *races *\= *\[*[Gg]alka\]*(?: *[Oo]nly)? *(?:\[*(?:[\w\#\- ]+\|)?\*\]*)?</replace_>
+                <with_>$1| type = raw meat</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>Multiline Singleline</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Remove food category</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>\[\[[Cc]ategory:[Ff]ood\]\]((?:.*?\n)+\{\{[Ff]ood\s*\n)</replace_>
+                <with_>$1</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>None</regexOptions_>
+              </IRule>
+            </Children>
+            <Name>Food Template</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_ />
+            <with_ />
+            <ifContains_>(?:\[\[Category:Food\]\]|\{\{Food\n)</ifContains_>
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>true</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>IgnoreCase</ifRegexOptions_>
+            <regexOptions_>Multiline</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Apply template</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>^[' ]*([\w\d'" \+\-\.\&amp;\(\)]+?)['\: ]*((?:\{\{(?:[Rr]are|[Ee]xclusive|[Aa]ug(?:ment)?|[Tt]emp(?:orary)?)\}\})+)?\&lt;br *\/?\&gt; *\n((?:^ *''[^'].+(?:(?:\&lt;br *\/?\&gt;)?\n))+?)(?:\&lt;br *\/?\&gt;|\n)*(?:[' ]*(?:Stack(?:able)?[\:' ]+)?(\d+|[Nn]o|[Nn]ot *[Ss]tackable|\{\{(?:[Ii]nformation(?: [Nn]eeded)?|[Qq]uestion)\}\})?[' \.]*(?:(?:\&lt;br *\/?\&gt;)*\n)+)?[' ]*Medicine *(?:[Ee]ffects?|[Dd]uration)?[\:' ]+(?:\((?:[Dd]uration[\: ]*)?((?:\{\{(?:[Ii]nformation(?: [Nn]eeded)?|[Qq]uestion)\}\}|[\d\?]+) *\w+|\&lt;?[Dd]uration\&gt;?)(?:, *(.+))?\))?( *\{\{.*\}\})?(?:\&lt;br *\/?\&gt;|[\s'])*\n((?:[\*\:]+.+\n)+)?</replace_>
+                <with_>{{Medicine\n| name = $1&lt;!--!!!!Marked for Bot!!!!--&gt;\n| tags = $2\n| description = $3\n| stackable = $4\n| duration = $5$7\n| effects =\n$8}}\n</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>Multiline</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Remove category</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>\[\[Category:Medicine\]\]((?:.*?\n)+\{\{Medicine\s*\n)</replace_>
+                <with_>$1</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase</regexOptions_>
+              </IRule>
+            </Children>
+            <Name>Medicine Template</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_ />
+            <with_ />
+            <ifContains_>(?:\[\[Category:Food\]\]|\{\{Food\n|\{\{AH\|Medicines\}\})</ifContains_>
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>true</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>IgnoreCase</ifRegexOptions_>
+            <regexOptions_>Multiline</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Format description</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>^('')([^'\n].+[^'\n])(?:\1)? *((?:\&lt;br\&gt;)*)\s*^\1(?=[^'])</replace_>
+                <with_>''$2$3</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>10</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>Multiline</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Apply template</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(?&lt;=\=\=Statistics\=\=)\s*'''(.*?)'''( *(?:\{\{.*?\}\})+)?(?: *\&lt;br\&gt;)?\s*''([^'\n].+[^'\n])''\s*(?:(?:\&lt;br\&gt;\s*)*'''Stackable[': ]*([\w\d ]+)'*(?:\s*\&lt;br\&gt;\s*)*)?</replace_>
+                <with_>\n{{Item Statistics\n| name = $1\n| tags = $2\n| description = $3\n| stackable = $4\n}}\n</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children>
+                  <IRule xsi:type="Rule">
+                    <enabled_>true</enabled_>
+                    <Children />
+                    <Name>Fix type</Name>
+                    <ruletype_>InsideTemplate</ruletype_>
+                    <replace_>(?&lt;=^\{\{Item Statistics\s*(?:^\|.*\s)*?)^\| *type *= *Materials(?=\s*(?:^\|.*\s)*?^\}\})</replace_>
+                    <with_>| type = Material</with_>
+                    <ifContains_ />
+                    <ifNotContains_ />
+                    <regex_>true</regex_>
+                    <ifIsRegex_>false</ifIsRegex_>
+                    <numoftimes_>1</numoftimes_>
+                    <ifRegexOptions_>None</ifRegexOptions_>
+                    <regexOptions_>IgnoreCase Multiline</regexOptions_>
+                  </IRule>
+                </Children>
+                <Name>Set type</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>\[\[Category:(Materials|Quest Item)\]\]((?:.*\s)+?^\{\{Item Statistics\s*(?:^\|.*\s)+)(?=^\}\})</replace_>
+                <with_>$2| type = $1\n</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase Multiline</regexOptions_>
+              </IRule>
+            </Children>
+            <Name>Item Statistics Template</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_ />
+            <with_ />
+            <ifContains_ />
+            <ifNotContains_>(\{\{|\[\[Category:)(Food|Armor|Weapon|Furnishing)(\]\])?</ifNotContains_>
+            <regex_>false</regex_>
+            <ifIsRegex_>true</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>IgnoreCase</ifRegexOptions_>
+            <regexOptions_>IgnoreCase</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Storage slip</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>[ ']*(?:Can +be +)?(?:storable|stored|held +in +storage +)?with +\[\[Storage +Slip +(\d+)\]\][\.']*</replace_>
+                <with_>{{Storable|Storage Slip|$1}}</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase</regexOptions_>
+              </IRule>
+            </Children>
+            <Name>Storage</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_ />
+            <with_ />
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>false</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children>
+              <IRule xsi:type="Rule">
+                <enabled_>false</enabled_>
+                <Children>
+                  <IRule xsi:type="Rule">
+                    <enabled_>true</enabled_>
+                    <Children />
+                    <Name>Remove bold</Name>
+                    <ruletype_>OnWholePage</ruletype_>
+                    <replace_>(\| *jobs *=.+?)'+</replace_>
+                    <with_>$1</with_>
+                    <ifContains_ />
+                    <ifNotContains_ />
+                    <regex_>true</regex_>
+                    <ifIsRegex_>false</ifIsRegex_>
+                    <numoftimes_>40</numoftimes_>
+                    <ifRegexOptions_>None</ifRegexOptions_>
+                    <regexOptions_>Singleline</regexOptions_>
+                  </IRule>
+                </Children>
+                <Name>Compress jobs</Name>
+                <ruletype_>InsideTemplate</ruletype_>
+                <replace_>\| jobs = [' ]*([\[\]\|\w \/]+)[' ]*(\&lt;br\/?\&gt;)?[' ]*\n?[' ]*([\[\]\|\w \/]+)[' ]*(\&lt;br\/?\&gt;)?[' ]*\n?[' ]*([\[\]\|\w \/]+)[' ]*(\&lt;br\/?\&gt;)?[' ]*\n</replace_>
+                <with_>| jobs = $1$2$3$4$5$6\n</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>true</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>None</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children>
+                  <IRule xsi:type="Rule">
+                    <enabled_>true</enabled_>
+                    <Children />
+                    <Name>Remove newlines</Name>
+                    <ruletype_>InsideTemplate</ruletype_>
+                    <replace_>\| *(stats|description|jobs)[\= ]+(.+)\n((?:[^\|].*\n+)+\| *\w+[\= ]*)</replace_>
+                    <with_>| $1 = $2$3</with_>
+                    <ifContains_ />
+                    <ifNotContains_ />
+                    <regex_>true</regex_>
+                    <ifIsRegex_>true</ifIsRegex_>
+                    <numoftimes_>5</numoftimes_>
+                    <ifRegexOptions_>None</ifRegexOptions_>
+                    <regexOptions_>None</regexOptions_>
+                  </IRule>
+                  <IRule xsi:type="Rule">
+                    <enabled_>true</enabled_>
+                    <Children />
+                    <Name>Separate stats and level</Name>
+                    <ruletype_>InsideTemplate</ruletype_>
+                    <replace_>(?&lt;=\| *stats *= *[^\n]+?)(?: *|\&lt;br\/?\&gt;)*(\| *level *=)</replace_>
+                    <with_>\n$1</with_>
+                    <ifContains_ />
+                    <ifNotContains_ />
+                    <regex_>true</regex_>
+                    <ifIsRegex_>false</ifIsRegex_>
+                    <numoftimes_>1</numoftimes_>
+                    <ifRegexOptions_>None</ifRegexOptions_>
+                    <regexOptions_>None</regexOptions_>
+                  </IRule>
+                </Children>
+                <Name>Compress stats/desc</Name>
+                <ruletype_>InsideTemplate</ruletype_>
+                <replace_>\| *(stats|description) *= *(.+(?:\&lt;br\/?\&gt;)+)\n(?=(?:[^\|].+(?:\&lt;br\/?\&gt;)+\n)*\| *[\w ]+\= *)</replace_>
+                <with_>| $1 = $2</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>true</ifIsRegex_>
+                <numoftimes_>4</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>None</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>false</enabled_>
+                <Children />
+                <Name>Remove italics in description</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(\| *description *(?:= *.*?[^']|=))('')([^'^\n]+?)\2</replace_>
+                <with_>$1$3</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>None</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Remove newlines</Name>
+                <ruletype_>InsideTemplate</ruletype_>
+                <replace_>(?&lt;=^\| *(?:stats|description|jobs) *= *(?:(?:[^\}].*)?\n)*?.*?)\n(?!^(?:\| *[\w ]+ *= *|\}\})|\*)(?=(?:.*\n)*?^\}\})</replace_>
+                <with_> </with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>true</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>Multiline</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Fix field end breaks</Name>
+                <ruletype_>InsideTemplate</ruletype_>
+                <replace_>(\| *(?:stats|jobs|description) *\= *.*?)(?:\&lt;br\/?\&gt;|\n)+(^\}\}|^\|[ \w]+ *\= *)</replace_>
+                <with_>$1\n$2</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>true</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>Multiline</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children>
+                  <IRule xsi:type="Rule">
+                    <enabled_>true</enabled_>
+                    <Children />
+                    <Name>Remove DPS template</Name>
+                    <ruletype_>OnWholePage</ruletype_>
+                    <replace_>^ *\{\{\s*DPS\s*\|\d+\s*\|\d+\s*\}\}</replace_>
+                    <with_ />
+                    <ifContains_ />
+                    <ifNotContains_ />
+                    <regex_>true</regex_>
+                    <ifIsRegex_>false</ifIsRegex_>
+                    <numoftimes_>1</numoftimes_>
+                    <ifRegexOptions_>None</ifRegexOptions_>
+                    <regexOptions_>Multiline</regexOptions_>
+                  </IRule>
+                  <IRule xsi:type="Rule">
+                    <enabled_>true</enabled_>
+                    <Children />
+                    <Name>Remove stray TP</Name>
+                    <ruletype_>OnWholePage</ruletype_>
+                    <replace_>^(?:[\n(?:\&lt;br\/?\&gt;) ']+TP [Pp]er [Hh]it[\:' \+\d\.\%\?]+)</replace_>
+                    <with_ />
+                    <ifContains_ />
+                    <ifNotContains_ />
+                    <regex_>true</regex_>
+                    <ifIsRegex_>false</ifIsRegex_>
+                    <numoftimes_>1</numoftimes_>
+                    <ifRegexOptions_>None</ifRegexOptions_>
+                    <regexOptions_>None</regexOptions_>
+                  </IRule>
+                </Children>
+                <Name>Remove DPS / TP</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(?:\{\{DPS\|\d+\s*\|\d+\s*\}\}|[\n(?:\&lt;br\/?\&gt;) ']+[Dd]amage *[Pp]er *[Ss]econd[\:' \d\.\?\+\w\-]+(?:\&lt;br\/?\&gt;)*\s*?)(?:[(?:\&lt;br\/?\&gt;)\s']+TP [Pp]er [Hh]it[\:' \+\d\.\%\?]+)</replace_>
                 <with_ />
                 <ifContains_ />
                 <ifNotContains_ />
@@ -4010,62 +4194,89 @@ $2</with_>
                 <ifRegexOptions_>None</ifRegexOptions_>
                 <regexOptions_>None</regexOptions_>
               </IRule>
-            </Children>
-            <Name>Remove DPS / TP</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(?:\{\{DPS\|\d+\s*\|\d+\s*\}\}|[\n(?:\&lt;br\/?\&gt;) ']+[Dd]amage *[Pp]er *[Ss]econd[\:' \d\.\?\+\w\-]+(?:\&lt;br\/?\&gt;)*\s*?)(?:[(?:\&lt;br\/?\&gt;)\s']+TP [Pp]er [Hh]it[\:' \+\d\.\%\?]+)</replace_>
-            <with_ />
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>None</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Enchantment</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(\{\{(?:Armor|Weapon).+)\n?\}\}\n*\:*\{\{EnchantmentDetails\|(\d+)\|([\d\:]+)\|([\d\:]+)\}\}</replace_>
-            <with_>$1\n| charges = $2
-| use delay = $3
-| recast = $4
-}}</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>true</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>Singleline</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Clean stackable</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>^\}\}\n\| stackable</replace_>
-            <with_ />
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>Multiline</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children>
               <IRule xsi:type="Rule">
                 <enabled_>true</enabled_>
                 <Children />
-                <Name>Spacing after end of equipment</Name>
+                <Name>Enchantment</Name>
                 <ruletype_>OnWholePage</ruletype_>
-                <replace_>(?&lt;=\{\{(?:Armor|Weapon)\n.+?\| *(?:level|jobs|stats) *= *[^\n]+[\d'\}\]])(?:\&lt;br\/?\&gt;|\n)*(\}\})\n*(?=[^\n])</replace_>
-                <with_>\n$1\n</with_>
+                <replace_>(\{\{(?:Armor|Weapon).+)\n?\}\}\n*\:*\{\{EnchantmentDetails\|(\d+)\|([\d\:]+)\|([\d\:]+)\}\}\s*</replace_>
+                <with_>$1\n| charges = $2\n| use delay = $3\n| recast = $4\n}}\n</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>true</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>Singleline</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Clean stackable</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>^\}\}\n\| stackable</replace_>
+                <with_ />
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>Multiline</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children>
+                  <IRule xsi:type="Rule">
+                    <enabled_>true</enabled_>
+                    <Children />
+                    <Name>Spacing after end of equipment</Name>
+                    <ruletype_>OnWholePage</ruletype_>
+                    <replace_>(?&lt;=\{\{(?:Armor|Weapon)\n.+?\| *(?:level|jobs|stats) *= *[^\n]+[\d'\}\]])(?:\&lt;br\/?\&gt;|\n)*(\}\})\n*(?=[^\n])</replace_>
+                    <with_>\n$1\n</with_>
+                    <ifContains_ />
+                    <ifNotContains_ />
+                    <regex_>true</regex_>
+                    <ifIsRegex_>false</ifIsRegex_>
+                    <numoftimes_>1</numoftimes_>
+                    <ifRegexOptions_>None</ifRegexOptions_>
+                    <regexOptions_>None</regexOptions_>
+                  </IRule>
+                </Children>
+                <Name>Spacing after equipment line</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(?&lt;=\{\{(?:Armor|Weapon)\n.+?\| *(?:level|jobs|stats) *= *[^\n]+?[\d'\]\}])(?:\n|\&lt;br\/?\&gt;){2,}\|\s*(?=[^\n])</replace_>
+                <with_>\n|</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>true</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>Singleline</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Stackable</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(?&lt;=\{\{(?:Armor|Weapon|Item Statistics)\n.+?\| *(?:level|jobs|stats|description) *= *[^\n]+\n*)\}\}(.*?)[' \n(?:\&lt;br\/?\&gt;)]*Stackable[\:' ]*(\d+|Not Stackable)[' ]*</replace_>
+                <with_>| stackable = $2\n}}\n$1</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>Multiline Singleline</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Stats to description</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>\| *stats *= *('')([^'][^\1]+?)\1</replace_>
+                <with_>| description = $2</with_>
                 <ifContains_ />
                 <ifNotContains_ />
                 <regex_>true</regex_>
@@ -4074,92 +4285,74 @@ $2</with_>
                 <ifRegexOptions_>None</ifRegexOptions_>
                 <regexOptions_>None</regexOptions_>
               </IRule>
-            </Children>
-            <Name>Spacing after equipment line</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(?&lt;=\{\{(?:Armor|Weapon)\n.+?\| *(?:level|jobs|stats) *= *[^\n]+?[\d'\]\}])(?:\n|\&lt;br\/?\&gt;){2,}\|\s*(?=[^\n])</replace_>
-            <with_>\n|</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>true</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>Singleline</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Stackable</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(?&lt;=\{\{(?:Armor|Weapon)\n.+?\| *(?:level|jobs|stats) *= *[^\n]+\n*)\}\}(.*?)[' \n(?:\&lt;br\/?\&gt;)]*Stackable[\:' ]+(\d+|Not Stackable)[' ]*</replace_>
-            <with_>| stackable = $2
-}}
-$1</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>Multiline Singleline</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Stats to description</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>\| *stats *= *('')([^'][^\1]+?)\1</replace_>
-            <with_>| description = $2</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>None</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Evolith</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>\}\}(?:\&lt; *br *\/? *\&gt;|[ \n])*'*Evolith *(?:[Aa]pertures|[Ss]lots)?:?'*\n.+?\[(\d)\].+?(\{\{Evolith.+?\}\}[ \d]*).+\n</replace_>
-            <with_>| evolith $1 = $2
-}}</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>None</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Reduce trailing breaks</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(?&lt;=\{\{(?:Armor|Weapon|Food)\n.+?\| *(?:level|jobs) *= *[^\n]+\n\}\})(?:\&lt;br\/?\&gt;\n?){2,4}</replace_>
-            <with_>\n&lt;br&gt;</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>true</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>Singleline</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children>
               <IRule xsi:type="Rule">
                 <enabled_>true</enabled_>
                 <Children />
-                <Name>Remove excess breaks</Name>
+                <Name>Evolith</Name>
                 <ruletype_>OnWholePage</ruletype_>
-                <replace_>(?&lt;=\{\{(?:Armor|Weapon)\n.+?\| *[a-zA-Z]+ *= *[^\n]+\n*\}\}\n*)(?:\&lt;br\/?\&gt;)+</replace_>
-                <with_>&lt;br&gt;</with_>
+                <replace_>\}\}(?:\&lt; *br *\/? *\&gt;|[ \n])*'*Evolith *(?:[Aa]pertures|[Ss]lots)?:?'*\n.+?\[(\d)\].+?(\{\{Evolith.+?\}\}[ \d]*).+\n</replace_>
+                <with_>| evolith $1 = $2\n}}</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>None</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Reduce trailing breaks</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(?&lt;=\{\{(?:Armor|Weapon|Food)\n.+?\| *(?:level|jobs) *= *[^\n]+\n\}\})(?:\&lt;br\/?\&gt;\n?){2,4}</replace_>
+                <with_>\n&lt;br&gt;</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>true</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>Singleline</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children>
+                  <IRule xsi:type="Rule">
+                    <enabled_>true</enabled_>
+                    <Children />
+                    <Name>Remove excess breaks</Name>
+                    <ruletype_>OnWholePage</ruletype_>
+                    <replace_>(?&lt;=\{\{(?:Armor|Weapon)\n.+?\| *[a-zA-Z]+ *= *[^\n]+\n*\}\}\n*)(?:\&lt;br\/?\&gt;)+</replace_>
+                    <with_>&lt;br&gt;</with_>
+                    <ifContains_ />
+                    <ifNotContains_ />
+                    <regex_>true</regex_>
+                    <ifIsRegex_>false</ifIsRegex_>
+                    <numoftimes_>1</numoftimes_>
+                    <ifRegexOptions_>None</ifRegexOptions_>
+                    <regexOptions_>Singleline</regexOptions_>
+                  </IRule>
+                  <IRule xsi:type="Rule">
+                    <enabled_>true</enabled_>
+                    <Children />
+                    <Name>Remove unneccessary breaks</Name>
+                    <ruletype_>OnWholePage</ruletype_>
+                    <replace_>(?&lt;=\{\{(?:Armor|Weapon)\n.+?\| *[a-zA-Z]+ *= *[^\n]+\n*\}\}\n)(?:\&lt;br\/?\&gt;|\n)+(?=\|width=)</replace_>
+                    <with_ />
+                    <ifContains_ />
+                    <ifNotContains_ />
+                    <regex_>true</regex_>
+                    <ifIsRegex_>false</ifIsRegex_>
+                    <numoftimes_>1</numoftimes_>
+                    <ifRegexOptions_>None</ifRegexOptions_>
+                    <regexOptions_>Singleline</regexOptions_>
+                  </IRule>
+                </Children>
+                <Name>Remove excess spacing</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(?&lt;=\{\{(?:Armor|Weapon)\n.+?\| *[a-zA-Z]+ *= *[^\n]+\n*\}\}\n)\s+</replace_>
+                <with_ />
                 <ifContains_ />
                 <ifNotContains_ />
                 <regex_>true</regex_>
@@ -4171,10 +4364,10 @@ $1</with_>
               <IRule xsi:type="Rule">
                 <enabled_>true</enabled_>
                 <Children />
-                <Name>Remove unneccessary breaks</Name>
+                <Name>Spacing after consumables</Name>
                 <ruletype_>OnWholePage</ruletype_>
-                <replace_>(?&lt;=\{\{(?:Armor|Weapon)\n.+?\| *[a-zA-Z]+ *= *[^\n]+\n*\}\}\n)(?:\&lt;br\/?\&gt;|\n)+(?=\|width=)</replace_>
-                <with_ />
+                <replace_>(\{\{(?:Food|Medicine)\n.+?\| *effects *= *\n(?:[\*\:]+[^\n]+\n)+\}\})([^\n])</replace_>
+                <with_>$1\n$2</with_>
                 <ifContains_ />
                 <ifNotContains_ />
                 <regex_>true</regex_>
@@ -4183,122 +4376,254 @@ $1</with_>
                 <ifRegexOptions_>None</ifRegexOptions_>
                 <regexOptions_>Singleline</regexOptions_>
               </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Replace instruments</Name>
+                <ruletype_>InsideTemplate</ruletype_>
+                <replace_>^(\| *type[ \=]*\w+) *Instr\.</replace_>
+                <with_>$1 Instrument</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>Multiline</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Item Level</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(?:\&lt; *br *\/? *\&gt;)*(\n\}\}\n)?:*&lt;?'*\[*[Ii]tem [Ll]evel\]*\:?'* *(\d+)&gt;?</replace_>
+                <with_>\n| ilevel = $2$1</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>None</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Alternate DPS</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(?&lt;=\{\{Weapon\n(?:[^\}].*\n|\n)+)\}\}\s*(?:\&lt;br[\/ ]*\&gt;\s*)*[\s']*[Dd]amage [Pp]er [Ss]econd:[ ']*[\d\.]+ *\/ *([\d\.]+)</replace_>
+                <with_>| alternate dps = $1\n}}\n</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>None</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Image</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>\[\[File:(.+\.[A-Za-z]{3})[ \t]*(?:\|[ \t]*([\w ']+)[ \t]*)?(?:\|[ \t]*(?:thumb|right)[ \t]*)?(?:\|[ \t]*(\d+px)[ \t]*)?.+?\]\]\n(\{\{(?:[Aa]rmor|[Ww]eapon))\s*\n</replace_>
+                <with_>$4\n| image = $1\n| image caption = $2\n| image size = $3\n</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>None</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Remove blank lines</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(?&lt;=\{\{(?:Armor|Weapon|Food|Medicine)(.*?\n)*?)^\|(?=\}\})</replace_>
+                <with_ />
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>Multiline</regexOptions_>
+              </IRule>
             </Children>
-            <Name>Remove excess spacing</Name>
+            <Name>Clean</Name>
             <ruletype_>OnWholePage</ruletype_>
-            <replace_>(?&lt;=\{\{(?:Armor|Weapon)\n.+?\| *[a-zA-Z]+ *= *[^\n]+\n*\}\}\n)\s+</replace_>
+            <replace_ />
+            <with_ />
+            <ifContains_>\{\{(?:Armor|Weapon|Food|Item Statistics)</ifContains_>
+            <ifNotContains_ />
+            <regex_>false</regex_>
+            <ifIsRegex_>true</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>None</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>false</enabled_>
+            <Children>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Resist</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(?&lt;=\| *stats *=.*?)'*\[\[File\:Trans[ _](.*?)\.gif(?:\|.*?)?\]\][' ]*([\-\+]\d+)</replace_>
+                <with_>{{Resist|$1|$2}}</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>MAB MDB</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(?&lt;=\| *stats *=.*?)'*\"'*\[\[ *(Magic (?:Attack|Defense) Bonus) *(?:\|.*?)?\]\]'*\"[\:' ]*([\+\-]?\d+)</replace_>
+                <with_>{{Stat|$1|$2}}</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Enhances</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(?&lt;=\| *stats *=.*?)'*([Ee]nhances|[Aa]dds|[Aa]ugments) *\"'*\[\[(.*?)\]\]'*\" *[Ee]ffect'*</replace_>
+                <with_>{{Stat|$1|$2}}</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Abilities</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(?&lt;=\| *stats *=.*?)'*\"?(?:\[\[)(Store TP|Subtle Blow|Zanshin)\]\]\"?'* *([\-\+]?\d+)?</replace_>
+                <with_>{{Stat|$1|$2}}</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Quotes</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(?&lt;=\| *stats *=.*?)'*\"(?:\[\[)(.*?)\]\]\"'* *([\-\+]?\d+)?</replace_>
+                <with_>{{Stat|""|$1|$2}}</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Basic stats</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(?&lt;=\| *stats *=.*?)'*(?:\[\[(?:[\w \(\)]*?\|)?) *(HP|MP|STR|DEX|VIT|AGI|INT|MND|CHR|(?:Ranged|Magic|Weapon Skill)? *(?:Attack|Accuracy)|(?:Magic )?Evasion|Haste|Enmity) *(?:\]\])[' ]*([\+\-]?\d+\%?)</replace_>
+                <with_>{{Stat|$1|$2}}</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Defense</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(?&lt;=\| *stats *=.*?)'*(?:\[\[(?: *Defense *\| *)?)? *DEF *(?:\]\])?[\:' ]*([\+\-]?\d+\%?)</replace_>
+                <with_>{{Stat|DEF|$1}}</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Skill</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(?&lt;=\| *stats *=.*?)'*\[\[(?:\:Category\:)?(?:(.*?)(?: Skill)?\|.*?|(.+)) +Skill *(?:\]\])?[\:' ]*([\+\-]?\d+)</replace_>
+                <with_>{{Stat|$1$2|skill|$3}}</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase</regexOptions_>
+              </IRule>
+              <IRule xsi:type="Rule">
+                <enabled_>true</enabled_>
+                <Children />
+                <Name>Fix bold</Name>
+                <ruletype_>OnWholePage</ruletype_>
+                <replace_>(?&lt;=\| *stats *=.*?)('+)([^'^\n]+?)(?= *\{\{Stat)</replace_>
+                <with_>$1$2$1</with_>
+                <ifContains_ />
+                <ifNotContains_ />
+                <regex_>true</regex_>
+                <ifIsRegex_>false</ifIsRegex_>
+                <numoftimes_>1</numoftimes_>
+                <ifRegexOptions_>None</ifRegexOptions_>
+                <regexOptions_>IgnoreCase</regexOptions_>
+              </IRule>
+            </Children>
+            <Name>Stat</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_ />
             <with_ />
             <ifContains_ />
             <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>Singleline</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Spacing after consumables</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(\{\{(?:Food|Medicine)\n.+?\| *effects *= *\n(?:[\*\:]+[^\n]+\n)+\}\})([^\n])</replace_>
-            <with_>$1\n$2</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>Singleline</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Replace instruments</Name>
-            <ruletype_>InsideTemplate</ruletype_>
-            <replace_>^(\| *type[ \=]*\w+) *Instr\.</replace_>
-            <with_>$1 Instrument</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>Multiline</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Item Level</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(?:\&lt; *br *\/? *\&gt;)*(\n\}\}\n)?:*&lt;?'*\[*[Ii]tem [Ll]evel\]*\:?'* *(\d+)&gt;?</replace_>
-            <with_>\n| ilevel = $2$1</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
+            <regex_>false</regex_>
             <ifIsRegex_>false</ifIsRegex_>
             <numoftimes_>1</numoftimes_>
             <ifRegexOptions_>None</ifRegexOptions_>
             <regexOptions_>None</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Alternate DPS</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(?&lt;=\{\{Weapon\n(?:[^\}].*\n|\n)+)\}\}\s*(?:\&lt;br[\/ ]*\&gt;\s*)*[\s']*[Dd]amage [Pp]er [Ss]econd:[ ']*[\d\.]+ *\/ *([\d\.]+)</replace_>
-            <with_>| alternate dps = $1
-}}</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>None</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Image</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>\[\[File:(.+\.[A-Za-z]{3})[ \t]*(?:\|[ \t]*([\w ']+)[ \t]*)?(?:\|[ \t]*(?:thumb|right)[ \t]*)?(?:\|[ \t]*(\d+px)[ \t]*)?.+?\]\]\n(\{\{(?:[Aa]rmor|[Ww]eapon))\s*\n</replace_>
-            <with_>$4
-| image = $1
-| image caption = $2
-| image size = $3\n</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>None</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Remove blank lines</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(?&lt;=\{\{(?:Armor|Weapon|Food|Medicine)(.*?\n)*?)^\|(?=\}\})</replace_>
-            <with_ />
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>Multiline</regexOptions_>
           </IRule>
         </Children>
-        <Name>Clean Statistics Templates</Name>
+        <Name>Statistics</Name>
         <ruletype_>OnWholePage</ruletype_>
         <replace_ />
         <with_ />
-        <ifContains_>\{\{(?:Armor|Weapon|Food|Item Statistics)</ifContains_>
+        <ifContains_ />
         <ifNotContains_ />
         <regex_>false</regex_>
-        <ifIsRegex_>true</ifIsRegex_>
+        <ifIsRegex_>false</ifIsRegex_>
         <numoftimes_>1</numoftimes_>
         <ifRegexOptions_>None</ifRegexOptions_>
         <regexOptions_>None</regexOptions_>
@@ -4308,6 +4633,67 @@ $1</with_>
         <Children>
           <IRule xsi:type="Rule">
             <enabled_>true</enabled_>
+            <Children />
+            <Name>Apply template</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>\{\|cellpadding="5" width="100%"\n\|width="50%" valign="top"\|\n==Statistics==\n((?:.*?\n)*?)(?:\|width="50%" valign="top"\|\n==Other Uses==\n((?:.*?\n)*?))(?:\|-\n\|width="50%" valign="top"\|\n==Synthesis Recipes?==\n((?:.*?\n)*?))(?:\|width="50%" valign="top"\|\n==Used in Recipes?==\n((?:.*?\n)*?))(?:\|-\n\|width="50%" valign="top"\|\n==Desynthesis Recipes?==\n((?:.*?\n)*?))(?:\|width="50%" valign="top"\|\n==Obtained from Desynthesis==\n((?:.*?\n)*?))\|\}\n==How to Obtain==\n((?:.*?|\n)*?)(?=\n==[^=]*?==|$)</replace_>
+            <with_>\n{{Item Header|Statistics}}\n$1\n{{Item Header|Other Uses}}\n$2\n{{Item Header|Synthesis Recipes}}\n$3\n{{Item Header|Used in Recipes}}\n$4\n{{Item Header|Desynthesis Recipes}}\n$5\n{{Item Header|Obtained from Desynthesis}}\n$6\n{{Item Header|How to Obtain}}\n$7\n\n{{Item Header|How to Obtain|end}}</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>How to Obtain</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>(?&lt;=\{\{Item Header\|How to Obtain\}\}(?:.*\n)*?)===([^=#\|\{\}]*?)===(?=(?:.*\n)*?\{\{Item Header\|How to Obtain\|end\}\})</replace_>
+            <with_>\n{{Item Header|How to Obtain|$1}}</with_>
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase</regexOptions_>
+          </IRule>
+          <IRule xsi:type="Rule">
+            <enabled_>true</enabled_>
+            <Children />
+            <Name>Remove NOTOC</Name>
+            <ruletype_>OnWholePage</ruletype_>
+            <replace_>__NOTOC__(?=(?:.*\n)*\{\{Item Header)</replace_>
+            <with_ />
+            <ifContains_ />
+            <ifNotContains_ />
+            <regex_>true</regex_>
+            <ifIsRegex_>false</ifIsRegex_>
+            <numoftimes_>1</numoftimes_>
+            <ifRegexOptions_>None</ifRegexOptions_>
+            <regexOptions_>IgnoreCase</regexOptions_>
+          </IRule>
+        </Children>
+        <Name>Item Header</Name>
+        <ruletype_>OnWholePage</ruletype_>
+        <replace_ />
+        <with_ />
+        <ifContains_ />
+        <ifNotContains_ />
+        <regex_>false</regex_>
+        <ifIsRegex_>false</ifIsRegex_>
+        <numoftimes_>1</numoftimes_>
+        <ifRegexOptions_>None</ifRegexOptions_>
+        <regexOptions_>None</regexOptions_>
+      </IRule>
+      <IRule xsi:type="Rule">
+        <enabled_>true</enabled_>
+        <Children>
+          <IRule xsi:type="Rule">
+            <enabled_>false</enabled_>
             <Children />
             <Name>Remove trailing lines</Name>
             <ruletype_>OnWholePage</ruletype_>
@@ -4322,7 +4708,7 @@ $1</with_>
             <regexOptions_>Multiline</regexOptions_>
           </IRule>
         </Children>
-        <Name>Clean other templates</Name>
+        <Name>Clean templates</Name>
         <ruletype_>OnWholePage</ruletype_>
         <replace_ />
         <with_ />
@@ -4333,157 +4719,6 @@ $1</with_>
         <numoftimes_>1</numoftimes_>
         <ifRegexOptions_>None</ifRegexOptions_>
         <regexOptions_>IgnoreCase</regexOptions_>
-      </IRule>
-      <IRule xsi:type="Rule">
-        <enabled_>false</enabled_>
-        <Children>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Resist</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(?&lt;=\| *stats *=.*?)'*\[\[File\:Trans[ _](.*?)\.gif(?:\|.*?)?\]\][' ]*([\-\+]\d+)</replace_>
-            <with_>{{Resist|$1|$2}}</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>IgnoreCase</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>MAB MDB</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(?&lt;=\| *stats *=.*?)'*\"'*\[\[ *(Magic (?:Attack|Defense) Bonus) *(?:\|.*?)?\]\]'*\"[\:' ]*([\+\-]?\d+)</replace_>
-            <with_>{{Stat|$1|$2}}</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>IgnoreCase</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Enhances</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(?&lt;=\| *stats *=.*?)'*([Ee]nhances|[Aa]dds|[Aa]ugments) *\"'*\[\[(.*?)\]\]'*\" *[Ee]ffect'*</replace_>
-            <with_>{{Stat|$1|$2}}</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>IgnoreCase</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Abilities</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(?&lt;=\| *stats *=.*?)'*\"?(?:\[\[)(Store TP|Subtle Blow|Zanshin)\]\]\"?'* *([\-\+]?\d+)?</replace_>
-            <with_>{{Stat|$1|$2}}</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>IgnoreCase</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Quotes</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(?&lt;=\| *stats *=.*?)'*\"(?:\[\[)(.*?)\]\]\"'* *([\-\+]?\d+)?</replace_>
-            <with_>{{Stat|""|$1|$2}}</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>IgnoreCase</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Basic stats</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(?&lt;=\| *stats *=.*?)'*(?:\[\[(?:[\w \(\)]*?\|)?) *(HP|MP|STR|DEX|VIT|AGI|INT|MND|CHR|(?:Ranged|Magic|Weapon Skill)? *(?:Attack|Accuracy)|(?:Magic )?Evasion|Haste|Enmity) *(?:\]\])[' ]*([\+\-]?\d+\%?)</replace_>
-            <with_>{{Stat|$1|$2}}</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>IgnoreCase</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Defense</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(?&lt;=\| *stats *=.*?)'*(?:\[\[(?: *Defense *\| *)?)? *DEF *(?:\]\])?[\:' ]*([\+\-]?\d+\%?)</replace_>
-            <with_>{{Stat|DEF|$1}}</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>IgnoreCase</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Skill</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(?&lt;=\| *stats *=.*?)'*\[\[(?:\:Category\:)?(?:(.*?)(?: Skill)?\|.*?|(.+)) +Skill *(?:\]\])?[\:' ]*([\+\-]?\d+)</replace_>
-            <with_>{{Stat|$1$2|skill|$3}}</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>IgnoreCase</regexOptions_>
-          </IRule>
-          <IRule xsi:type="Rule">
-            <enabled_>true</enabled_>
-            <Children />
-            <Name>Fix bold</Name>
-            <ruletype_>OnWholePage</ruletype_>
-            <replace_>(?&lt;=\| *stats *=.*?)('+)([^'^\n]+?)(?= *\{\{Stat)</replace_>
-            <with_>$1$2$1</with_>
-            <ifContains_ />
-            <ifNotContains_ />
-            <regex_>true</regex_>
-            <ifIsRegex_>false</ifIsRegex_>
-            <numoftimes_>1</numoftimes_>
-            <ifRegexOptions_>None</ifRegexOptions_>
-            <regexOptions_>IgnoreCase</regexOptions_>
-          </IRule>
-        </Children>
-        <Name>Stat</Name>
-        <ruletype_>OnWholePage</ruletype_>
-        <replace_ />
-        <with_ />
-        <ifContains_ />
-        <ifNotContains_ />
-        <regex_>false</regex_>
-        <ifIsRegex_>false</ifIsRegex_>
-        <numoftimes_>1</numoftimes_>
-        <ifRegexOptions_>None</ifRegexOptions_>
-        <regexOptions_>None</regexOptions_>
       </IRule>
       <IRule xsi:type="Rule">
         <enabled_>false</enabled_>
@@ -4569,20 +4804,7 @@ $1</with_>
     </AutoSaveEdit>
     <SelectedSummary>formatting</SelectedSummary>
     <Summaries>
-      <string>clean up</string>
-      <string>re-categorisation per [[WP:CFD|CFD]]</string>
-      <string>clean up and re-categorisation per [[WP:CFD|CFD]]</string>
-      <string>removing category per [[WP:CFD|CFD]]</string>
-      <string>[[Wikipedia:Template substitution|subst:'ing]]</string>
-      <string>[[Wikipedia:WikiProject Stub sorting|stub sorting]]</string>
-      <string>[[WP:AWB/T|Typo fixing]]</string>
-      <string>bad link repair</string>
-      <string>Fixing [[Wikipedia:Disambiguation pages with links|links to disambiguation pages]]</string>
-      <string>Unicodifying</string>
-      <string>Applying templates</string>
-      <string>Applying templates for standardization</string>
       <string>formatting</string>
-      <string>undeliverable / formatting</string>
     </Summaries>
     <PasteMore>
       <string />
@@ -4668,7 +4890,7 @@ $1</with_>
     <SkipDontCare>false</SkipDontCare>
     <SkipWhenNoChanges>true</SkipWhenNoChanges>
     <SkipSpamFilterBlocked>true</SkipSpamFilterBlocked>
-    <SkipInuse>true</SkipInuse>
+    <SkipInuse>false</SkipInuse>
     <SkipWhenOnlyWhitespaceChanged>true</SkipWhenOnlyWhitespaceChanged>
     <SkipOnlyGeneralFixChanges>true</SkipOnlyGeneralFixChanges>
     <SkipOnlyMinorGeneralFixChanges>false</SkipOnlyMinorGeneralFixChanges>
@@ -4676,16 +4898,16 @@ $1</with_>
     <SkipOnlyCasingChanged>false</SkipOnlyCasingChanged>
     <SkipIfRedirect>true</SkipIfRedirect>
     <SkipIfNoAlerts>false</SkipIfNoAlerts>
-    <SkipDoes>false</SkipDoes>
-    <SkipDoesText />
-    <SkipDoesRegex>false</SkipDoesRegex>
+    <SkipDoes>true</SkipDoes>
+    <SkipDoesText>(?:\&lt; *div.*\&gt;)</SkipDoesText>
+    <SkipDoesRegex>true</SkipDoesRegex>
     <SkipDoesCaseSensitive>false</SkipDoesCaseSensitive>
     <SkipDoesAfterProcessing>false</SkipDoesAfterProcessing>
     <SkipDoesNot>false</SkipDoesNot>
     <SkipDoesNotText />
     <SkipDoesNotRegex>false</SkipDoesNotRegex>
     <SkipDoesNotCaseSensitive>false</SkipDoesNotCaseSensitive>
-    <SkipDoesNotAfterProcessing>false</SkipDoesNotAfterProcessing>
+    <SkipDoesNotAfterProcessing>true</SkipDoesNotAfterProcessing>
     <SkipNoFindAndReplace>false</SkipNoFindAndReplace>
     <SkipMinorFindAndReplace>false</SkipMinorFindAndReplace>
     <SkipNoRegexTypoFix>false</SkipNoRegexTypoFix>
@@ -4723,10 +4945,10 @@ $1</with_>
     <remDupes>true</remDupes>
     <sortAZ>true</sortAZ>
     <filterTitlesThatContain>true</filterTitlesThatContain>
-    <filterTitlesThatContainText>/</filterTitlesThatContainText>
+    <filterTitlesThatContainText>(/| [Ss]et($| )| [Gg]uide($| ))</filterTitlesThatContainText>
     <filterTitlesThatDontContain>false</filterTitlesThatDontContain>
     <filterTitlesThatDontContainText />
-    <areRegex>false</areRegex>
+    <areRegex>true</areRegex>
     <opType>0</opType>
     <remove />
   </Special>
